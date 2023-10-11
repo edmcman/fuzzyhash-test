@@ -1,14 +1,13 @@
 include ../make.include
 
-all: oo.o0 oo.o3 oo.fse oo.lzjd oo.o0.fn2hash.csv oo.o0.fn2hash.json oo.o3.fn2hash.csv oo.o3.fn2hash.json
+all: oo.fse oo.lzjd
+
+EXES = oo.o0 oo.o3
+$(foreach EXE, $(EXES), $(eval $(call add_target, $(EXE))))
 
 oo.o0: ../src/oo.cpp
 	g++ -g -O0 -o $@ $<
 oo.o3: ../src/oo.cpp
 	g++ -g -O3 -o $@ $<
 
-oo.fse: oo.o0.fn2hash.csv oo.o3.fn2hash.csv
-	python $(PHAROS_DIR)/../tools/fn2hash/fse.py $^ > $@
-
-oo.lzjd: oo.o0.fn2hash.json oo.o3.fn2hash.json oo.o0 oo.o3
-	python3 ../lzjd-script.py $^ > $@
+$(eval $(call add_comparison, oo, oo.o0, oo.o3))

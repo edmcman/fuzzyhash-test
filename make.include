@@ -1,3 +1,22 @@
+define add_target
+all: $(1)
+all: $(1).fn2hash.csv
+all: $(1).fn2hash.json
+endef
+
+#oo.fse: oo.gcc.fn2hash.csv oo.clang.fn2hash.csv
+#	python $(PHAROS_DIR)/../tools/fn2hash/fse.py $^ > $@
+
+#oo.lzjd: oo.gcc.fn2hash.json oo.clang.fn2hash.json oo.gcc oo.clang
+#	python3 ../lzjd-script.py $^ > $@
+
+define add_comparison
+$(1).fse: $(2).fn2hash.csv $(3).fn2hash.csv
+	python $(PHAROS_DIR)/../tools/fn2hash/fse.py $$^ > $$@
+$(1).lzjd: $(2).fn2hash.json $(3).fn2hash.json $(2) $(3)
+	python3 ../lzjd-script.py $$^ > $$@
+endef
+
 %.fn2hash.json: %
 	$(PHAROS_DIR)/tools/fn2hash/fn2hash -j $@ $<
 
