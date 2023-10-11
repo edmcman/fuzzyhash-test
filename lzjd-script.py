@@ -9,6 +9,38 @@ import subprocess
 j1 = json.load(open(sys.argv[1], "r"))
 j2 = json.load(open(sys.argv[2], "r"))
 
+# pyLZJD sim seems wrong
+import numpy as np
+
+def eds_sim(A, B):
+    if isinstance(A, tuple):
+        A = A[0]
+    if isinstance(B, tuple):
+        B = B[0]
+    
+    #What type of hash did we use? If its a np.float32, we did SuperHash
+    if A.dtype == np.float32:
+        return np.sum(A == B)/A.shape[0]
+    #Else, we are doing the normal case of set intersection
+    
+    #intersection_size = lzjd_cython.intersection_size(A, B)
+    intersection_size = float(np.intersect1d(A, B, assume_unique=True).shape[0])
+    
+    #hashes should normally be the same size. Its possible to use different size hashesh tough. 
+    #Could happen from small files, or just calling with differen hash_size values
+    
+    #What if the hashes are different sizes? Math works out that we can take the min length
+    #Reduces as back to same size hashes, and its as if we only computed the min-hashing to
+    #*just* as many hashes as there were members
+
+    # double sim = same / (double) (x_minset.length + y_minset.length - same);
+
+    return intersection_size / (A.shape[0] + B.shape[0] - intersection_size)
+
+    #min_len = min(A.shape[0], B.shape[0])
+    
+    #return intersection_size/float(2*min_len - intersection_size)
+
 # get names from debug symbols
 def symbol_map(bname):
     output = subprocess.check_output(f"nm -a {bname}", shell=True)
@@ -27,7 +59,7 @@ funs2 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in
 
 from itertools import product
 
-sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in product(funs1.items(), funs2.items())]
+sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in product(funs1.items(), funs2.items())]
 sims.sort(key=lambda t: t[4])
 for f1, f2, b1, b2, sim in sims:
     print("%s,%s,%s,%s,%s" % (name_fun(f1, m1), name_fun(f2, m2), sim, b1, b2)) 
