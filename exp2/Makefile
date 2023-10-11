@@ -5,5 +5,8 @@ oo.o0: ../src/oo.cpp
 oo.o3: ../src/oo.cpp
 	g++ -g -O3 -o $@ $<
 
-%.fn2hash: %
+%.fn2hash.json: %
 	$(PHAROS_DIR)/tools/fn2hash/fn2hash -j $@ $<
+
+%.fn2hash.csv: %
+	$(PHAROS_DIR)/tools/fn2hash/fn2hash $< > $@
