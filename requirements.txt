@@ -1,0 +1,2 @@
+cython
+git+https://github.com/EdwardRaff/pyLZJD#egg=pyLZJD
