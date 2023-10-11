@@ -1,4 +1,4 @@
-all: oo.o0 oo.o3 oo.o0.fn2hash oo.o3.fn2hash
+all: oo.o0 oo.o3 oo.o0.fn2hash.csv oo.o0.fn2hash.json oo.o3.fn2hash.csv oo.o3.fn2hash.json
 
 oo.o0: ../src/oo.cpp
 	g++ -g -O0 -o $@ $<
