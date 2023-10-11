@@ -14,5 +14,5 @@ oo.clang: ../src/oo.cpp
 oo.fse: oo.gcc.fn2hash.csv oo.clang.fn2hash.csv
 	python $(PHAROS_DIR)/../tools/fn2hash/fse.py $^ > $@
 
-oo.lzjd: oo.gcc.fn2hash.json oo.clang.fn2hash.json
+oo.lzjd: oo.gcc.fn2hash.json oo.clang.fn2hash.json oo.gcc oo.clang
 	python3 ../lzjd-script.py $^ > $@
