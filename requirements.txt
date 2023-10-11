@@ -1,2 +1,2 @@
 cython
-git+https://github.com/EdwardRaff/pyLZJD#egg=pyLZJD
+git+https://github.com/edmcman/pyLZJD#egg=pyLZJD
