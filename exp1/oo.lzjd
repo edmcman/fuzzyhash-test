@@ -1846,3 +1846,45 @@ b'frame_dummy',b'frame_dummy',1.0,F30F1EFAE900000000,F30F1EFAE900000000
 0x00001369,0x00001409,1.0,0F1F8000000000,0F1F8000000000
 0x00001369,0x000011E9,1.0,0F1F8000000000,0F1F8000000000
 0x00001387,0x000010F7,1.0,660F1F840000000000,660F1F840000000000
+b'_fini' matches with b'_fini'
+b'_init' matches with b'_init'
+b'deregister_tm_clones' matches with b'deregister_tm_clones'
+0x00001329 matches with 0x00001159
+b'frame_dummy' matches with b'frame_dummy'
+0x00001387 matches with 0x000010F7
+b'__do_global_dtors_aux' matches with b'__do_global_dtors_aux'
+0x000012E9 matches with 0x00001409
+0x00001369 matches with 0x000011E9
+0x000012B6 matches with 0x00001126
+0x00001379 matches with 0x00001199
+b'register_tm_clones' matches with b'register_tm_clones'
+0x00001258 matches with 0x000011D9
+0x000010FB matches with 0x0000102C
+b'_start' matches with b'_start'
+0x0000128B matches with 0x000010B0
+0x0000113B matches with 0x00001070
+0x0000116B matches with 0x000010C0
+0x0000112B matches with 0x000010A0
+0x0000119B matches with 0x00001090
+0x0000114B matches with 0x00001080
+0x0000118B matches with 0x00001060
+0x000010EB matches with 0x00001030
+b'main' matches with b'main'
+b'_GLOBAL__sub_I_main' matches with b'_GLOBAL__sub_I_oo.cpp'
+b'_ZThn16_N4Cls35func3Ev' matches with b'_ZN4Cls15func1Ev'
+0x00001140 matches with 0x00001020
+b'_ZN4Cls35func3Ev' matches with b'_ZN4Cls25func4Ev'
+b'_ZN4Cls35func1Ev' matches with b'_ZN4Cls35func1Ev'
+b'_ZN4Cls15func1Ev' matches with b'_ZN4Cls35func3Ev'
+b'_ZN4Cls25func4Ev' matches with b'_ZN4Cls15func2Ev'
+0x0000111B matches with 0x00001076
+0x0000115B matches with b'_ZThn16_N4Cls35func3Ev'
+0x00001180 matches with 0x00001066
+0x00001150 matches with 0x00001036
+0x000010E0 matches with 0x000010A6
+0x00001130 matches with 0x00001056
+0x00001100 matches with 0x00001046
+0x00001170 matches with 0x00001096
+0x00001160 matches with 0x000010B6
+0x000010F0 matches with 0x00001086
+0x0000117B matches with 0x000012AE

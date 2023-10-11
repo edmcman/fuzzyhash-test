@@ -12,6 +12,28 @@ j2 = json.load(open(sys.argv[2], "r"))
 # pyLZJD sim seems wrong
 import numpy as np
 
+def greedy_entity_matching(setA, setB, distance_metric):
+    matches = []  # List to store matched pairs
+
+    while setA and setB:  # Continue until one of the sets is empty
+        best_match = None
+        best_distance = float('inf')
+
+        for entityA in setA:
+            for entityB in setB:
+                distance = distance_metric(entityA, entityB)
+
+                if distance < best_distance:
+                    best_distance = distance
+                    best_match = (entityA, entityB)
+
+        if best_match:
+            matches.append(best_match)
+            setA.remove(best_match[0])
+            setB.remove(best_match[1])
+
+    return matches
+
 def eds_sim(A, B):
     if isinstance(A, tuple):
         A = A[0]
@@ -63,3 +85,12 @@ sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_h
 sims.sort(key=lambda t: t[4])
 for f1, f2, b1, b2, sim in sims:
     print("%s,%s,%s,%s,%s" % (name_fun(f1, m1), name_fun(f2, m2), sim, b1, b2)) 
+
+A = set(funs1.keys())
+B = set(funs2.keys())
+
+dist = lambda f1, f2: -eds_sim(funs1[f1][1], funs2[f2][1])
+
+matches = greedy_entity_matching(A, B, dist)
+for f1, f2 in matches:
+    print("%s matches with %s" % (name_fun(f1, m1), name_fun(f2, m2)))
