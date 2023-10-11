@@ -13,9 +13,9 @@ openssl.gcc: openssl1.gcc
 	cp $< $@
 openssl.clang: openssl1.clang
 	cp $< $@
-openssl.o0: openssl2.o0
+openssl.O0: openssl2.O0
 	cp $< $@
-openssl.o3: openssl2.o3
+openssl.O3: openssl2.O3
 	cp $< $@
 
 # vary compiler
@@ -33,4 +33,4 @@ openssl2.%: $(SSL).tar.gz
 	cp $(SSL)/apps/openssl openssl2.$*
 
 $(eval $(call add_comparison, openssl-bycompiler, openssl.gcc, openssl.clang))
-$(eval $(call add_comparison, openssl-byopt, openssl.o0, openssl.o3))
+$(eval $(call add_comparison, openssl-byopt, openssl.O0, openssl.O3))
