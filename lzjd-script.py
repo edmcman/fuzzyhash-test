@@ -26,8 +26,8 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 #pp.pprint(j)
 
-funs1 = {fun['fn_addr']: digest(fun['exact_bytes']) for fun in j1['analysis']}
-funs2 = {fun['fn_addr']: digest(fun['exact_bytes']) for fun in j2['analysis']}
+funs1 = {fun['fn_addr']: digest(fun['pic_bytes']) for fun in j1['analysis']}
+funs2 = {fun['fn_addr']: digest(fun['pic_bytes']) for fun in j2['analysis']}
 #pp.pprint(funs)
 
 from itertools import product
