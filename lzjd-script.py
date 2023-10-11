@@ -22,17 +22,12 @@ def name_fun(addrstr, m):
     addr = int(addrstr, 16)
     return m.get(addr, addrstr)
 
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
-#pp.pprint(j)
-
-funs1 = {fun['fn_addr']: digest(fun['pic_bytes']) for fun in j1['analysis']}
-funs2 = {fun['fn_addr']: digest(fun['pic_bytes']) for fun in j2['analysis']}
-#pp.pprint(funs)
+funs1 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in j1['analysis']}
+funs2 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in j2['analysis']}
 
 from itertools import product
 
-sims = [(fun1_addr, fun2_addr, sim(fun1_hash, fun2_hash)) for (fun1_addr, fun1_hash), (fun2_addr, fun2_hash) in product(funs1.items(), funs2.items())]
-sims.sort(key=lambda t: t[2])
-for f1, f2, sim in sims:
-    print("%s,%s,%s" % (name_fun(f1, m1), name_fun(f2, m2), sim)) 
+sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in product(funs1.items(), funs2.items())]
+sims.sort(key=lambda t: t[4])
+for f1, f2, b1, b2, sim in sims:
+    print("%s,%s,%s,%s,%s" % (name_fun(f1, m1), name_fun(f2, m2), sim, b1, b2)) 
