@@ -1,0 +1,5 @@
+%.fn2hash.json: %
+	$(PHAROS_DIR)/tools/fn2hash/fn2hash -j $@ $<
+
+%.fn2hash.csv: %
+	$(PHAROS_DIR)/tools/fn2hash/fn2hash $< > $@
