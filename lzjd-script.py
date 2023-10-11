@@ -93,4 +93,4 @@ dist = lambda f1, f2: -eds_sim(funs1[f1][1], funs2[f2][1])
 
 matches = greedy_entity_matching(A, B, dist)
 for f1, f2 in matches:
-    print("%s matches with %s" % (name_fun(f1, m1), name_fun(f2, m2)))
+    print("%s matches with %s (%s)" % (name_fun(f1, m1), name_fun(f2, m2), -dist(f1, f2)))

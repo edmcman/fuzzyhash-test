@@ -1518,41 +1518,41 @@ b'frame_dummy',b'frame_dummy',1.0,F30F1EFAE900000000,F30F1EFAE900000000
 0x000011D9,0x00001359,1.0,0F1F8000000000,0F1F8000000000
 0x000011D9,0x00001309,1.0,0F1F8000000000,0F1F8000000000
 0x000011D9,0x00001349,1.0,0F1F8000000000,0F1F8000000000
-0x000010DB matches with 0x000010DB
-0x000010D0 matches with 0x00001170
-b'_fini' matches with b'_fini'
-0x000010EB matches with 0x000010EB
-0x00001159 matches with 0x000012C9
-b'_init' matches with b'_init'
-0x00001090 matches with 0x00001120
-b'register_tm_clones' matches with b'register_tm_clones'
-0x000010C0 matches with 0x000010D0
-0x000010E0 matches with 0x00001160
-0x00001126 matches with 0x00001296
-0x000010CB matches with 0x0000117B
-0x000010AB matches with 0x0000112B
-0x000010BB matches with 0x0000116B
-0x00001199 matches with 0x00001359
-0x000010F0 matches with 0x000010E0
-0x000010B0 matches with 0x00001150
-0x000011D9 matches with 0x00001349
-b'__do_global_dtors_aux' matches with b'__do_global_dtors_aux'
-0x000010FB matches with 0x0000111B
-b'frame_dummy' matches with b'frame_dummy'
-0x0000109B matches with 0x0000114B
-b'deregister_tm_clones' matches with b'deregister_tm_clones'
-0x000010A0 matches with 0x000010F0
-b'_start' matches with b'_start'
-b'_ZN4Cls35func3Ev' matches with b'_GLOBAL__sub_I_main'
-b'_ZThn16_N4Cls35func3Ev' matches with 0x00001130
-b'_GLOBAL__sub_I_main' matches with 0x0000110B
-b'_ZN4Cls3C2Ev' matches with b'_ZN4Cls35func1Ev'
-b'main' matches with b'main'
-b'_Z41__static_initialization_and_destruction_0ii' matches with b'_ZN4Cls35func3Ev'
-b'_ZN4Cls25func4Ev' matches with b'_ZThn16_N4Cls35func3Ev'
-b'_ZN4Cls35func1Ev' matches with b'_ZN4Cls25func4Ev'
-b'_ZN4Cls1C2Ev' matches with 0x00001140
-b'_ZN4Cls2C2Ev' matches with b'_ZNKSt5ctypeIcE8do_widenEc'
-b'_ZN4Cls15func2Ev' matches with 0x00001367
-b'_ZN4Cls15func1Ev' matches with 0x00001309
-b'_ZN4Cls25func3Ev' matches with 0x0000115B
+0x000010DB matches with 0x000010DB (1.0)
+0x000011D9 matches with 0x00001359 (1.0)
+0x000010D0 matches with 0x000010D0 (1.0)
+0x000010A0 matches with 0x00001150 (1.0)
+0x00001199 matches with 0x00001309 (1.0)
+0x000010FB matches with 0x0000114B (1.0)
+0x00001090 matches with 0x000010E0 (1.0)
+b'frame_dummy' matches with b'frame_dummy' (1.0)
+0x0000109B matches with 0x0000126B (1.0)
+b'__do_global_dtors_aux' matches with b'__do_global_dtors_aux' (1.0)
+0x000010E0 matches with 0x00001140 (1.0)
+b'deregister_tm_clones' matches with b'deregister_tm_clones' (1.0)
+0x000010C0 matches with 0x00001130 (1.0)
+0x000010BB matches with 0x0000112B (1.0)
+0x000010AB matches with 0x000010EB (1.0)
+0x000010EB matches with 0x0000113B (1.0)
+b'_fini' matches with b'_fini' (1.0)
+b'_init' matches with b'_init' (1.0)
+b'register_tm_clones' matches with b'register_tm_clones' (1.0)
+0x00001159 matches with 0x000012C9 (1.0)
+0x000010B0 matches with 0x000010F0 (1.0)
+0x000010CB matches with 0x0000116B (1.0)
+0x00001126 matches with 0x00001296 (1.0)
+0x000010F0 matches with 0x00001120 (1.0)
+b'_start' matches with b'_start' (0.8157894736842105)
+b'_ZN4Cls35func3Ev' matches with b'_GLOBAL__sub_I_main' (0.48214285714285715)
+b'_ZThn16_N4Cls35func3Ev' matches with 0x00001170 (0.4666666666666667)
+b'_GLOBAL__sub_I_main' matches with 0x0000110B (0.4444444444444444)
+b'_ZN4Cls3C2Ev' matches with b'_ZN4Cls35func1Ev' (0.4166666666666667)
+b'main' matches with b'main' (0.3977272727272727)
+b'_Z41__static_initialization_and_destruction_0ii' matches with b'_ZN4Cls35func3Ev' (0.39090909090909093)
+b'_ZN4Cls35func1Ev' matches with b'_ZThn16_N4Cls35func3Ev' (0.3173076923076923)
+b'_ZN4Cls15func2Ev' matches with b'_ZN4Cls25func4Ev' (0.3142857142857143)
+b'_ZN4Cls1C2Ev' matches with 0x00001160 (0.22580645161290322)
+b'_ZN4Cls2C2Ev' matches with b'_ZNKSt5ctypeIcE8do_widenEc' (0.2)
+b'_ZN4Cls25func4Ev' matches with 0x00001367 (0.14583333333333334)
+b'_ZN4Cls15func1Ev' matches with 0x00001349 (0.10638297872340426)
+b'_ZN4Cls25func3Ev' matches with 0x0000115B (0.0851063829787234)
