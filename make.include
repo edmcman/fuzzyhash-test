@@ -11,6 +11,7 @@ endef
 #	python3 ../lzjd-script.py $^ > $@
 
 define add_comparison
+all: $(1).fse $(1).lzjd
 $(1).fse: $(2).fn2hash.csv $(3).fn2hash.csv
 	python $(PHAROS_DIR)/../tools/fn2hash/fse.py $$^ > $$@
 $(1).lzjd: $(2).fn2hash.json $(3).fn2hash.json $(2) $(3)
