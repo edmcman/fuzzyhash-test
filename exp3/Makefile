@@ -9,9 +9,13 @@ all:
 EXES = openssl.gcc openssl.clang openssl.O0 openssl.O3
 $(foreach EXE, $(EXES), $(eval $(call add_target, $(EXE))))
 
-openssl.%: openssl1.%
+openssl.gcc: openssl1.gcc
 	cp $< $@
-openssl.%: openssl2.%
+openssl.clang: openssl1.clang
+	cp $< $@
+openssl.o0: openssl2.o0
+	cp $< $@
+openssl.o3: openssl2.o3
 	cp $< $@
 
 # vary compiler

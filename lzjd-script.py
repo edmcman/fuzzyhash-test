@@ -13,10 +13,33 @@ j2 = json.load(open(sys.argv[2], "r"))
 # pyLZJD sim seems wrong
 import numpy as np
 
-def greedy_entity_matching(setA, setB, distance_metric):
+# Keep sims in sorted order by distance and remove changed pairs
+def greedy_entity_matching(sims):
+    # we don't need the bytes anymore
+    sims = [(a,b,e) for (a,b,c,d,e) in sims]
     matches = []  # List to store matched pairs
 
-    while setA and setB:  # Continue until one of the sets is empty
+    setA = {t[0] for t in sims}
+    setB = {t[1] for t in sims}
+
+    for _ in tqdm.trange(min(len(setA),len(setB))):
+        if not sims:
+            return matches
+
+        best_match = sims[0]
+        sims = [x for x in sims[1:] if x[0] != best_match[0] and x[1] != best_match[1]]
+
+        matches.append(best_match)
+
+    return matches
+
+def greedy_entity_matching_other(setA, setB, distance_metric):
+    matches = []  # List to store matched pairs
+
+    for _ in tqdm.trange(min(len(setA),len(setB))):
+        if not (setA and setB):
+            return matches
+
         best_match = None
         best_distance = float('inf')
 
@@ -83,15 +106,15 @@ funs2 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in
 from itertools import product
 
 sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2))]
-sims.sort(key=lambda t: t[4])
-for f1, f2, b1, b2, sim in sims:
+sims.sort(key=lambda t: -t[4])
+for f1, f2, b1, b2, sim in tqdm.tqdm(sims):
     print("%s,%s,%s,%s,%s" % (name_fun(f1, m1), name_fun(f2, m2), sim, b1, b2)) 
 
-A = set(funs1.keys())
-B = set(funs2.keys())
+#A = set(funs1.keys())
+#B = set(funs2.keys())
 
-dist = lambda f1, f2: -eds_sim(funs1[f1][1], funs2[f2][1])
+#dist = lambda f1, f2: -eds_sim(funs1[f1][1], funs2[f2][1])
 
-matches = greedy_entity_matching(A, B, dist)
-for f1, f2 in matches:
-    print("%s matches with %s (%s)" % (name_fun(f1, m1), name_fun(f2, m2), -dist(f1, f2)))
+matches = greedy_entity_matching(sims)
+for f1, f2, sim in matches:
+    print("%s matches with %s (%s)" % (name_fun(f1, m1), name_fun(f2, m2), sim))
