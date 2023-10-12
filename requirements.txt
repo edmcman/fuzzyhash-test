@@ -1,2 +1,4 @@
 cython
 git+https://github.com/edmcman/pyLZJD#egg=pyLZJD
+editdistance
+#fast-edit-distance

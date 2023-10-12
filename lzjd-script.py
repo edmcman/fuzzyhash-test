@@ -6,6 +6,8 @@ import sys
 import json
 import subprocess
 import tqdm
+import editdistance
+#from fast_edit_distance import edit_distance
 
 j1 = json.load(open(sys.argv[1], "r"))
 j2 = json.load(open(sys.argv[2], "r"))
@@ -13,16 +15,23 @@ j2 = json.load(open(sys.argv[2], "r"))
 # pyLZJD sim seems wrong
 import numpy as np
 
+def lev_sim(a, b):
+    maxlen = max(len(a), len(b))
+    d = editdistance.eval(a,b)
+    #d = edit_distance(a, b, max_ed=maxlen)
+
+    return 1.0 - (float(d) / maxlen)
+
 # Keep sims in sorted order by distance and remove changed pairs
 def greedy_entity_matching(sims):
     # we don't need the bytes anymore
-    sims = [(a,b,e) for (a,b,c,d,e) in sims]
+    #sims = [(a,b,c,d,e) for (a,b,c,d,e) in tqdm.tqdm(sims, desc="edit distance")]
     matches = []  # List to store matched pairs
 
     setA = {t[0] for t in sims}
     setB = {t[1] for t in sims}
 
-    for _ in tqdm.trange(min(len(setA),len(setB))):
+    for _ in tqdm.trange(min(len(setA),len(setB)), desc="greedy alignment"):
         if not sims:
             return matches
 
@@ -36,7 +45,7 @@ def greedy_entity_matching(sims):
 def greedy_entity_matching_other(setA, setB, distance_metric):
     matches = []  # List to store matched pairs
 
-    for _ in tqdm.trange(min(len(setA),len(setB))):
+    for _ in tqdm.trange(min(len(setA),len(setB)), desc="other greedy alignment"):
         if not (setA and setB):
             return matches
 
@@ -96,16 +105,16 @@ def symbol_map(bname):
 m1 = symbol_map(sys.argv[3])
 m2 = symbol_map(sys.argv[4])
 
-def name_fun(addrstr, m):
+def name_fun(addrstr, m, return_none_for_unknown=False):
     addr = int(addrstr, 16)
-    return m.get(addr, addrstr)
+    return m.get(addr, None if return_none_for_unknown else addrstr)
 
-funs1 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in tqdm.tqdm(j1['analysis'])}
-funs2 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in tqdm.tqdm(j2['analysis'])}
+funs1 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in tqdm.tqdm(j1['analysis'], desc="hashing functions")}
+funs2 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in tqdm.tqdm(j2['analysis'], desc="hashing functions")}
 
 from itertools import product
 
-sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2))]
+sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2), desc="Comparing all pairs")]
 sims.sort(key=lambda t: -t[4])
 
 # We can't write all pairs for openssl, it's too big.
@@ -118,23 +127,28 @@ if False:
 
 #dist = lambda f1, f2: -eds_sim(funs1[f1][1], funs2[f2][1])
 
-intersect_fun_names = set(name_fun(f, m1) for f in funs1.keys()) & set(name_fun(f, m2) for f in funs2.keys())
+intersect_fun_names = set(name_fun(f, m1, return_none_for_unknown=True) for f in funs1.keys()) & set(name_fun(f, m2, return_none_for_unknown=True) for f in funs2.keys()) - {None}
 #print(intersection_funs)
 
 matches = greedy_entity_matching(sims)
 
 if True:
-    for f1, f2, sim in matches:
-        print("%s <==> %s (%s)" % (name_fun(f1, m1), name_fun(f2, m2), sim))
+    for f1, f2, b1, b2, sim in tqdm.tqdm(matches, desc="Printing matches"):
+        lev = lev_sim(b1, b2)
+        print("%s <==> %s (sim=%s; lev=%s)" % (name_fun(f1, m1), name_fun(f2, m2), sim, lev))
 
 # How many (fun, fun, _) matches do we have?
-correct_matches = [(fun if any(name_fun(f1, m1) == fun and name_fun(f2, m2) == fun for f1, f2, sim in matches) else None) for fun in intersect_fun_names]
-correct_matches = [x for x in correct_matches if x is not None]
+correct_matches = [next(((fun, sim) for f1, f2, sim, _, _ in matches if name_fun(f1, m1) == fun and name_fun(f2, m2) == fun), None) for fun in intersect_fun_names]
+correct_matches = dict(x for x in correct_matches if x is not None)
 num_correct = len(correct_matches)
 accuracy = num_correct / float(len(intersect_fun_names))
 
 #print(correct_matches)
-for fun in correct_matches:
-    print("Correct match: %s" % (fun))
+for fun in intersect_fun_names:
+    if fun in correct_matches:
+        sim
+        print(f"Correct match: {fun} (sim={sim})")
+    else:
+        print(f"Incorrect match: {fun}")
 
 print(f"Accuracy: {accuracy}")

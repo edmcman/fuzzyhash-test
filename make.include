@@ -18,8 +18,12 @@ $(1).lzjd: $(2).fn2hash.json $(3).fn2hash.json $(2) $(3)
 	python3 ../lzjd-script.py $$^ > $$@
 endef
 
+# There's a bug in pharos that causes it to use i386 disassembly instead of
+# amd64 for non-PE files
+HACK=--option pharos.disassembler=amd64
+
 %.fn2hash.json: %
-	$(PHAROS_DIR)/tools/fn2hash/fn2hash -j $@ $<
+	$(PHAROS_DIR)/tools/fn2hash/fn2hash $(HACK) -j $@ $<
 
 %.fn2hash.csv: %
-	$(PHAROS_DIR)/tools/fn2hash/fn2hash $< > $@
+	$(PHAROS_DIR)/tools/fn2hash/fn2hash $(HACK) $< > $@
