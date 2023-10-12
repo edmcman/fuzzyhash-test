@@ -115,6 +115,24 @@ for f1, f2, b1, b2, sim in tqdm.tqdm(sims):
 
 #dist = lambda f1, f2: -eds_sim(funs1[f1][1], funs2[f2][1])
 
+intersect_fun_names = set(name_fun(f, m1) for f in funs1.keys()) & set(name_fun(f, m2) for f in funs2.keys())
+#print(intersection_funs)
+
 matches = greedy_entity_matching(sims)
-for f1, f2, sim in matches:
-    print("%s matches with %s (%s)" % (name_fun(f1, m1), name_fun(f2, m2), sim))
+
+# This is too big to write all of them
+if False:
+    for f1, f2, sim in matches:
+        print("%s matches with %s (%s)" % (name_fun(f1, m1), name_fun(f2, m2), sim))
+
+# How many (fun, fun, _) matches do we have?
+correct_matches = [(fun if any(name_fun(f1, m1) == fun and name_fun(f2, m2) == fun for f1, f2, sim in matches) else None) for fun in intersect_fun_names]
+correct_matches = [x for x in correct_matches if x is not None]
+num_correct = len(correct_matches)
+accuracy = num_correct / float(len(intersect_fun_names))
+
+#print(correct_matches)
+for fun in correct_matches:
+    print("Correct match: %s" % (fun))
+
+print(f"Accuracy: {accuracy}")
