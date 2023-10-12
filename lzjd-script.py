@@ -107,8 +107,11 @@ from itertools import product
 
 sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2))]
 sims.sort(key=lambda t: -t[4])
-for f1, f2, b1, b2, sim in tqdm.tqdm(sims):
-    print("%s,%s,%s,%s,%s" % (name_fun(f1, m1), name_fun(f2, m2), sim, b1, b2)) 
+
+# We can't write all pairs for openssl, it's too big.
+if False:
+    for f1, f2, b1, b2, sim in tqdm.tqdm(sims):
+        print("%s,%s,%s,%s,%s" % (name_fun(f1, m1), name_fun(f2, m2), sim, b1, b2)) 
 
 #A = set(funs1.keys())
 #B = set(funs2.keys())
@@ -120,10 +123,9 @@ intersect_fun_names = set(name_fun(f, m1) for f in funs1.keys()) & set(name_fun(
 
 matches = greedy_entity_matching(sims)
 
-# This is too big to write all of them
-if False:
+if True:
     for f1, f2, sim in matches:
-        print("%s matches with %s (%s)" % (name_fun(f1, m1), name_fun(f2, m2), sim))
+        print("%s <==> %s (%s)" % (name_fun(f1, m1), name_fun(f2, m2), sim))
 
 # How many (fun, fun, _) matches do we have?
 correct_matches = [(fun if any(name_fun(f1, m1) == fun and name_fun(f2, m2) == fun for f1, f2, sim in matches) else None) for fun in intersect_fun_names]
