@@ -3,3 +3,4 @@ openssl.gcc filter=lfs diff=lfs merge=lfs -text
 openssl.O0 filter=lfs diff=lfs merge=lfs -text
 openssl.O3 filter=lfs diff=lfs merge=lfs -text
 *.xz filter=lfs diff=lfs merge=lfs -text
+*.lzjd filter=lfs diff=lfs merge=lfs -text
