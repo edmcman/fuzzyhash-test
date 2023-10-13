@@ -1,4 +1,5 @@
 b'_init' <==> b'_init' (sim=1.0; lev=1.0)
+PLOT,True,b'_init',b'_init',1.0,1.0
 0x00001090 <==> 0x000010D0 (sim=1.0; lev=1.0)
 0x000010A0 <==> 0x000010E0 (sim=1.0; lev=1.0)
 0x000010B0 <==> 0x000010F0 (sim=1.0; lev=1.0)
@@ -7,33 +8,40 @@ b'_init' <==> b'_init' (sim=1.0; lev=1.0)
 0x000010E0 <==> 0x00001120 (sim=1.0; lev=1.0)
 0x000010F0 <==> 0x00001130 (sim=1.0; lev=1.0)
 b'deregister_tm_clones' <==> b'deregister_tm_clones' (sim=1.0; lev=1.0)
+PLOT,True,b'deregister_tm_clones',b'deregister_tm_clones',1.0,1.0
 b'register_tm_clones' <==> b'register_tm_clones' (sim=1.0; lev=1.0)
+PLOT,True,b'register_tm_clones',b'register_tm_clones',1.0,1.0
 b'_fini' <==> b'_fini' (sim=1.0; lev=1.0)
+PLOT,True,b'_fini',b'_fini',1.0,1.0
 b'__do_global_dtors_aux' <==> b'__do_global_dtors_aux' (sim=1.0; lev=1.0)
+PLOT,True,b'__do_global_dtors_aux',b'__do_global_dtors_aux',1.0,1.0
 b'frame_dummy' <==> b'frame_dummy' (sim=1.0; lev=1.0)
+PLOT,True,b'frame_dummy',b'frame_dummy',1.0,1.0
 b'_start' <==> b'_start' (sim=0.8157894736842105; lev=0.8947368421052632)
+PLOT,True,b'_start',b'_start',0.8157894736842105,0.8947368421052632
 b'_ZN4Cls15func1Ev' <==> b'_GLOBAL__sub_I_main' (sim=0.54; lev=0.5403225806451613)
 b'_ZThn16_N4Cls35func3Ev' <==> 0x00001140 (sim=0.4666666666666667; lev=0.5454545454545454)
 b'_ZN4Cls3C2Ev' <==> b'_ZN4Cls35func3Ev' (sim=0.4368932038834951; lev=0.4300699300699301)
 b'_Z41__static_initialization_and_destruction_0ii' <==> b'_ZN4Cls35func1Ev' (sim=0.4095238095238095; lev=0.4055944055944056)
 b'main' <==> b'main' (sim=0.3977272727272727; lev=0.46126760563380287)
+PLOT,True,b'main',b'main',0.3977272727272727,0.46126760563380287
 b'_ZN4Cls15func2Ev' <==> b'_ZThn16_N4Cls35func3Ev' (sim=0.32323232323232326; lev=0.3776223776223776)
 b'_ZN4Cls25func3Ev' <==> b'_ZN4Cls25func4Ev' (sim=0.32; lev=0.3776223776223776)
 b'_GLOBAL__sub_I_main' <==> 0x00001150 (sim=0.2857142857142857; lev=0.38)
 b'_ZN4Cls1C2Ev' <==> 0x00001160 (sim=0.22580645161290322; lev=0.2931034482758621)
 b'_ZN4Cls2C2Ev' <==> 0x00001170 (sim=0.22580645161290322; lev=0.2931034482758621)
 b'_ZN4Cls25func4Ev' <==> b'_ZNKSt5ctypeIcE8do_widenEc' (sim=0.14893617021276595; lev=0.10483870967741937)
-Correct match: b'main' (sim=0.14893617021276595)
-Correct match: b'_init' (sim=0.14893617021276595)
+Correct match: b'main' (sim=0.3977272727272727)
 Incorrect match: b'_GLOBAL__sub_I_main'
-Correct match: b'__do_global_dtors_aux' (sim=0.14893617021276595)
-Incorrect match: b'_ZThn16_N4Cls35func3Ev'
-Incorrect match: b'_ZN4Cls35func3Ev'
-Correct match: b'deregister_tm_clones' (sim=0.14893617021276595)
-Correct match: b'register_tm_clones' (sim=0.14893617021276595)
-Correct match: b'_start' (sim=0.14893617021276595)
-Correct match: b'_fini' (sim=0.14893617021276595)
-Incorrect match: b'_ZN4Cls35func1Ev'
-Correct match: b'frame_dummy' (sim=0.14893617021276595)
 Incorrect match: b'_ZN4Cls25func4Ev'
+Incorrect match: b'_ZN4Cls35func3Ev'
+Correct match: b'register_tm_clones' (sim=1.0)
+Correct match: b'frame_dummy' (sim=1.0)
+Incorrect match: b'_ZThn16_N4Cls35func3Ev'
+Correct match: b'deregister_tm_clones' (sim=1.0)
+Correct match: b'_start' (sim=0.8157894736842105)
+Correct match: b'_fini' (sim=1.0)
+Incorrect match: b'_ZN4Cls35func1Ev'
+Correct match: b'__do_global_dtors_aux' (sim=1.0)
+Correct match: b'_init' (sim=1.0)
 Accuracy: 0.6153846153846154
