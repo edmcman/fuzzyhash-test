@@ -1,6 +1,6 @@
 include ../make.include
 
-all: oo.fse oo.lzjd
+all: oo.fse oo.lzjd oo.gcc.dis
 
 EXES = oo.gcc oo.clang
 $(foreach EXE, $(EXES), $(eval $(call add_target, $(EXE))))

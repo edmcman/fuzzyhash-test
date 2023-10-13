@@ -27,3 +27,9 @@ HACK=--option pharos.disassembler=amd64
 
 %.fn2hash.csv: %
 	$(PHAROS_DIR)/tools/fn2hash/fn2hash $(HACK) $< > $@
+
+%.ana: %
+	$(ROSE_DIR)/bin/bat-ana -o $@ $<
+
+%.dis: %.ana
+	$(ROSE_DIR)/bin/bat-dis $^ > $@
