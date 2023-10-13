@@ -3,7 +3,12 @@ include ../make.include
 SSL1 = openssl-1.1.1w
 SSL2 = openssl-1.0.2u
 
-all: $(SSL1).bin $(SSL2).bin
+EXES = $(SSL1).bin $(SSL2).bin
+$(foreach EXE, $(EXES), $(eval $(call add_target, $(EXE))))
+
+$(eval $(call add_comparison, openssl, $(SSL1).bin, $(SSL2.bin)))
+
+all: $(EXES)
 
 $(SSL1).bin: $(SSL1).tar.gz
 	rm -rf $(SSL1)
