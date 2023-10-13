@@ -134,8 +134,12 @@ matches = greedy_entity_matching(sims)
 
 if True:
     for f1, f2, b1, b2, sim in tqdm.tqdm(matches, desc="Printing matches"):
+        name1 = name_fun(f1, m1)
+        name2 = name_fun(f2, m2)
         lev = lev_sim(b1, b2)
-        print("%s <==> %s (sim=%s; lev=%s)" % (name_fun(f1, m1), name_fun(f2, m2), sim, lev))
+        print("%s <==> %s (sim=%s; lev=%s)" % (name1, name2, sim, lev))
+        if name1 in intersect_fun_names and name2 in intersect_fun_names:
+            print("PLOT,%s,%s,%s,%s,%s" % (name1 == name2,name1, name2, sim, lev))
 
 # How many (fun, fun, _) matches do we have?
 correct_matches = [next(((fun, sim) for f1, f2, _, _, sim in matches if name_fun(f1, m1) == fun and name_fun(f2, m2) == fun), None) for fun in intersect_fun_names]
@@ -144,6 +148,7 @@ num_correct = len(correct_matches)
 accuracy = num_correct / float(len(intersect_fun_names))
 
 #print(correct_matches)
+
 for fun in intersect_fun_names:
     if fun in correct_matches:
         sim = correct_matches[fun]
