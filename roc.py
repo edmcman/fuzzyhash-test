@@ -3,8 +3,7 @@
 import matplotlib.pyplot as plt
 import pandas
 import sys
-#import sklearn.metrics
-from sklearn.metrics import RocCurveDisplay, roc_curve
+from sklearn.metrics import roc_curve, roc_auc_score
 
 d = pandas.read_csv(sys.argv[1], names=["correct", "name1", "name2", "sim", "lev"])
 
@@ -13,7 +12,7 @@ y_pred = d["sim"]
 
 fpr, tpr, thresholds = roc_curve(y_true, y_pred)
 
-roc_auc = roc_auc_score(y_test, y_pred)
+roc_auc = roc_auc_score(y_true, y_pred)
 
 plt.figure(figsize=(8, 6))
 plt.plot(fpr, tpr, color='darkorange', lw=2, label='ROC curve')
@@ -29,4 +28,5 @@ plt.xlabel('False Positive Rate')
 plt.ylabel('True Positive Rate')
 plt.title('Receiver Operating Characteristic (ROC) Curve')
 plt.legend(loc='lower right')
-plt.show()
+plt.savefig('roc_curve.png', format='png')
+plt.close()
