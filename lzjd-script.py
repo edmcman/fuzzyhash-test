@@ -138,7 +138,7 @@ if True:
         print("%s <==> %s (sim=%s; lev=%s)" % (name_fun(f1, m1), name_fun(f2, m2), sim, lev))
 
 # How many (fun, fun, _) matches do we have?
-correct_matches = [next(((fun, sim) for f1, f2, sim, _, _ in matches if name_fun(f1, m1) == fun and name_fun(f2, m2) == fun), None) for fun in intersect_fun_names]
+correct_matches = [next(((fun, sim) for f1, f2, _, _, sim in matches if name_fun(f1, m1) == fun and name_fun(f2, m2) == fun), None) for fun in intersect_fun_names]
 correct_matches = dict(x for x in correct_matches if x is not None)
 num_correct = len(correct_matches)
 accuracy = num_correct / float(len(intersect_fun_names))
@@ -146,7 +146,7 @@ accuracy = num_correct / float(len(intersect_fun_names))
 #print(correct_matches)
 for fun in intersect_fun_names:
     if fun in correct_matches:
-        sim
+        sim = correct_matches[fun]
         print(f"Correct match: {fun} (sim={sim})")
     else:
         print(f"Incorrect match: {fun}")
