@@ -1,1 +1,1 @@
-# Experiment using the `openssl` binary from the openssl project.
+# Experiment using the `openssl` binary from the openssl project, comparing -O0 to -O3 and gcc to clang
