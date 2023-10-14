@@ -19,7 +19,7 @@ plt.plot(fpr, tpr, color='darkorange', lw=2, label='ROC curve')
 
 # Annotate the points with thresholds
 for i, threshold in enumerate(thresholds):
-    plt.annotate(f'Threshold = {threshold:.2f}', (fpr[i], tpr[i]), textcoords='offset points', xytext=(5,5), ha='left')
+    plt.annotate(f'Threshold = {threshold:.2f}', (fpr[i], tpr[i]), textcoords='offset points', xytext=(5,5), ha='left', alpha=0.2)
 
 plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
 plt.xlim([0.0, 1.0])
