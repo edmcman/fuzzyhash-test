@@ -18,8 +18,13 @@ plt.figure(figsize=(8, 6))
 plt.plot(fpr, tpr, color='darkorange', lw=2, label='ROC curve')
 
 # Annotate the points with thresholds
+last_y = -1000
 for i, threshold in enumerate(thresholds):
-    plt.annotate(f'Threshold = {threshold:.2f}', (fpr[i], tpr[i]), textcoords='offset points', xytext=(5,5), ha='left', alpha=0.2)
+    diff = tpr[i] - last_y
+    # hand tuned constant
+    if diff > 0.07:
+        last_y = tpr[i]
+        plt.annotate(f'Threshold = {threshold:.2f}', (fpr[i], tpr[i]), textcoords='offset points', xytext=(5,5), ha='left')
 
 plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
 plt.xlim([0.0, 1.0])
