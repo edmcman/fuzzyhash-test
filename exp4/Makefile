@@ -6,9 +6,7 @@ SSL2 = openssl-1.0.2u
 EXES = $(SSL1).bin $(SSL2).bin
 $(foreach EXE, $(EXES), $(eval $(call add_target, $(EXE))))
 
-$(eval $(call add_comparison, openssl, $(SSL1).bin, $(SSL2.bin)))
-
-all: $(EXES)
+$(eval $(call add_comparison, openssl, $(SSL1).bin, $(SSL2).bin))
 
 $(SSL1).bin: $(SSL1).tar.gz
 	rm -rf $(SSL1)
