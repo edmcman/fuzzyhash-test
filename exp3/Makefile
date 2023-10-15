@@ -6,7 +6,7 @@ SSL = openssl-1.1.1w
 all:
 	@echo all
 
-EXES = openssl.gcc openssl.clang openssl.O0 openssl.O3
+EXES = openssl.gcc openssl.clang openssl.O0 openssl.O2 openssl.O3
 $(foreach EXE, $(EXES), $(eval $(call add_target, $(EXE))))
 
 openssl.gcc: openssl1.gcc
@@ -14,6 +14,8 @@ openssl.gcc: openssl1.gcc
 openssl.clang: openssl1.clang
 	cp $< $@
 openssl.O0: openssl2.O0
+	cp $< $@
+openssl.O2: openssl2.O2
 	cp $< $@
 openssl.O3: openssl2.O3
 	cp $< $@
@@ -34,3 +36,4 @@ openssl2.%: $(SSL).tar.gz
 
 $(eval $(call add_comparison, openssl-bycompiler, openssl.gcc, openssl.clang))
 $(eval $(call add_comparison, openssl-byopt, openssl.O0, openssl.O3))
+$(eval $(call add_comparison, openssl-byopt2, openssl.O2, openssl.O3))
