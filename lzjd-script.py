@@ -112,9 +112,12 @@ def name_fun(addrstr, m, return_none_for_unknown=False):
 funs1 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in tqdm.tqdm(j1['analysis'], desc="hashing functions")}
 funs2 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in tqdm.tqdm(j2['analysis'], desc="hashing functions")}
 
-from itertools import product
+# Only compare functions for which we have names...
+funs1 = {k: v for k,v in funs1.items() if name_fun(k, m1, return_none_for_unknown=True) is not None}
+funs2 = {k: v for k,v in funs2.items() if name_fun(k, m2, return_none_for_unknown=True) is not None}
 
-sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2), desc="Comparing all pairs")]
+
+sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2), desc="Comparing all pairs")]
 random.shuffle(sims)
 sims.sort(key=lambda t: -t[4])
 
@@ -167,7 +170,7 @@ for fun in intersect_fun_names:
 #j1hash = {f['fn_addr']: f['pic_hash'] for f in j1['analysis']}
 #j2hash = {f['fn_addr']: f['pic_hash'] for f in j2['analysis']}
 
-pic_comparisons = [(addr1, addr2, 1.0 if hash1 == hash2 else 0.0) for ((addr1, (hash1, _)), (addr2, (hash2, _))) in product(funs1.items(), funs2.items())]
+pic_comparisons = [(addr1, addr2, 1.0 if hash1 == hash2 else 0.0) for ((addr1, (hash1, _)), (addr2, (hash2, _))) in itertools.product(funs1.items(), funs2.items())]
 random.shuffle(pic_comparisons)
 pic_comparisons.sort(key=lambda t: -t[2])
 
