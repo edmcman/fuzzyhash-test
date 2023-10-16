@@ -7,7 +7,7 @@ import json
 import subprocess
 import tqdm
 import editdistance
-#from fast_edit_distance import edit_distance
+import itertools
 
 j1 = json.load(open(sys.argv[1], "r"))
 j2 = json.load(open(sys.argv[2], "r"))
@@ -24,8 +24,6 @@ def lev_sim(a, b):
 
 # Keep sims in sorted order by distance and remove changed pairs
 def greedy_entity_matching(sims):
-    # we don't need the bytes anymore
-    #sims = [(a,b,c,d,e) for (a,b,c,d,e) in tqdm.tqdm(sims, desc="edit distance")]
     matches = []  # List to store matched pairs
 
     setA = {t[0] for t in sims}
@@ -138,8 +136,8 @@ if True:
         name2 = name_fun(f2, m2)
         lev = lev_sim(b1, b2)
         print("%s <==> %s (sim=%s; lev=%s)" % (name1, name2, sim, lev))
-        if name1 in intersect_fun_names and name2 in intersect_fun_names:
-            print("PLOT,%s,%s,%s,%s,%s" % (name1 == name2,name1, name2, sim, lev))
+        correct = name1 == name2 and name1 in intersect_fun_names and name2 in intersect_fun_names
+        print("PLOTLZJD,%s,%s,%s,%s,%s" % (correct, name1, name2, sim, lev))
 
 # How many (fun, fun, _) matches do we have?
 correct_matches = [next(((fun, sim) for f1, f2, _, _, sim in matches if name_fun(f1, m1) == fun and name_fun(f2, m2) == fun), None) for fun in intersect_fun_names]
@@ -155,5 +153,30 @@ for fun in intersect_fun_names:
         print(f"Correct match: {fun} (sim={sim})")
     else:
         print(f"Incorrect match: {fun}")
+
+# Since we have the fn2hash json parsed and everything here, it makes sense to
+# just compute the TP and FP for PIC hash here.
+
+# But there can be multiple functions with the same PIC hash in a binary.  So,
+# what we'll do is use the greedy matching algorithm, which will pick an
+# arbitrary match if there are multiple functions with the same PIC hash.
+
+#j1hash = {f['fn_addr']: f['pic_hash'] for f in j1['analysis']}
+#j2hash = {f['fn_addr']: f['pic_hash'] for f in j2['analysis']}
+
+pic_comparisons = [(addr1, addr2, 1.0 if hash1 == hash2 else 0.0) for ((addr1, (hash1, _)), (addr2, (hash2, _))) in product(funs1.items(), funs2.items())]
+pic_comparisons.sort(key=lambda t: -t[2])
+
+pic_matches = greedy_entity_matching(pic_comparisons)
+
+for f1, f2, sim in pic_matches:
+    name1 = name_fun(f1, m1)
+    name2 = name_fun(f2, m2)
+    correct = name1 == name2 and name1 in intersect_fun_names and name2 in intersect_fun_names
+    lev = lev_sim(b1, b2)
+    print("PLOTFSE,%s,%s,%s,%s,%s" % (correct, name1, name2, sim, lev))
+
+#import ipdb
+#ipdb.set_trace()
 
 print(f"Accuracy: {accuracy}")
