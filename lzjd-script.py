@@ -79,6 +79,7 @@ def eds_sim(A, B):
     
     #intersection_size = lzjd_cython.intersection_size(A, B)
     intersection_size = float(np.intersect1d(A, B, assume_unique=True).shape[0])
+    union_size = float(np.union1d(A, B).shape[0])
     
     #hashes should normally be the same size. Its possible to use different size hashesh tough. 
     #Could happen from small files, or just calling with differen hash_size values
@@ -89,7 +90,7 @@ def eds_sim(A, B):
 
     # double sim = same / (double) (x_minset.length + y_minset.length - same);
 
-    return intersection_size / (A.shape[0] + B.shape[0] - intersection_size)
+    return intersection_size / union_size
 
     #min_len = min(A.shape[0], B.shape[0])
     

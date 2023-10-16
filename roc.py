@@ -16,6 +16,9 @@ fse_true, fse_pred = fse["correct"], fse["sim"]
 lzjd_fpr, lzjd_tpr, lzjd_thresholds = roc_curve(lzjd_true, lzjd_pred)
 fse_fpr, fse_tpr, fse_thresholds = roc_curve(fse_true, fse_pred)
 
+#import ipdb
+#ipdb.set_trace()
+
 roc_auc = roc_auc_score(lzjd_true, lzjd_pred)
 
 plt.figure(figsize=(8, 6))
