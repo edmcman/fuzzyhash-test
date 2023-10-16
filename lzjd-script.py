@@ -2,6 +2,7 @@
 
 from pyLZJD import digest, sim
 
+import random
 import sys
 import json
 import subprocess
@@ -113,6 +114,7 @@ funs2 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in
 from itertools import product
 
 sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2), desc="Comparing all pairs")]
+random.shuffle(sims)
 sims.sort(key=lambda t: -t[4])
 
 # We can't write all pairs for openssl, it's too big.
@@ -165,6 +167,7 @@ for fun in intersect_fun_names:
 #j2hash = {f['fn_addr']: f['pic_hash'] for f in j2['analysis']}
 
 pic_comparisons = [(addr1, addr2, 1.0 if hash1 == hash2 else 0.0) for ((addr1, (hash1, _)), (addr2, (hash2, _))) in product(funs1.items(), funs2.items())]
+random.shuffle(pic_comparisons)
 pic_comparisons.sort(key=lambda t: -t[2])
 
 pic_matches = greedy_entity_matching(pic_comparisons)
