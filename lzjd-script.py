@@ -156,9 +156,9 @@ accuracy = num_correct / float(len(intersect_fun_names))
 for fun in intersect_fun_names:
     if fun in correct_matches:
         sim = correct_matches[fun]
-        print(f"Correct match: {fun} (sim={sim})")
+        print(f"Correct LZJD match: {fun} (sim={sim})")
     else:
-        print(f"Incorrect match: {fun}")
+        print(f"Incorrect LZJD match: {fun}")
 
 # Since we have the fn2hash json parsed and everything here, it makes sense to
 # just compute the TP and FP for PIC hash here.
@@ -186,4 +186,4 @@ for f1, f2, sim in pic_matches:
 #import ipdb
 #ipdb.set_trace()
 
-print(f"Accuracy: {accuracy}")
+#print(f"LZJD Accuracy: {accuracy}")

@@ -1,0 +1,556 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; function 0x004398f0 "main"
+;;; reasons for function: referenced by symbol table
+
+                        	;; predecessor:  from instruction 0x0041c354 from basic block 0x0041c330
+                        0x004398f0: 55                         00 push     rbp
+                        0x004398f1: 48 89 e5                  -08 mov      rbp, rsp
+                        0x004398f4: 48 81 ec a0 04 00 00      -08 sub      rsp, 0x000004a0<1184>
+                        0x004398fb: c7 45 fc 00 00 00 00      -4a8 mov      dword ds:[rbp + 0xfc<252,-4>], 0
+                        0x00439902: 89 7d f8                  -4a8 mov      dword ds:[rbp + 0xf8<248,-8>], edi
+                        0x00439905: 48 89 75 f0               -4a8 mov      qword ds:[rbp + 0xf0<240,-16>], rsi
+                        0x00439909: 48 c7 45 c0 00 00 00 00   -4a8 mov      qword ds:[rbp + 0xc0<192,-64>], 0
+                        0x00439911: c7 85 88 fb ff ff 00 00   -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 0
+                                    00 00
+                        0x0043991b: 48 c7 85 a0 fb ff ff 00   -4a8 mov      qword ds:[rbp + 0xfffffba0<4294966176,-1120>], 0
+                                    00 00 00
+                        0x00439926: c7 85 98 fb ff ff 00 00   -4a8 mov      dword ds:[rbp + 0xfffffb98<4294966168,-1128>], 0
+                                    00 00
+                        0x00439930: e8 fb 04 00 00            -4a8 call     function 0x00439e30 "make_config_name"<(func)make_config_name>
+                      ┌─	;; successor: call return edge to basic block 0x00439935
+                      │ 	;; successor: function call edge to function 0x00439e30 "make_config_name"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439930 from basic block 0x004398f0
+                        0x00439935: 48 89 04 25 50 71 6b 00   -4a8 mov      qword ds:[0x006b7150<(data)default_config_file>], rax
+                        0x0043993d: bf 01 80 00 00            -4a8 mov      edi, 0x00008001<32769>
+                        0x00439942: e8 d9 fd 03 00            -4a8 call     function 0x00479720 "dup_bio_in"<(func)dup_bio_in>
+                      ┌─	;; successor: call return edge to basic block 0x00439947
+                      │ 	;; successor: function call edge to function 0x00479720 "dup_bio_in"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439942 from basic block 0x00439935
+                        0x00439947: 48 89 04 25 58 71 6b 00   -4a8 mov      qword ds:[0x006b7158<(data)bio_in>], rax
+                        0x0043994f: bf 01 80 00 00            -4a8 mov      edi, 0x00008001<32769>
+                        0x00439954: e8 97 37 04 00            -4a8 call     function 0x0047d0f0 "dup_bio_out"<(func)dup_bio_out>
+                      ┌─	;; successor: call return edge to basic block 0x00439959
+                      │ 	;; successor: function call edge to function 0x0047d0f0 "dup_bio_out"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439954 from basic block 0x00439947
+                        0x00439959: 48 89 04 25 60 71 6b 00   -4a8 mov      qword ds:[0x006b7160<(data)bio_out>], rax
+                        0x00439961: bf 01 80 00 00            -4a8 mov      edi, 0x00008001<32769>
+                        0x00439966: e8 55 38 04 00            -4a8 call     function 0x0047d1c0 "dup_bio_err"<(func)dup_bio_err>
+                      ┌─	;; successor: call return edge to basic block 0x0043996b
+                      │ 	;; successor: function call edge to function 0x0047d1c0 "dup_bio_err"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439966 from basic block 0x00439959
+                        0x0043996b: 48 89 04 25 68 71 6b 00   -4a8 mov      qword ds:[0x006b7168<(data)bio_err>], rax
+                        0x00439973: 48 bf e0 fc 48 00 00 00   -4a8 mov      rdi, 0x0048fce0<"OPENSSL_DEBUG_MEMORY">
+                                    00 00
+                        0x0043997d: e8 1e 09 fe ff            -4a8 call     function 0x0041a2a0 "getenv@plt"
+                        	;; successor: function call edge to function 0x0041a2a0 "getenv@plt"
+                      ┌─	;; successor: call return edge to basic block 0x00439982
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x0043997d from basic block 0x0043996b
+                        0x00439982: 48 89 45 b8               -4a8 mov      qword ds:[rbp + 0xb8<184,-72>], rax
+                        0x00439986: 48 83 7d b8 00            -4a8 cmp      qword ds:[rbp + 0xb8<184,-72>], 0
+                        0x0043998b: 0f 84 21 00 00 00         -4a8 je       basic block 0x004399b2
+                  ┌─    	;; successor: normal edge to basic block 0x004399b2
+                  │   ┌─	;; successor: normal edge to basic block 0x00439991
+                  │   │ 
+                  │   └▶	;; predecessor:  from instruction 0x0043998b from basic block 0x00439982
+                  │     0x00439991: 48 8b 7d b8               -4a8 mov      rdi, qword ds:[rbp + 0xb8<184,-72>]
+                  │     0x00439995: be 08 e3 48 00            -4a8 mov      esi, 0x0048e308<"on">
+                  │     0x0043999a: e8 71 0e fe ff            -4a8 call     function 0x0041a810 "strcmp@plt"
+                  │     	;; successor: function call edge to function 0x0041a810 "strcmp@plt"
+                  │   ┌─	;; successor: call return edge to basic block 0x0043999f
+                  │   │ 
+                  │   └▶	;; predecessor:  from instruction 0x0043999a from basic block 0x00439991
+                  │     0x0043999f: 83 f8 00                  -4a8 cmp      eax, 0
+                  │     0x004399a2: 0f 85 0a 00 00 00         -4a8 jne      basic block 0x004399b2
+                  │ ┌─  	;; successor: normal edge to basic block 0x004399b2
+                  │ │ ┌─	;; successor: normal edge to basic block 0x004399a8
+                  │ │ │ 
+                  │ │ └▶	;; predecessor:  from instruction 0x004399a2 from basic block 0x0043999f
+                  │ │   0x004399a8: bf 01 00 00 00            -4a8 mov      edi, 1
+                  │ │   0x004399ad: e8 be fa fd ff            -4a8 call     function 0x00419470 "CRYPTO_set_mem_debug@plt"
+                  │ │ ┌─	;; successor: call return edge to basic block 0x004399b2
+                  │ │ │ 	;; successor: function call edge to function 0x00419470 "CRYPTO_set_mem_debug@plt"
+                  │ │ │ 
+                  └▶│ │ 	;; predecessor:  from instruction 0x0043998b from basic block 0x00439982
+                    └▶│ 	;; predecessor:  from instruction 0x004399a2 from basic block 0x0043999f
+                      └▶	;; predecessor:  from instruction 0x004399ad from basic block 0x004399a8
+                        0x004399b2: bf 01 00 00 00            -4a8 mov      edi, 1
+                        0x004399b7: e8 f4 27 fe ff            -4a8 call     function 0x0041c1b0 "CRYPTO_mem_ctrl@plt"
+                      ┌─	;; successor: call return edge to basic block 0x004399bc
+                      │ 	;; successor: function call edge to function 0x0041c1b0 "CRYPTO_mem_ctrl@plt"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x004399b7 from basic block 0x004399b2
+                        0x004399bc: 48 bf f5 fc 48 00 00 00   -4a8 mov      rdi, 0x0048fcf5<"OPENSSL_FIPS">
+                                    00 00
+                        0x004399c6: 89 85 84 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb84<4294966148,-1148>], eax
+                        0x004399cc: e8 cf 08 fe ff            -4a8 call     function 0x0041a2a0 "getenv@plt"
+                        	;; successor: function call edge to function 0x0041a2a0 "getenv@plt"
+                      ┌─	;; successor: call return edge to basic block 0x004399d1
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x004399cc from basic block 0x004399bc
+                        0x004399d1: 48 83 f8 00               -4a8 cmp      rax, 0
+                        0x004399d5: 0f 84 2f 00 00 00         -4a8 je       basic block 0x00439a0a
+                    ┌─  	;; successor: normal edge to basic block 0x00439a0a
+                    │ ┌─	;; successor: normal edge to basic block 0x004399db
+                    │ │ 
+                    │ └▶	;; predecessor:  from instruction 0x004399d5 from basic block 0x004399d1
+                    │   0x004399db: 48 8b 3c 25 68 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7168<(data)bio_err>]
+                    │   0x004399e3: 48 be 02 fd 48 00 00 00   -4a8 mov      rsi, 0x0048fd02<"FIPS mode not supported.\n">
+                    │               00 00
+                    │   0x004399ed: b0 00                     -4a8 mov      al, 0
+                    │   0x004399ef: e8 2c d7 fd ff            -4a8 call     function 0x00417120 "BIO_printf@plt"
+                    │ ┌─	;; successor: call return edge to basic block 0x004399f4
+                    │ │ 	;; successor: function call edge to function 0x00417120 "BIO_printf@plt"
+                    │ │ 
+                    │ └▶	;; predecessor:  from instruction 0x004399ef from basic block 0x004399db
+                    │   0x004399f4: b9 01 00 00 00            -4a8 mov      ecx, 1
+                    │   0x004399f9: 89 85 80 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb80<4294966144,-1152>], eax
+                    │   0x004399ff: 89 c8                     -4a8 mov      eax, ecx
+                    │   0x00439a01: 48 81 c4 a0 04 00 00      -4a8 add      rsp, 0x000004a0<1184>
+                    │   0x00439a08: 5d                        -08 pop      rbp
+                    │   0x00439a09: c3                         00 ret
+                    │   	;; successor: function return edge to v4064[u64]
+                    │   
+                    └▶  	;; predecessor:  from instruction 0x004399d5 from basic block 0x004399d1
+                        0x00439a0a: e8 01 05 00 00            -4a8 call     function 0x00439f10 "apps_startup"<(func)apps_startup>
+                        	;; successor: function call edge to function 0x00439f10 "apps_startup"
+                      ┌─	;; successor: call return edge to basic block 0x00439a0f
+                      │ 
+                      └▶	;; predecessor:  from basic block 0x00439a0a
+                        0x00439a0f: 83 f8 00                  -4a8 cmp      eax, 0
+                        0x00439a12: 0f 85 3b 00 00 00         -4a8 jne      basic block 0x00439a53
+                    ┌─  	;; successor: normal edge to basic block 0x00439a53
+                    │ ┌─	;; successor: normal edge to basic block 0x00439a18
+                    │ │ 
+                    │ └▶	;; predecessor:  from instruction 0x00439a12 from basic block 0x00439a0f
+                    │   0x00439a18: 48 8b 3c 25 68 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7168<(data)bio_err>]
+                    │   0x00439a20: 48 be 1c fd 48 00 00 00   -4a8 mov      rsi, 0x0048fd1c<"FATAL: Startup failure (d"+32 more>
+                    │               00 00
+                    │   0x00439a2a: b0 00                     -4a8 mov      al, 0
+                    │   0x00439a2c: e8 ef d6 fd ff            -4a8 call     function 0x00417120 "BIO_printf@plt"
+                    │ ┌─	;; successor: call return edge to basic block 0x00439a31
+                    │ │ 	;; successor: function call edge to function 0x00417120 "BIO_printf@plt"
+                    │ │ 
+                    │ └▶	;; predecessor:  from instruction 0x00439a2c from basic block 0x00439a18
+                    │   0x00439a31: 48 8b 3c 25 68 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7168<(data)bio_err>]
+                    │   0x00439a39: 89 85 7c fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb7c<4294966140,-1156>], eax
+                    │   0x00439a3f: e8 5c 27 fe ff            -4a8 call     function 0x0041c1a0 "ERR_print_errors@plt"
+                    │ ┌─	;; successor: call return edge to basic block 0x00439a44
+                    │ │ 	;; successor: function call edge to function 0x0041c1a0 "ERR_print_errors@plt"
+                    │ │ 
+                    │ └▶	;; predecessor:  from instruction 0x00439a3f from basic block 0x00439a31
+                    │   0x00439a44: c7 85 88 fb ff ff 01 00   -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 1
+                    │               00 00
+                    │   0x00439a4e: e9 4d 03 00 00            -4a8 jmp      basic block 0x00439da0
+┌─                  │   	;; successor: normal edge to basic block 0x00439da0
+│                   │   
+│                   └▶  	;; predecessor:  from instruction 0x00439a12 from basic block 0x00439a0f
+│                       0x00439a53: e8 18 05 00 00            -4a8 call     function 0x00439f70 "prog_init"<(func)prog_init>
+│                       	;; successor: function call edge to function 0x00439f70 "prog_init"
+│                     ┌─	;; successor: call return edge to basic block 0x00439a58
+│                     │ 
+│                     └▶	;; predecessor:  from basic block 0x00439a53
+│                       0x00439a58: 48 89 45 c0               -4a8 mov      qword ds:[rbp + 0xc0<192,-64>], rax
+│                       0x00439a5c: 48 83 7d c0 00            -4a8 cmp      qword ds:[rbp + 0xc0<192,-64>], 0
+│                       0x00439a61: 0f 85 3b 00 00 00         -4a8 jne      basic block 0x00439aa2
+│                   ┌─  	;; successor: normal edge to basic block 0x00439aa2
+│                   │ ┌─	;; successor: normal edge to basic block 0x00439a67
+│                   │ │ 
+│                   │ └▶	;; predecessor:  from instruction 0x00439a61 from basic block 0x00439a58
+│                   │   0x00439a67: 48 8b 3c 25 68 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7168<(data)bio_err>]
+│                   │   0x00439a6f: 48 be 56 fd 48 00 00 00   -4a8 mov      rsi, 0x0048fd56<"FATAL: Startup failure (d"+29 more>
+│                   │               00 00
+│                   │   0x00439a79: b0 00                     -4a8 mov      al, 0
+│                   │   0x00439a7b: e8 a0 d6 fd ff            -4a8 call     function 0x00417120 "BIO_printf@plt"
+│                   │ ┌─	;; successor: call return edge to basic block 0x00439a80
+│                   │ │ 	;; successor: function call edge to function 0x00417120 "BIO_printf@plt"
+│                   │ │ 
+│                   │ └▶	;; predecessor:  from instruction 0x00439a7b from basic block 0x00439a67
+│                   │   0x00439a80: 48 8b 3c 25 68 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7168<(data)bio_err>]
+│                   │   0x00439a88: 89 85 78 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb78<4294966136,-1160>], eax
+│                   │   0x00439a8e: e8 0d 27 fe ff            -4a8 call     function 0x0041c1a0 "ERR_print_errors@plt"
+│                   │   	;; successor: function call edge to function 0x0041c1a0 "ERR_print_errors@plt"
+│                   │ ┌─	;; successor: call return edge to basic block 0x00439a93
+│                   │ │ 
+│                   │ └▶	;; predecessor:  from instruction 0x00439a8e from basic block 0x00439a80
+│                   │   0x00439a93: c7 85 88 fb ff ff 01 00   -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 1
+│                   │               00 00
+│                   │   0x00439a9d: e9 fe 02 00 00            -4a8 jmp      basic block 0x00439da0
+│ ┌─                │   	;; successor: normal edge to basic block 0x00439da0
+│ │                 │   
+│ │                 └▶  	;; predecessor:  from instruction 0x00439a61 from basic block 0x00439a58
+│ │                     0x00439aa2: 48 8b 45 f0               -4a8 mov      rax, qword ds:[rbp + 0xf0<240,-16>]
+│ │                     0x00439aa6: 48 8b 38                  -4a8 mov      rdi, qword ds:[rax]
+│ │                     0x00439aa9: e8 02 4e 04 00            -4a8 call     function 0x0047e8b0 "opt_progname"<(func)opt_progname>
+│ │                   ┌─	;; successor: call return edge to basic block 0x00439aae
+│ │                   │ 	;; successor: function call edge to function 0x0047e8b0 "opt_progname"
+│ │                   │ 
+│ │                   └▶	;; predecessor:  from instruction 0x00439aa9 from basic block 0x00439aa2
+│ │                     0x00439aae: 48 89 45 b0               -4a8 mov      qword ds:[rbp + 0xb0<176,-80>], rax
+│ │                     0x00439ab2: 48 8b 45 b0               -4a8 mov      rax, qword ds:[rbp + 0xb0<176,-80>]
+│ │                     0x00439ab6: 48 89 45 d8               -4a8 mov      qword ds:[rbp + 0xd8<216,-40>], rax
+│ │                     0x00439aba: 48 8b 7d c0               -4a8 mov      rdi, qword ds:[rbp + 0xc0<192,-64>]
+│ │                     0x00439abe: 48 8d 75 d0               -4a8 lea      rsi, ds:[rbp + 0xd0<208,-48>]
+│ │                     0x00439ac2: e8 e9 05 00 00            -4a8 call     function 0x0043a0b0 "lh_FUNCTION_retrieve"<(func)lh_FUNCTION_retrieve>
+│ │                     	;; successor: function call edge to function 0x0043a0b0 "lh_FUNCTION_retrieve"
+│ │                   ┌─	;; successor: call return edge to basic block 0x00439ac7
+│ │                   │ 
+│ │                   └▶	;; predecessor:  from instruction 0x00439ac2 from basic block 0x00439aae
+│ │                     0x00439ac7: 48 89 45 c8               -4a8 mov      qword ds:[rbp + 0xc8<200,-56>], rax
+│ │                     0x00439acb: 48 83 7d c8 00            -4a8 cmp      qword ds:[rbp + 0xc8<200,-56>], 0
+│ │                     0x00439ad0: 0f 84 27 00 00 00         -4a8 je       basic block 0x00439afd
+│ │                   ┌─	;; successor: normal edge to basic block 0x00439ad6
+│ │                 ┌─│ 	;; successor: normal edge to basic block 0x00439afd
+│ │                 │ │ 
+│ │                 │ └▶	;; predecessor:  from instruction 0x00439ad0 from basic block 0x00439ac7
+│ │                 │   0x00439ad6: 48 8b 45 b0               -4a8 mov      rax, qword ds:[rbp + 0xb0<176,-80>]
+│ │                 │   0x00439ada: 48 8b 4d f0               -4a8 mov      rcx, qword ds:[rbp + 0xf0<240,-16>]
+│ │                 │   0x00439ade: 48 89 01                  -4a8 mov      qword ds:[rcx], rax
+│ │                 │   0x00439ae1: 48 8b 45 c8               -4a8 mov      rax, qword ds:[rbp + 0xc8<200,-56>]
+│ │                 │   0x00439ae5: 48 8b 40 10               -4a8 mov      rax, qword ds:[rax + 0x10<16>]
+│ │                 │   0x00439ae9: 8b 7d f8                  -4a8 mov      edi, dword ds:[rbp + 0xf8<248,-8>]
+│ │                 │   0x00439aec: 48 8b 75 f0               -4a8 mov      rsi, qword ds:[rbp + 0xf0<240,-16>]
+│ │                 │   0x00439af0: ff d0                     -4a8 call     rax
+│ │                 │ ┌─	;; successor: call return edge to basic block 0x00439af2
+│ │                 │ │ 	;; successor: function call edge to v84030[u64]
+│ │                 │ │ 
+│ │                 │ └▶	;; predecessor:  from instruction 0x00439af0 from basic block 0x00439ad6
+│ │                 │   0x00439af2: 89 85 88 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], eax
+│ │                 │   0x00439af8: e9 a3 02 00 00            -4a8 jmp      basic block 0x00439da0
+│ │ ┌─              │   	;; successor: normal edge to basic block 0x00439da0
+│ │ │               │   
+│ │ │               └▶  	;; predecessor:  from instruction 0x00439ad0 from basic block 0x00439ac7
+│ │ │                   0x00439afd: 83 7d f8 01               -4a8 cmp      dword ds:[rbp + 0xf8<248,-8>], 1
+│ │ │                   0x00439b01: 0f 84 4a 00 00 00         -4a8 je       basic block 0x00439b51
+│ │ │                 ┌─	;; successor: normal edge to basic block 0x00439b07
+│ │ │             ┌─  │ 	;; successor: normal edge to basic block 0x00439b51
+│ │ │             │   │ 
+│ │ │             │   └▶	;; predecessor:  from instruction 0x00439b01 from basic block 0x00439afd
+│ │ │             │     0x00439b07: 8b 45 f8                  -4a8 mov      eax, dword ds:[rbp + 0xf8<248,-8>]
+│ │ │             │     0x00439b0a: 83 c0 ff                  -4a8 add      eax, 0xff<255,-1>
+│ │ │             │     0x00439b0d: 89 45 f8                  -4a8 mov      dword ds:[rbp + 0xf8<248,-8>], eax
+│ │ │             │     0x00439b10: 48 8b 4d f0               -4a8 mov      rcx, qword ds:[rbp + 0xf0<240,-16>]
+│ │ │             │     0x00439b14: 48 81 c1 08 00 00 00      -4a8 add      rcx, 8
+│ │ │             │     0x00439b1b: 48 89 4d f0               -4a8 mov      qword ds:[rbp + 0xf0<240,-16>], rcx
+│ │ │             │     0x00439b1f: 48 8b 7d c0               -4a8 mov      rdi, qword ds:[rbp + 0xc0<192,-64>]
+│ │ │             │     0x00439b23: 8b 75 f8                  -4a8 mov      esi, dword ds:[rbp + 0xf8<248,-8>]
+│ │ │             │     0x00439b26: 48 8b 55 f0               -4a8 mov      rdx, qword ds:[rbp + 0xf0<240,-16>]
+│ │ │             │     0x00439b2a: e8 b1 05 00 00            -4a8 call     function 0x0043a0e0 "do_cmd"<(func)do_cmd>
+│ │ │             │     	;; successor: function call edge to function 0x0043a0e0 "do_cmd"
+│ │ │             │   ┌─	;; successor: call return edge to basic block 0x00439b2f
+│ │ │             │   │ 
+│ │ │             │   └▶	;; predecessor:  from instruction 0x00439b2a from basic block 0x00439b07
+│ │ │             │     0x00439b2f: 89 85 88 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], eax
+│ │ │             │     0x00439b35: 83 bd 88 fb ff ff 00      -4a8 cmp      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 0
+│ │ │             │     0x00439b3c: 0f 8d 0a 00 00 00         -4a8 jge      basic block 0x00439b4c
+│ │ │             │ ┌─  	;; successor: normal edge to basic block 0x00439b4c
+│ │ │             │ │ ┌─	;; successor: normal edge to basic block 0x00439b42
+│ │ │             │ │ │ 
+│ │ │             │ │ └▶	;; predecessor:  from instruction 0x00439b3c from basic block 0x00439b2f
+│ │ │             │ │   0x00439b42: c7 85 88 fb ff ff 00 00   -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 0
+│ │ │             │ │               00 00
+│ │ │             │ │ ┌─	;; successor: normal edge to basic block 0x00439b4c
+│ │ │             │ │ │ 
+│ │ │             │ └▶│ 	;; predecessor:  from instruction 0x00439b3c from basic block 0x00439b2f
+│ │ │             │   └▶	;; predecessor:  from basic block 0x00439b42
+│ │ │             │     0x00439b4c: e9 4f 02 00 00            -4a8 jmp      basic block 0x00439da0
+│ │ │ ┌─          │     	;; successor: normal edge to basic block 0x00439da0
+│ │ │ │           │     
+│ │ │ │           └▶    	;; predecessor:  from instruction 0x00439b01 from basic block 0x00439afd
+│ │ │ │                 0x00439b51: e9 00 00 00 00            -4a8 jmp      basic block 0x00439b56
+│ │ │ │               ┌─	;; successor: normal edge to basic block 0x00439b56
+│ │ │ │               │ 
+│ │ │ │               └▶	;; predecessor:  from basic block 0x00439b51
+│ │ │ │ ┌▶              	;; predecessor:  from basic block 0x00439d91
+│ │ │ │ │               0x00439b56: 48 8d 85 b0 fb ff ff      -4a8 lea      rax, ds:[rbp + 0xfffffbb0<4294966192,-1104>]
+│ │ │ │ │               0x00439b5d: c7 85 88 fb ff ff 00 00   -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 0
+│ │ │ │ │                           00 00
+│ │ │ │ │               0x00439b67: 48 89 45 b8               -4a8 mov      qword ds:[rbp + 0xb8<184,-72>], rax
+│ │ │ │ │               0x00439b6b: c7 85 90 fb ff ff 00 04   -4a8 mov      dword ds:[rbp + 0xfffffb90<4294966160,-1136>], 0x00000400<1024>
+│ │ │ │ │                           00 00
+│ │ │ │ │               0x00439b75: c7 85 8c fb ff ff 00 00   -4a8 mov      dword ds:[rbp + 0xfffffb8c<4294966156,-1140>], 0
+│ │ │ │ │                           00 00
+│ │ │ │ │               0x00439b7f: c7 85 94 fb ff ff 01 00   -4a8 mov      dword ds:[rbp + 0xfffffb94<4294966164,-1132>], 1
+│ │ │ │ │                           00 00
+│ │ │ │ │             ┌─	;; successor: normal edge to basic block 0x00439b89
+│ │ │ │ │             │ 
+│ │ │ │ │             └▶	;; predecessor:  from instruction 0x00439b7f from basic block 0x00439b56
+│ │ │ │ │     ┌▶        	;; predecessor:  from instruction 0x00439cb1 from basic block 0x00439c70
+│ │ │ │ │     │         0x00439b89: 83 bd 90 fb ff ff 00      -4a8 cmp      dword ds:[rbp + 0xfffffb90<4294966160,-1136>], 0
+│ │ │ │ │     │         0x00439b90: 0f 8e 20 01 00 00         -4a8 jle      basic block 0x00439cb6
+│ │ │ │ │     │ ┌─      	;; successor: normal edge to basic block 0x00439cb6
+│ │ │ │ │     │ │     ┌─	;; successor: normal edge to basic block 0x00439b96
+│ │ │ │ │     │ │     │ 
+│ │ │ │ │     │ │     └▶	;; predecessor:  from instruction 0x00439b90 from basic block 0x00439b89
+│ │ │ │ │     │ │       0x00439b96: 8b 85 94 fb ff ff         -4a8 mov      eax, dword ds:[rbp + 0xfffffb94<4294966164,-1132>]
+│ │ │ │ │     │ │       0x00439b9c: 83 f8 00                  -4a8 cmp      eax, 0
+│ │ │ │ │     │ │       0x00439b9f: 48 b9 8d fd 48 00 00 00   -4a8 mov      rcx, 0x0048fd8d<"OpenSSL> ">
+│ │ │ │ │     │ │                   00 00
+│ │ │ │ │     │ │       0x00439ba9: 48 ba 94 fd 48 00 00 00   -4a8 mov      rdx, 0x0048fd94<"> ">
+│ │ │ │ │     │ │                   00 00
+│ │ │ │ │     │ │       0x00439bb3: 48 0f 45 d1               -4a8 cmovne   rdx, rcx
+│ │ │ │ │     │ │       0x00439bb7: 48 89 95 a8 fb ff ff      -4a8 mov      qword ds:[rbp + 0xfffffba8<4294966184,-1112>], rdx
+│ │ │ │ │     │ │       0x00439bbe: 48 8b 4d b8               -4a8 mov      rcx, qword ds:[rbp + 0xb8<184,-72>]
+│ │ │ │ │     │ │       0x00439bc2: c6 01 00                  -4a8 mov      byte ds:[rcx], 0
+│ │ │ │ │     │ │       0x00439bc5: 48 8b bd a8 fb ff ff      -4a8 mov      rdi, qword ds:[rbp + 0xfffffba8<4294966184,-1112>]
+│ │ │ │ │     │ │       0x00439bcc: 48 8b 34 25 90 70 6b 00   -4a8 mov      rsi, qword ds:[0x006b7090<(data)stdout@@GLIBC_2.2.5>]
+│ │ │ │ │     │ │       0x00439bd4: e8 e7 fe fd ff            -4a8 call     function 0x00419ac0 "fputs@plt"
+│ │ │ │ │     │ │     ┌─	;; successor: call return edge to basic block 0x00439bd9
+│ │ │ │ │     │ │     │ 	;; successor: function call edge to function 0x00419ac0 "fputs@plt"
+│ │ │ │ │     │ │     │ 
+│ │ │ │ │     │ │     └▶	;; predecessor:  from instruction 0x00439bd4 from basic block 0x00439b96
+│ │ │ │ │     │ │       0x00439bd9: 48 8b 3c 25 90 70 6b 00   -4a8 mov      rdi, qword ds:[0x006b7090<(data)stdout@@GLIBC_2.2.5>]
+│ │ │ │ │     │ │       0x00439be1: 89 85 74 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb74<4294966132,-1164>], eax
+│ │ │ │ │     │ │       0x00439be7: e8 84 25 fe ff            -4a8 call     function 0x0041c170 "fflush@plt"
+│ │ │ │ │     │ │     ┌─	;; successor: call return edge to basic block 0x00439bec
+│ │ │ │ │     │ │     │ 	;; successor: function call edge to function 0x0041c170 "fflush@plt"
+│ │ │ │ │     │ │     │ 
+│ │ │ │ │     │ │     └▶	;; predecessor:  from instruction 0x00439be7 from basic block 0x00439bd9
+│ │ │ │ │     │ │       0x00439bec: 48 8b 7d b8               -4a8 mov      rdi, qword ds:[rbp + 0xb8<184,-72>]
+│ │ │ │ │     │ │       0x00439bf0: 8b b5 90 fb ff ff         -4a8 mov      esi, dword ds:[rbp + 0xfffffb90<4294966160,-1136>]
+│ │ │ │ │     │ │       0x00439bf6: 48 8b 14 25 80 70 6b 00   -4a8 mov      rdx, qword ds:[0x006b7080<_edata>]
+│ │ │ │ │     │ │       0x00439bfe: 89 85 70 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb70<4294966128,-1168>], eax
+│ │ │ │ │     │ │       0x00439c04: e8 07 ec fd ff            -4a8 call     function 0x00418810 "fgets@plt"
+│ │ │ │ │     │ │       	;; successor: function call edge to function 0x00418810 "fgets@plt"
+│ │ │ │ │     │ │     ┌─	;; successor: call return edge to basic block 0x00439c09
+│ │ │ │ │     │ │     │ 
+│ │ │ │ │     │ │     └▶	;; predecessor:  from instruction 0x00439c04 from basic block 0x00439bec
+│ │ │ │ │     │ │       0x00439c09: 48 83 f8 00               -4a8 cmp      rax, 0
+│ │ │ │ │     │ │       0x00439c0d: 0f 85 05 00 00 00         -4a8 jne      basic block 0x00439c18
+│ │ │ │ │     │ │     ┌─	;; successor: normal edge to basic block 0x00439c13
+│ │ │ │ │     │ │   ┌─│ 	;; successor: normal edge to basic block 0x00439c18
+│ │ │ │ │     │ │   │ │ 
+│ │ │ │ │     │ │   │ └▶	;; predecessor:  from instruction 0x00439c0d from basic block 0x00439c09
+│ │ │ │ │     │ │   │   0x00439c13: e9 88 01 00 00            -4a8 jmp      basic block 0x00439da0
+│ │ │ │ │ ┌─  │ │   │   	;; successor: normal edge to basic block 0x00439da0
+│ │ │ │ │ │   │ │   │   
+│ │ │ │ │ │   │ │   └▶  	;; predecessor:  from instruction 0x00439c0d from basic block 0x00439c09
+│ │ │ │ │ │   │ │       0x00439c18: 48 8b 45 b8               -4a8 mov      rax, qword ds:[rbp + 0xb8<184,-72>]
+│ │ │ │ │ │   │ │       0x00439c1c: 0f be 08                  -4a8 movsx    ecx, byte ds:[rax]
+│ │ │ │ │ │   │ │       0x00439c1f: 83 f9 00                  -4a8 cmp      ecx, 0
+│ │ │ │ │ │   │ │       0x00439c22: 0f 85 05 00 00 00         -4a8 jne      basic block 0x00439c2d
+│ │ │ │ │ │   │ │   ┌─  	;; successor: normal edge to basic block 0x00439c2d
+│ │ │ │ │ │   │ │   │ ┌─	;; successor: normal edge to basic block 0x00439c28
+│ │ │ │ │ │   │ │   │ │ 
+│ │ │ │ │ │   │ │   │ └▶	;; predecessor:  from instruction 0x00439c22 from basic block 0x00439c18
+│ │ │ │ │ │   │ │   │   0x00439c28: e9 73 01 00 00            -4a8 jmp      basic block 0x00439da0
+│ │ │ │ │ │ ┌─│ │   │   	;; successor: normal edge to basic block 0x00439da0
+│ │ │ │ │ │ │ │ │   │   
+│ │ │ │ │ │ │ │ │   └▶  	;; predecessor:  from instruction 0x00439c22 from basic block 0x00439c18
+│ │ │ │ │ │ │ │ │       0x00439c2d: 48 8b 7d b8               -4a8 mov      rdi, qword ds:[rbp + 0xb8<184,-72>]
+│ │ │ │ │ │ │ │ │       0x00439c31: e8 9a f0 fd ff            -4a8 call     function 0x00418cd0 "strlen@plt"
+│ │ │ │ │ │ │ │ │       	;; successor: function call edge to function 0x00418cd0 "strlen@plt"
+│ │ │ │ │ │ │ │ │     ┌─	;; successor: call return edge to basic block 0x00439c36
+│ │ │ │ │ │ │ │ │     │ 
+│ │ │ │ │ │ │ │ │     └▶	;; predecessor:  from instruction 0x00439c31 from basic block 0x00439c2d
+│ │ │ │ │ │ │ │ │       0x00439c36: 89 85 8c fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb8c<4294966156,-1140>], eax
+│ │ │ │ │ │ │ │ │       0x00439c3c: 83 bd 8c fb ff ff 01      -4a8 cmp      dword ds:[rbp + 0xfffffb8c<4294966156,-1140>], 1
+│ │ │ │ │ │ │ │ │       0x00439c43: 0f 8f 05 00 00 00         -4a8 jg       basic block 0x00439c4e
+│ │ │ │ │ │ │ │ │     ┌─	;; successor: normal edge to basic block 0x00439c49
+│ │ │ │ │ │ │ │ │   ┌─│ 	;; successor: normal edge to basic block 0x00439c4e
+│ │ │ │ │ │ │ │ │   │ │ 
+│ │ │ │ │ │ │ │ │   │ └▶	;; predecessor:  from instruction 0x00439c43 from basic block 0x00439c36
+│ │ │ │ │ │ │ │ │   │   0x00439c49: e9 68 00 00 00            -4a8 jmp      basic block 0x00439cb6
+│ │ │ │ │ │ │ │ │ ┌─│   	;; successor: normal edge to basic block 0x00439cb6
+│ │ │ │ │ │ │ │ │ │ │   
+│ │ │ │ │ │ │ │ │ │ └▶  	;; predecessor:  from instruction 0x00439c43 from basic block 0x00439c36
+│ │ │ │ │ │ │ │ │ │     0x00439c4e: 48 8b 45 b8               -4a8 mov      rax, qword ds:[rbp + 0xb8<184,-72>]
+│ │ │ │ │ │ │ │ │ │     0x00439c52: 8b 8d 8c fb ff ff         -4a8 mov      ecx, dword ds:[rbp + 0xfffffb8c<4294966156,-1140>]
+│ │ │ │ │ │ │ │ │ │     0x00439c58: 83 e9 02                  -4a8 sub      ecx, 2
+│ │ │ │ │ │ │ │ │ │     0x00439c5b: 48 63 d1                  -4a8 movsxd   rdx, ecx
+│ │ │ │ │ │ │ │ │ │     0x00439c5e: 0f be 0c 10               -4a8 movsx    ecx, byte ds:[rax + rdx]
+│ │ │ │ │ │ │ │ │ │     0x00439c62: 83 f9 5c                  -4a8 cmp      ecx, 0x5c<92>
+│ │ │ │ │ │ │ │ │ │     0x00439c65: 0f 84 05 00 00 00         -4a8 je       basic block 0x00439c70
+│ │ │ │ │ │ │ │ │ │   ┌─	;; successor: normal edge to basic block 0x00439c6b
+│ │ │ │ │ │ │ │ │ │ ┌─│ 	;; successor: normal edge to basic block 0x00439c70
+│ │ │ │ │ │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x00439c65 from basic block 0x00439c4e
+│ │ │ │ │ │ │ │ │ │ │   0x00439c6b: e9 46 00 00 00            -4a8 jmp      basic block 0x00439cb6
+│ │ │ │ │ │ │ │ │ │ │ ┌─	;; successor: normal edge to basic block 0x00439cb6
+│ │ │ │ │ │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ └▶│ 	;; predecessor:  from instruction 0x00439c65 from basic block 0x00439c4e
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c70: 8b 85 8c fb ff ff         -4a8 mov      eax, dword ds:[rbp + 0xfffffb8c<4294966156,-1140>]
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c76: 83 e8 02                  -4a8 sub      eax, 2
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c79: 89 85 8c fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb8c<4294966156,-1140>], eax
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c7f: 8b 85 8c fb ff ff         -4a8 mov      eax, dword ds:[rbp + 0xfffffb8c<4294966156,-1140>]
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c85: 48 8b 4d b8               -4a8 mov      rcx, qword ds:[rbp + 0xb8<184,-72>]
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c89: 48 63 d0                  -4a8 movsxd   rdx, eax
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c8c: 48 01 d1                  -4a8 add      rcx, rdx
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c8f: 48 89 4d b8               -4a8 mov      qword ds:[rbp + 0xb8<184,-72>], rcx
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c93: 8b 85 8c fb ff ff         -4a8 mov      eax, dword ds:[rbp + 0xfffffb8c<4294966156,-1140>]
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c99: 8b b5 90 fb ff ff         -4a8 mov      esi, dword ds:[rbp + 0xfffffb90<4294966160,-1136>]
+│ │ │ │ │ │ │ │ │ │   │ 0x00439c9f: 29 c6                     -4a8 sub      esi, eax
+│ │ │ │ │ │ │ │ │ │   │ 0x00439ca1: 89 b5 90 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb90<4294966160,-1136>], esi
+│ │ │ │ │ │ │ │ │ │   │ 0x00439ca7: c7 85 94 fb ff ff 00 00   -4a8 mov      dword ds:[rbp + 0xfffffb94<4294966164,-1132>], 0
+│ │ │ │ │ │ │ │ │ │   │             00 00
+│ │ │ │ │ │ │ │ │ │   │ 0x00439cb1: e9 d3 fe ff ff            -4a8 jmp      basic block 0x00439b89
+│ │ │ │ │ │ │ └─│ │   │ 	;; successor: normal edge to basic block 0x00439b89
+│ │ │ │ │ │ │   │ │   │ 
+│ │ │ │ │ │ │   └▶│   │ 	;; predecessor:  from instruction 0x00439b90 from basic block 0x00439b89
+│ │ │ │ │ │ │     └▶  │ 	;; predecessor:  from basic block 0x00439c49
+│ │ │ │ │ │ │         └▶	;; predecessor:  from basic block 0x00439c6b
+│ │ │ │ │ │ │           0x00439cb6: 48 8d b5 b0 fb ff ff      -4a8 lea      rsi, ds:[rbp + 0xfffffbb0<4294966192,-1104>]
+│ │ │ │ │ │ │           0x00439cbd: 48 8d bd 98 fb ff ff      -4a8 lea      rdi, ds:[rbp + 0xfffffb98<4294966168,-1128>]
+│ │ │ │ │ │ │           0x00439cc4: e8 57 de 03 00            -4a8 call     function 0x00477b20 "chopup_args"<(func)chopup_args>
+│ │ │ │ │ │ │           	;; successor: function call edge to function 0x00477b20 "chopup_args"
+│ │ │ │ │ │ │         ┌─	;; successor: call return edge to basic block 0x00439cc9
+│ │ │ │ │ │ │         │ 
+│ │ │ │ │ │ │         └▶	;; predecessor:  from instruction 0x00439cc4 from basic block 0x00439cb6
+│ │ │ │ │ │ │           0x00439cc9: 83 f8 00                  -4a8 cmp      eax, 0
+│ │ │ │ │ │ │           0x00439ccc: 0f 85 1e 00 00 00         -4a8 jne      basic block 0x00439cf0
+│ │ │ │ │ │ │       ┌─  	;; successor: normal edge to basic block 0x00439cf0
+│ │ │ │ │ │ │       │ ┌─	;; successor: normal edge to basic block 0x00439cd2
+│ │ │ │ │ │ │       │ │ 
+│ │ │ │ │ │ │       │ └▶	;; predecessor:  from instruction 0x00439ccc from basic block 0x00439cc9
+│ │ │ │ │ │ │       │   0x00439cd2: 48 8b 3c 25 68 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7168<(data)bio_err>]
+│ │ │ │ │ │ │       │   0x00439cda: 48 be 97 fd 48 00 00 00   -4a8 mov      rsi, 0x0048fd97<"Can't parse (no memory?)\n">
+│ │ │ │ │ │ │       │               00 00
+│ │ │ │ │ │ │       │   0x00439ce4: b0 00                     -4a8 mov      al, 0
+│ │ │ │ │ │ │       │   0x00439ce6: e8 35 d4 fd ff            -4a8 call     function 0x00417120 "BIO_printf@plt"
+│ │ │ │ │ │ │       │ ┌─	;; successor: call return edge to basic block 0x00439ceb
+│ │ │ │ │ │ │       │ │ 	;; successor: function call edge to function 0x00417120 "BIO_printf@plt"
+│ │ │ │ │ │ │       │ │ 
+│ │ │ │ │ │ │       │ └▶	;; predecessor:  from instruction 0x00439ce6 from basic block 0x00439cd2
+│ │ │ │ │ │ │       │   0x00439ceb: e9 a6 00 00 00            -4a8 jmp      0x00439d96
+│ │ │ │ │ │ │       │   0x00439d96: c7 85 88 fb ff ff 01 00   -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 1
+│ │ │ │ │ │ │       │               00 00
+│ │ │ │ │ │ │   ┌─  │   	;; successor: normal edge to basic block 0x00439da0
+│ │ │ │ │ │ │   │   │   
+│ │ │ │ │ │ │   │   │   ;;; skip backward 176 bytes
+│ │ │ │ │ │ │   │   └▶  	;; predecessor:  from instruction 0x00439ccc from basic block 0x00439cc9
+│ │ │ │ │ │ │   │       0x00439cf0: 48 8b 7d c0               -4a8 mov      rdi, qword ds:[rbp + 0xc0<192,-64>]
+│ │ │ │ │ │ │   │       0x00439cf4: 8b b5 9c fb ff ff         -4a8 mov      esi, dword ds:[rbp + 0xfffffb9c<4294966172,-1124>]
+│ │ │ │ │ │ │   │       0x00439cfa: 48 8b 95 a0 fb ff ff      -4a8 mov      rdx, qword ds:[rbp + 0xfffffba0<4294966176,-1120>]
+│ │ │ │ │ │ │   │       0x00439d01: e8 da 03 00 00            -4a8 call     function 0x0043a0e0 "do_cmd"<(func)do_cmd>
+│ │ │ │ │ │ │   │       	;; successor: function call edge to function 0x0043a0e0 "do_cmd"
+│ │ │ │ │ │ │   │     ┌─	;; successor: call return edge to basic block 0x00439d06
+│ │ │ │ │ │ │   │     │ 
+│ │ │ │ │ │ │   │     └▶	;; predecessor:  from instruction 0x00439d01 from basic block 0x00439cf0
+│ │ │ │ │ │ │   │       0x00439d06: 89 85 88 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], eax
+│ │ │ │ │ │ │   │       0x00439d0c: 83 bd 88 fb ff ff ff      -4a8 cmp      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 0xff<255,-1>
+│ │ │ │ │ │ │   │       0x00439d13: 0f 85 0f 00 00 00         -4a8 jne      basic block 0x00439d28
+│ │ │ │ │ │ │   │     ┌─	;; successor: normal edge to basic block 0x00439d19
+│ │ │ │ │ │ │   │   ┌─│ 	;; successor: normal edge to basic block 0x00439d28
+│ │ │ │ │ │ │   │   │ │ 
+│ │ │ │ │ │ │   │   │ └▶	;; predecessor:  from instruction 0x00439d13 from basic block 0x00439d06
+│ │ │ │ │ │ │   │   │   0x00439d19: c7 85 88 fb ff ff 00 00   -4a8 mov      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 0
+│ │ │ │ │ │ │   │   │               00 00
+│ │ │ │ │ │ │   │   │   0x00439d23: e9 78 00 00 00            -4a8 jmp      basic block 0x00439da0
+│ │ │ │ │ │ │   │ ┌─│   	;; successor: normal edge to basic block 0x00439da0
+│ │ │ │ │ │ │   │ │ │   
+│ │ │ │ │ │ │   │ │ └▶  	;; predecessor:  from instruction 0x00439d13 from basic block 0x00439d06
+│ │ │ │ │ │ │   │ │     0x00439d28: 83 bd 88 fb ff ff 00      -4a8 cmp      dword ds:[rbp + 0xfffffb88<4294966152,-1144>], 0
+│ │ │ │ │ │ │   │ │     0x00439d2f: 0f 84 23 00 00 00         -4a8 je       basic block 0x00439d58
+│ │ │ │ │ │ │   │ │ ┌─  	;; successor: normal edge to basic block 0x00439d58
+│ │ │ │ │ │ │   │ │ │ ┌─	;; successor: normal edge to basic block 0x00439d35
+│ │ │ │ │ │ │   │ │ │ │ 
+│ │ │ │ │ │ │   │ │ │ └▶	;; predecessor:  from instruction 0x00439d2f from basic block 0x00439d28
+│ │ │ │ │ │ │   │ │ │   0x00439d35: 48 8b 3c 25 68 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7168<(data)bio_err>]
+│ │ │ │ │ │ │   │ │ │   0x00439d3d: 48 8b 85 a0 fb ff ff      -4a8 mov      rax, qword ds:[rbp + 0xfffffba0<4294966176,-1120>]
+│ │ │ │ │ │ │   │ │ │   0x00439d44: 48 8b 10                  -4a8 mov      rdx, qword ds:[rax]
+│ │ │ │ │ │ │   │ │ │   0x00439d47: 48 be 54 39 4a 00 00 00   -4a8 mov      rsi, 0x004a3954<"error in %s\n">
+│ │ │ │ │ │ │   │ │ │               00 00
+│ │ │ │ │ │ │   │ │ │   0x00439d51: b0 00                     -4a8 mov      al, 0
+│ │ │ │ │ │ │   │ │ │   0x00439d53: e8 c8 d3 fd ff            -4a8 call     function 0x00417120 "BIO_printf@plt"
+│ │ │ │ │ │ │   │ │ │ ┌─	;; successor: call return edge to basic block 0x00439d58
+│ │ │ │ │ │ │   │ │ │ │ 	;; successor: function call edge to function 0x00417120 "BIO_printf@plt"
+│ │ │ │ │ │ │   │ │ │ │ 
+│ │ │ │ │ │ │   │ │ └▶│ 	;; predecessor:  from instruction 0x00439d2f from basic block 0x00439d28
+│ │ │ │ │ │ │   │ │   └▶	;; predecessor:  from instruction 0x00439d53 from basic block 0x00439d35
+│ │ │ │ │ │ │   │ │     0x00439d58: 31 c0                     -4a8 xor      eax, eax
+│ │ │ │ │ │ │   │ │     0x00439d5a: 89 c1                     -4a8 mov      ecx, eax
+│ │ │ │ │ │ │   │ │     0x00439d5c: 48 8b 3c 25 60 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7160<(data)bio_out>]
+│ │ │ │ │ │ │   │ │     0x00439d64: be 0b 00 00 00            -4a8 mov      esi, 11
+│ │ │ │ │ │ │   │ │     0x00439d69: 48 89 ca                  -4a8 mov      rdx, rcx
+│ │ │ │ │ │ │   │ │     0x00439d6c: e8 ef 1a fe ff            -4a8 call     function 0x0041b860 "BIO_ctrl@plt"
+│ │ │ │ │ │ │   │ │   ┌─	;; successor: call return edge to basic block 0x00439d71
+│ │ │ │ │ │ │   │ │   │ 	;; successor: function call edge to function 0x0041b860 "BIO_ctrl@plt"
+│ │ │ │ │ │ │   │ │   │ 
+│ │ │ │ │ │ │   │ │   └▶	;; predecessor:  from instruction 0x00439d6c from basic block 0x00439d58
+│ │ │ │ │ │ │   │ │     0x00439d71: 31 f6                     -4a8 xor      esi, esi
+│ │ │ │ │ │ │   │ │     0x00439d73: 89 f1                     -4a8 mov      ecx, esi
+│ │ │ │ │ │ │   │ │     0x00439d75: 48 8b 3c 25 68 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7168<(data)bio_err>]
+│ │ │ │ │ │ │   │ │     0x00439d7d: be 0b 00 00 00            -4a8 mov      esi, 11
+│ │ │ │ │ │ │   │ │     0x00439d82: 48 89 ca                  -4a8 mov      rdx, rcx
+│ │ │ │ │ │ │   │ │     0x00439d85: 48 89 85 68 fb ff ff      -4a8 mov      qword ds:[rbp + 0xfffffb68<4294966120,-1176>], rax
+│ │ │ │ │ │ │   │ │     0x00439d8c: e8 cf 1a fe ff            -4a8 call     function 0x0041b860 "BIO_ctrl@plt"
+│ │ │ │ │ │ │   │ │   ┌─	;; successor: call return edge to basic block 0x00439d91
+│ │ │ │ │ │ │   │ │   │ 	;; successor: function call edge to function 0x0041b860 "BIO_ctrl@plt"
+│ │ │ │ │ │ │   │ │   │ 
+│ │ │ │ │ │ │   │ │   └▶	;; predecessor:  from instruction 0x00439d8c from basic block 0x00439d71
+│ │ │ │ │ │ │   │ │     0x00439d91: e9 c0 fd ff ff            -4a8 jmp      basic block 0x00439b56
+│ │ │ │ └─│ │   │ │     	;; successor: normal edge to basic block 0x00439b56
+│ │ │ │   │ │   │ │     
+│ │ │ │   │ │   │ │     ;;; skip forward 10 bytes
+└▶│ │ │   │ │   │ │     	;; predecessor:  from instruction 0x00439a4e from basic block 0x00439a44
+  └▶│ │   │ │   │ │     	;; predecessor:  from instruction 0x00439a9d from basic block 0x00439a93
+    └▶│   │ │   │ │     	;; predecessor:  from instruction 0x00439af8 from basic block 0x00439af2
+      └▶  │ │   │ │     	;; predecessor:  from basic block 0x00439b4c
+          └▶│   │ │     	;; predecessor:  from basic block 0x00439c13
+            └▶  │ │     	;; predecessor:  from basic block 0x00439c28
+                │ └▶    	;; predecessor:  from instruction 0x00439d23 from basic block 0x00439d19
+                └▶      	;; predecessor:  from instruction 0x00439d96 from basic block 0x00439ceb
+                        0x00439da0: 48 8b 3c 25 50 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7150<(data)default_config_file>]
+                        0x00439da8: 48 be b1 fd 48 00 00 00   -4a8 mov      rsi, 0x0048fdb1<"apps/openssl.c">
+                                    00 00
+                        0x00439db2: ba 04 01 00 00            -4a8 mov      edx, 0x00000104<260>
+                        0x00439db7: e8 94 ed fd ff            -4a8 call     function 0x00418b50 "CRYPTO_free@plt"
+                      ┌─	;; successor: call return edge to basic block 0x00439dbc
+                      │ 	;; successor: function call edge to function 0x00418b50 "CRYPTO_free@plt"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439db7 from basic block 0x00439da0
+                        0x00439dbc: 48 8b 7d c0               -4a8 mov      rdi, qword ds:[rbp + 0xc0<192,-64>]
+                        0x00439dc0: e8 6b 05 00 00            -4a8 call     function 0x0043a330 "lh_FUNCTION_free"<(func)lh_FUNCTION_free>
+                      ┌─	;; successor: call return edge to basic block 0x00439dc5
+                      │ 	;; successor: function call edge to function 0x0043a330 "lh_FUNCTION_free"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439dc0 from basic block 0x00439dbc
+                        0x00439dc5: 48 8b 85 a0 fb ff ff      -4a8 mov      rax, qword ds:[rbp + 0xfffffba0<4294966176,-1120>]
+                        0x00439dcc: 48 89 c7                  -4a8 mov      rdi, rax
+                        0x00439dcf: 48 be b1 fd 48 00 00 00   -4a8 mov      rsi, 0x0048fdb1<"apps/openssl.c">
+                                    00 00
+                        0x00439dd9: ba 06 01 00 00            -4a8 mov      edx, 0x00000106<262>
+                        0x00439dde: e8 6d ed fd ff            -4a8 call     function 0x00418b50 "CRYPTO_free@plt"
+                      ┌─	;; successor: call return edge to basic block 0x00439de3
+                      │ 	;; successor: function call edge to function 0x00418b50 "CRYPTO_free@plt"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439dde from basic block 0x00439dc5
+                        0x00439de3: e8 e8 da 03 00            -4a8 call     function 0x004778d0 "app_RAND_write"<(func)app_RAND_write>
+                      ┌─	;; successor: call return edge to basic block 0x00439de8
+                      │ 	;; successor: function call edge to function 0x004778d0 "app_RAND_write"
+                      │ 
+                      └▶	;; predecessor:  from basic block 0x00439de3
+                        0x00439de8: 48 8b 3c 25 58 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7158<(data)bio_in>]
+                        0x00439df0: e8 cb 1a fe ff            -4a8 call     function 0x0041b8c0 "BIO_free@plt"
+                      ┌─	;; successor: call return edge to basic block 0x00439df5
+                      │ 	;; successor: function call edge to function 0x0041b8c0 "BIO_free@plt"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439df0 from basic block 0x00439de8
+                        0x00439df5: 48 8b 3c 25 60 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7160<(data)bio_out>]
+                        0x00439dfd: 89 85 64 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb64<4294966116,-1180>], eax
+                        0x00439e03: e8 48 0a fe ff            -4a8 call     function 0x0041a850 "BIO_free_all@plt"
+                      ┌─	;; successor: call return edge to basic block 0x00439e08
+                      │ 	;; successor: function call edge to function 0x0041a850 "BIO_free_all@plt"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439e03 from basic block 0x00439df5
+                        0x00439e08: e8 43 05 00 00            -4a8 call     function 0x0043a350 "apps_shutdown"<(func)apps_shutdown>
+                      ┌─	;; successor: call return edge to basic block 0x00439e0d
+                      │ 	;; successor: function call edge to function 0x0043a350 "apps_shutdown"
+                      │ 
+                      └▶	;; predecessor:  from basic block 0x00439e08
+                        0x00439e0d: 48 8b 3c 25 68 71 6b 00   -4a8 mov      rdi, qword ds:[0x006b7168<(data)bio_err>]
+                        0x00439e15: e8 a6 1a fe ff            -4a8 call     function 0x0041b8c0 "BIO_free@plt"
+                      ┌─	;; successor: call return edge to basic block 0x00439e1a
+                      │ 	;; successor: function call edge to function 0x0041b8c0 "BIO_free@plt"
+                      │ 
+                      └▶	;; predecessor:  from instruction 0x00439e15 from basic block 0x00439e0d
+                        0x00439e1a: 8b bd 88 fb ff ff         -4a8 mov      edi, dword ds:[rbp + 0xfffffb88<4294966152,-1144>]
+                        0x00439e20: 89 85 60 fb ff ff         -4a8 mov      dword ds:[rbp + 0xfffffb60<4294966112,-1184>], eax
+                        0x00439e26: e8 65 dd fd ff            -4a8 call     function 0x00417b90 "exit@plt"
+                        	;; successor: function call edge to function 0x00417b90 "exit@plt"
+
+

@@ -64,6 +64,9 @@ public:
 };
 
 int main() {
+
+  myfunction();
+
   Cls3 *e = new Cls3();
   Cls1 *f = new Cls3();
   Cls1 *c1 = new Cls1();
