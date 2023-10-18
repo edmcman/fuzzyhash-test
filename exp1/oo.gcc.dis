@@ -1,10 +1,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; function 0x00401000 "_init"
 ;;; reasons for function: referenced by symbol table
-;;; called from function 0x00401560 "__libc_csu_init"
+;;; called from function 0x00401870 "__libc_csu_init"
 ;;; calls function 0x00401040 "__gmon_start__@plt"
 
-    	;; predecessor:  from instruction 0x0040158e from basic block 0x00401560
+    	;; predecessor:  from instruction 0x0040189e from basic block 0x00401870
     0x00401000: 48 83 ec 08                00 sub      rsp, 8
     0x00401004: 48 8b 05 ed 2f 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002fed<12269><absolute=0x0000000000403ff8>]
     0x0040100b: 48 85 c0                  -08 test     rax, rax
@@ -21,7 +21,7 @@
   └▶	;; predecessor:  from basic block 0x00401010
     0x00401015: 48 83 c4 08               -08 add      rsp, 8
     0x00401019: c3                         00 ret
-    	;; successor: function return edge to v120019[u64]
+    	;; successor: function return edge to v110018[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -30,26 +30,28 @@
 
 0x00401020: ff 35 e2 2f 00 00          00 push     qword ds:[rip + 0x0000000000002fe2<12258><absolute=0x0000000000404008>]
 0x00401026: ff 25 e4 2f 00 00         -08 jmp      qword ds:[rip + 0x0000000000002fe4<12260><absolute=0x0000000000404010>]
-	;; successor: normal edge to v150016[u64]
+	;; successor: normal edge to v150017[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; function 0x00401030 "std::__throw_bad_cast()@plt"
 ;;; mangled name is "_ZSt16__throw_bad_castv@plt"
 ;;; reasons for function: import
-;;; called from function 0x004012d0 "Cls1::func1()"
-;;; called from function 0x00401350 "Cls3::func3()"
-;;; called from function 0x004013d0 "non-virtual thunk to Cls3::func3()"
-;;; called from function 0x00401450 "Cls2::func4()"
-;;; called from function 0x004014d0 "Cls3::func1()"
+;;; called from function 0x00401200 "myfunc()"
+;;; called from function 0x004015e0 "Cls2::func4()"
+;;; called from function 0x00401660 "Cls3::func3()"
+;;; called from function 0x004016e0 "non-virtual thunk to Cls3::func3()"
+;;; called from function 0x00401760 "Cls1::func1()"
+;;; called from function 0x004017e0 "Cls3::func1()"
 
-	;; predecessor:  from basic block 0x00401347
-	;; predecessor:  from basic block 0x004013c7
-	;; predecessor:  from basic block 0x00401447
-	;; predecessor:  from basic block 0x004014c7
-	;; predecessor:  from basic block 0x00401547
+	;; predecessor:  from basic block 0x004015c7
+	;; predecessor:  from basic block 0x00401657
+	;; predecessor:  from basic block 0x004016d7
+	;; predecessor:  from basic block 0x00401757
+	;; predecessor:  from basic block 0x004017d7
+	;; predecessor:  from basic block 0x00401857
 0x00401030: ff 25 e2 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002fe2<12258><absolute=0x0000000000404018>]
-	;; successor: normal edge to v90029[u64]
+	;; successor: normal edge to v90030[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -59,68 +61,74 @@
 
 	;; predecessor:  from basic block 0x00401010
 0x00401040: ff 25 da 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002fda<12250><absolute=0x0000000000404020>]
-	;; successor: normal edge to v90028[u64]
+	;; successor: normal edge to v90029[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; function 0x00401050 "operator delete(void*)@plt"
 ;;; mangled name is "_ZdlPv@plt"
 ;;; reasons for function: import
-;;; predecessor function 0x00401550 "operator delete(void*, unsigned long)"
+;;; predecessor function 0x00401860 "operator delete(void*, unsigned long)"
 
-	;; predecessor:  from instruction 0x00401554 from basic block 0x00401550
+	;; predecessor:  from instruction 0x00401864 from basic block 0x00401860
 0x00401050: ff 25 d2 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002fd2<12242><absolute=0x0000000000404028>]
-	;; successor: normal edge to v110024[u64]
+	;; successor: normal edge to v110022[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
 ;;; mangled name is "_ZNKSt5ctypeIcE13_M_widen_initEv@plt"
 ;;; reasons for function: import
-;;; called from function 0x004012d0 "Cls1::func1()"
-;;; called from function 0x00401350 "Cls3::func3()"
-;;; called from function 0x004013d0 "non-virtual thunk to Cls3::func3()"
-;;; called from function 0x00401450 "Cls2::func4()"
-;;; called from function 0x004014d0 "Cls3::func1()"
+;;; called from function 0x00401200 "myfunc()" 5 times
+;;; called from function 0x004015e0 "Cls2::func4()"
+;;; called from function 0x00401660 "Cls3::func3()"
+;;; called from function 0x004016e0 "non-virtual thunk to Cls3::func3()"
+;;; called from function 0x00401760 "Cls1::func1()"
+;;; called from function 0x004017e0 "Cls3::func1()"
 
-	;; predecessor:  from instruction 0x00401323 from basic block 0x00401320
-	;; predecessor:  from instruction 0x004013a3 from basic block 0x004013a0
-	;; predecessor:  from instruction 0x00401423 from basic block 0x00401420
-	;; predecessor:  from instruction 0x004014a3 from basic block 0x004014a0
+	;; predecessor:  from instruction 0x00401493 from basic block 0x00401490
+	;; predecessor:  from instruction 0x004014c3 from basic block 0x004014c0
+	;; predecessor:  from instruction 0x004014f3 from basic block 0x004014f0
 	;; predecessor:  from instruction 0x00401523 from basic block 0x00401520
+	;; predecessor:  from instruction 0x00401553 from basic block 0x00401550
+	;; predecessor:  from instruction 0x00401633 from basic block 0x00401630
+	;; predecessor:  from instruction 0x004016b3 from basic block 0x004016b0
+	;; predecessor:  from instruction 0x00401733 from basic block 0x00401730
+	;; predecessor:  from instruction 0x004017b3 from basic block 0x004017b0
+	;; predecessor:  from instruction 0x00401833 from basic block 0x00401830
 0x00401060: ff 25 ca 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002fca<12234><absolute=0x0000000000404030>]
-	;; successor: normal edge to v20[u64]
+	;; successor: normal edge to v21[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; function 0x00401070 "std::ios_base::Init::Init()@plt"
 ;;; mangled name is "_ZNSt8ios_base4InitC1Ev@plt"
 ;;; reasons for function: import
-;;; called from function 0x004011c0 "_GLOBAL__sub_I_main"
+;;; called from function 0x00401100 "_GLOBAL__sub_I__Z6myfuncv"
 
-	;; predecessor:  from instruction 0x004011c9 from basic block 0x004011c0
+	;; predecessor:  from instruction 0x00401109 from basic block 0x00401100
 0x00401070: ff 25 c2 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002fc2<12226><absolute=0x0000000000404038>]
-	;; successor: normal edge to v120021[u64]
+	;; successor: normal edge to v120031[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; function 0x00401080 "__libc_start_main@plt"
 ;;; reasons for function: import
-;;; called from function 0x004011e6 "_start"
+;;; called from function 0x00401126 "_start"
 
-	;; predecessor:  from instruction 0x0040120a from basic block 0x004011e6
+	;; predecessor:  from instruction 0x0040114a from basic block 0x00401126
 0x00401080: ff 25 ba 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002fba<12218><absolute=0x0000000000404040>]
-	;; successor: normal edge to v70027[u64]
+	;; successor: normal edge to v70021[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; function 0x00401090 "__cxa_atexit@plt"
 ;;; reasons for function: import
-;;; predecessor function 0x004011c0 "_GLOBAL__sub_I_main"
+;;; predecessor function 0x00401100 "_GLOBAL__sub_I__Z6myfuncv"
 
-	;; predecessor:  from instruction 0x004011e1 from basic block 0x004011ce
+	;; predecessor:  from instruction 0x00401121 from basic block 0x0040110e
 0x00401090: ff 25 b2 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002fb2<12210><absolute=0x0000000000404048>]
-	;; successor: normal edge to v140025[u64]
+	;; successor: normal edge to v140028[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -129,935 +137,1397 @@
 ;;; reasons for function: import, referenced by symbol table
 
 0x004010a0: ff 25 aa 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002faa<12202><absolute=0x0000000000404050>]
-	;; successor: normal edge to v110022[u64]
+	;; successor: normal edge to v110020[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@plt"
-;;; mangled name is "_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc@plt"
-;;; reasons for function: import
-;;; called from function 0x00401110 "main"
-
-	;; predecessor:  from instruction 0x00401167 from basic block 0x00401144
-0x004010b0: ff 25 a2 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002fa2<12194><absolute=0x0000000000404058>]
-	;; successor: normal edge to v70024[u64]
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+;;; function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
 ;;; mangled name is "_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l@plt"
 ;;; reasons for function: import
-;;; called from function 0x004012d0 "Cls1::func1()"
-;;; called from function 0x00401350 "Cls3::func3()"
-;;; called from function 0x004013d0 "non-virtual thunk to Cls3::func3()"
-;;; called from function 0x00401450 "Cls2::func4()"
-;;; called from function 0x004014d0 "Cls3::func1()"
+;;; called from function 0x00401200 "myfunc()" 5 times
+;;; called from function 0x004015e0 "Cls2::func4()"
+;;; called from function 0x00401660 "Cls3::func3()"
+;;; called from function 0x004016e0 "non-virtual thunk to Cls3::func3()"
+;;; called from function 0x00401760 "Cls1::func1()"
+;;; called from function 0x004017e0 "Cls3::func1()"
 
-	;; predecessor:  from instruction 0x004012e0 from basic block 0x004012d0
-	;; predecessor:  from instruction 0x00401360 from basic block 0x00401350
-	;; predecessor:  from instruction 0x004013e0 from basic block 0x004013d0
-	;; predecessor:  from instruction 0x00401460 from basic block 0x00401450
-	;; predecessor:  from instruction 0x004014e0 from basic block 0x004014d0
-0x004010c0: ff 25 9a 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002f9a<12186><absolute=0x0000000000404060>]
-	;; successor: normal edge to v140024[u64]
+	;; predecessor:  from instruction 0x0040127f from basic block 0x0040125b
+	;; predecessor:  from instruction 0x004012e3 from basic block 0x004012d4
+	;; predecessor:  from instruction 0x00401348 from basic block 0x00401339
+	;; predecessor:  from instruction 0x004013b1 from basic block 0x004013a2
+	;; predecessor:  from instruction 0x00401415 from basic block 0x00401406
+	;; predecessor:  from instruction 0x004015f0 from basic block 0x004015e0
+	;; predecessor:  from instruction 0x00401670 from basic block 0x00401660
+	;; predecessor:  from instruction 0x004016f0 from basic block 0x004016e0
+	;; predecessor:  from instruction 0x00401770 from basic block 0x00401760
+	;; predecessor:  from instruction 0x004017f0 from basic block 0x004017e0
+0x004010b0: ff 25 a2 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002fa2<12194><absolute=0x0000000000404058>]
+	;; successor: normal edge to v70018[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+;;; function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
 ;;; mangled name is "_ZNSo5flushEv@plt"
 ;;; reasons for function: import
-;;; predecessor function 0x004012d0 "Cls1::func1()"
-;;; predecessor function 0x00401350 "Cls3::func3()"
-;;; predecessor function 0x004013d0 "non-virtual thunk to Cls3::func3()"
-;;; predecessor function 0x00401450 "Cls2::func4()"
-;;; predecessor function 0x004014d0 "Cls3::func1()"
+;;; called from function 0x00401200 "myfunc()" 5 times
+;;; predecessor function 0x004015e0 "Cls2::func4()"
+;;; predecessor function 0x00401660 "Cls3::func3()"
+;;; predecessor function 0x004016e0 "non-virtual thunk to Cls3::func3()"
+;;; predecessor function 0x00401760 "Cls1::func1()"
+;;; predecessor function 0x004017e0 "Cls3::func1()"
 
-	;; predecessor:  from instruction 0x00401314 from basic block 0x00401310
-	;; predecessor:  from instruction 0x00401394 from basic block 0x00401390
-	;; predecessor:  from instruction 0x00401414 from basic block 0x00401410
-	;; predecessor:  from instruction 0x00401494 from basic block 0x00401490
-	;; predecessor:  from instruction 0x00401514 from basic block 0x00401510
-0x004010d0: ff 25 92 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002f92<12178><absolute=0x0000000000404068>]
-	;; successor: normal edge to v50024[u64]
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@plt"
-;;; mangled name is "_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_@plt"
-;;; reasons for function: import
-;;; called from function 0x00401110 "main"
-
-	;; predecessor:  from instruction 0x0040116f from basic block 0x0040116c
-0x004010e0: ff 25 8a 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002f8a<12170><absolute=0x0000000000404070>]
-	;; successor: normal edge to v90025[u64]
+	;; predecessor:  from instruction 0x004012bc from basic block 0x004012b9
+	;; predecessor:  from instruction 0x00401320 from basic block 0x0040131d
+	;; predecessor:  from instruction 0x00401385 from basic block 0x00401382
+	;; predecessor:  from instruction 0x004013ee from basic block 0x004013eb
+	;; predecessor:  from instruction 0x00401452 from basic block 0x0040144f
+	;; predecessor:  from instruction 0x00401624 from basic block 0x00401620
+	;; predecessor:  from instruction 0x004016a4 from basic block 0x004016a0
+	;; predecessor:  from instruction 0x00401724 from basic block 0x00401720
+	;; predecessor:  from instruction 0x004017a4 from basic block 0x004017a0
+	;; predecessor:  from instruction 0x00401824 from basic block 0x00401820
+0x004010c0: ff 25 9a 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002f9a<12186><absolute=0x0000000000404060>]
+	;; successor: normal edge to v140027[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004010f0 "operator new(unsigned long)@plt"
+;;; function 0x004010d0 "operator new(unsigned long)@plt"
 ;;; mangled name is "_Znwm@plt"
 ;;; reasons for function: import
-;;; called from function 0x00401110 "main" 2 times
+;;; called from function 0x00401200 "myfunc()" 3 times
 
-	;; predecessor:  from instruction 0x0040111c from basic block 0x00401110
-	;; predecessor:  from instruction 0x0040113f from basic block 0x00401121
-0x004010f0: ff 25 82 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002f82<12162><absolute=0x0000000000404078>]
-	;; successor: normal edge to v17[u64]
+	;; predecessor:  from instruction 0x00401210 from basic block 0x00401200
+	;; predecessor:  from instruction 0x00401233 from basic block 0x00401215
+	;; predecessor:  from instruction 0x00401256 from basic block 0x00401238
+0x004010d0: ff 25 92 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002f92<12178><absolute=0x0000000000404068>]
+	;; successor: normal edge to v50025[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+;;; function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
 ;;; mangled name is "_ZNSo3putEc@plt"
 ;;; reasons for function: import
-;;; called from function 0x004012d0 "Cls1::func1()"
-;;; called from function 0x00401350 "Cls3::func3()"
-;;; called from function 0x004013d0 "non-virtual thunk to Cls3::func3()"
-;;; called from function 0x00401450 "Cls2::func4()"
-;;; called from function 0x004014d0 "Cls3::func1()"
+;;; called from function 0x00401200 "myfunc()" 5 times
+;;; called from function 0x004015e0 "Cls2::func4()"
+;;; called from function 0x00401660 "Cls3::func3()"
+;;; called from function 0x004016e0 "non-virtual thunk to Cls3::func3()"
+;;; called from function 0x00401760 "Cls1::func1()"
+;;; called from function 0x004017e0 "Cls3::func1()"
 
-	;; predecessor:  from instruction 0x0040130b from basic block 0x00401306
-	;; predecessor:  from instruction 0x0040138b from basic block 0x00401386
-	;; predecessor:  from instruction 0x0040140b from basic block 0x00401406
-	;; predecessor:  from instruction 0x0040148b from basic block 0x00401486
-	;; predecessor:  from instruction 0x0040150b from basic block 0x00401506
-0x00401100: ff 25 7a 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002f7a<12154><absolute=0x0000000000404080>]
-	;; successor: normal edge to v100030[u64]
+	;; predecessor:  from instruction 0x004012b4 from basic block 0x004012af
+	;; predecessor:  from instruction 0x00401318 from basic block 0x00401313
+	;; predecessor:  from instruction 0x0040137d from basic block 0x00401378
+	;; predecessor:  from instruction 0x004013e6 from basic block 0x004013e1
+	;; predecessor:  from instruction 0x0040144a from basic block 0x00401445
+	;; predecessor:  from instruction 0x0040161b from basic block 0x00401616
+	;; predecessor:  from instruction 0x0040169b from basic block 0x00401696
+	;; predecessor:  from instruction 0x0040171b from basic block 0x00401716
+	;; predecessor:  from instruction 0x0040179b from basic block 0x00401796
+	;; predecessor:  from instruction 0x0040181b from basic block 0x00401816
+0x004010e0: ff 25 8a 2f 00 00          00 jmp      qword ds:[rip + 0x0000000000002f8a<12170><absolute=0x0000000000404070>]
+	;; successor: normal edge to v90026[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x00401110 "main"
+;;; function 0x004010f0 "main"
 ;;; reasons for function: referenced by symbol table
-;;; called from function 0x004011e6 "_start"
-;;; calls function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@plt"
-;;; calls function 0x004010f0 "operator new(unsigned long)@plt" 2 times
-;;; calls function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@plt"
-;;; calls function 0x00401550 "operator delete(void*, unsigned long)" 2 times
+;;; called from function 0x00401126 "_start"
+;;; calls function 0x00401200 "myfunc()"
 
-  	;; predecessor:  from instruction 0x0040120a from basic block 0x004011e6
-  0x00401110: 41 54                      00 push     r12
-  0x00401112: bf 60 00 00 00            -08 mov      edi, 0x00000060<96>
-  0x00401117: 55                        -08 push     rbp
-  0x00401118: 48 83 ec 08               -10 sub      rsp, 8
-  0x0040111c: e8 cf ff ff ff            -18 call     function 0x004010f0 "operator new(unsigned long)@plt"
-┌─	;; successor: call return edge to basic block 0x00401121
-│ 	;; successor: function call edge to function 0x004010f0 "operator new(unsigned long)@plt"
+  	;; predecessor:  from instruction 0x0040114a from basic block 0x00401126
+  0x004010f0: 48 83 ec 08                00 sub      rsp, 8
+  0x004010f4: e8 07 01 00 00            -08 call     function 0x00401200 "myfunc()"<(func)_Z6myfuncv>
+┌─	;; successor: call return edge to basic block 0x004010f9
+│ 	;; successor: function call edge to function 0x00401200 "myfunc()"
 │ 
-└▶	;; predecessor:  from instruction 0x0040111c from basic block 0x00401110
-  0x00401121: bf 60 00 00 00            -18 mov      edi, 0x00000060<96>
-  0x00401126: 48 c7 00 d8 20 40 00      -18 mov      qword ds:[rax], 0x004020d8
-  0x0040112d: 48 89 c5                  -18 mov      rbp, rax
-  0x00401130: 48 c7 40 10 f8 20 40 00   -18 mov      qword ds:[rax + 0x10<16>], 0x004020f8
-  0x00401138: c7 40 58 2a 00 00 00      -18 mov      dword ds:[rax + 0x58<88>], 0x0000002a<42>
-  0x0040113f: e8 ac ff ff ff            -18 call     function 0x004010f0 "operator new(unsigned long)@plt"
-┌─	;; successor: call return edge to basic block 0x00401144
-│ 	;; successor: function call edge to function 0x004010f0 "operator new(unsigned long)@plt"
-│ 
-└▶	;; predecessor:  from instruction 0x0040113f from basic block 0x00401121
-  0x00401144: be 48 20 40 00            -18 mov      esi, 0x00402048<"Cls1::func2()">
-  0x00401149: bf a0 40 40 00            -18 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-  0x0040114e: 48 c7 00 d8 20 40 00      -18 mov      qword ds:[rax], 0x004020d8
-  0x00401155: 49 89 c4                  -18 mov      r12, rax
-  0x00401158: 48 c7 40 10 f8 20 40 00   -18 mov      qword ds:[rax + 0x10<16>], 0x004020f8
-  0x00401160: c7 40 58 2a 00 00 00      -18 mov      dword ds:[rax + 0x58<88>], 0x0000002a<42>
-  0x00401167: e8 44 ff ff ff            -18 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@plt"
-┌─	;; successor: call return edge to basic block 0x0040116c
-│ 	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)@plt"
-│ 
-└▶	;; predecessor:  from instruction 0x00401167 from basic block 0x00401144
-  0x0040116c: 48 89 c7                  -18 mov      rdi, rax
-  0x0040116f: e8 6c ff ff ff            -18 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@plt"
-  	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)@plt"
-┌─	;; successor: call return edge to basic block 0x00401174
-│ 
-└▶	;; predecessor:  from instruction 0x0040116f from basic block 0x0040116c
-  0x00401174: 48 8b 45 00               -18 mov      rax, qword ds:[rbp + 0]
-  0x00401178: 48 89 ef                  -18 mov      rdi, rbp
-  0x0040117b: ff 10                     -18 call     qword ds:[rax]
-┌─	;; successor: call return edge to basic block 0x0040117d
-│ 	;; successor: function call edge to v130023[u64]
-│ 
-└▶	;; predecessor:  from instruction 0x0040117b from basic block 0x00401174
-  0x0040117d: 48 8b 45 00               -18 mov      rax, qword ds:[rbp + 0]
-  0x00401181: 48 89 ef                  -18 mov      rdi, rbp
-  0x00401184: ff 50 08                  -18 call     qword ds:[rax + 8]
-┌─	;; successor: call return edge to basic block 0x00401187
-│ 	;; successor: function call edge to v140056[u64]
-│ 
-└▶	;; predecessor:  from instruction 0x00401184 from basic block 0x0040117d
-  0x00401187: 48 8b 45 10               -18 mov      rax, qword ds:[rbp + 0x10<16>]
-  0x0040118b: 48 8d 7d 10               -18 lea      rdi, ds:[rbp + 0x10<16>]
-  0x0040118f: ff 50 08                  -18 call     qword ds:[rax + 8]
-┌─	;; successor: call return edge to basic block 0x00401192
-│ 	;; successor: function call edge to v140059[u64]
-│ 
-└▶	;; predecessor:  from instruction 0x0040118f from basic block 0x00401187
-  0x00401192: 49 8b 04 24               -18 mov      rax, qword ds:[r12]
-  0x00401196: 4c 89 e7                  -18 mov      rdi, r12
-  0x00401199: ff 10                     -18 call     qword ds:[rax]
-┌─	;; successor: call return edge to basic block 0x0040119b
-│ 	;; successor: function call edge to v90055[u64]
-│ 
-└▶	;; predecessor:  from instruction 0x00401199 from basic block 0x00401192
-  0x0040119b: 48 89 ef                  -18 mov      rdi, rbp
-  0x0040119e: be 60 00 00 00            -18 mov      esi, 0x00000060<96>
-  0x004011a3: e8 a8 03 00 00            -18 call     function 0x00401550 "operator delete(void*, unsigned long)"<(func)_ZdlPvm>
-┌─	;; successor: call return edge to basic block 0x004011a8
-│ 	;; successor: function call edge to function 0x00401550 "operator delete(void*, unsigned long)"
-│ 
-└▶	;; predecessor:  from instruction 0x004011a3 from basic block 0x0040119b
-  0x004011a8: 4c 89 e7                  -18 mov      rdi, r12
-  0x004011ab: be 10 00 00 00            -18 mov      esi, 0x00000010<16>
-  0x004011b0: e8 9b 03 00 00            -18 call     function 0x00401550 "operator delete(void*, unsigned long)"<(func)_ZdlPvm>
-┌─	;; successor: call return edge to basic block 0x004011b5
-│ 	;; successor: function call edge to function 0x00401550 "operator delete(void*, unsigned long)"
-│ 
-└▶	;; predecessor:  from instruction 0x004011b0 from basic block 0x004011a8
-  0x004011b5: 48 83 c4 08               -18 add      rsp, 8
-  0x004011b9: 31 c0                     -10 xor      eax, eax
-  0x004011bb: 5d                        -10 pop      rbp
-  0x004011bc: 41 5c                     -08 pop      r12
-  0x004011be: c3                         00 ret
-  	;; successor: function return edge to v80069[u64]
+└▶	;; predecessor:  from instruction 0x004010f4 from basic block 0x004010f0
+  0x004010f9: 31 c0                     -30 xor      eax, eax
+  0x004010fb: 48 83 c4 08               -30 add      rsp, 8
+  0x004010ff: c3                        -28 ret
+  	;; successor: function return edge to v50078[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004011c0 "_GLOBAL__sub_I_main"
+;;; function 0x00401100 "_GLOBAL__sub_I__Z6myfuncv"
 ;;; reasons for function: referenced by symbol table
 ;;; successor function 0x00401090 "__cxa_atexit@plt"
 ;;; calls function 0x00401070 "std::ios_base::Init::Init()@plt"
 
-0x004011c0: 48 83 ec 08                00 sub      rsp, 8
-0x004011c4: bf b1 41 40 00            -08 mov      edi, 0x004041b1<(data)_ZStL8__ioinit>
-0x004011c9: e8 a2 fe ff ff            -08 call     function 0x00401070 "std::ios_base::Init::Init()@plt"
+0x00401100: 48 83 ec 08                00 sub      rsp, 8
+0x00401104: bf 91 41 40 00            -08 mov      edi, 0x00404191<(data)_ZStL8__ioinit>
+0x00401109: e8 62 ff ff ff            -08 call     function 0x00401070 "std::ios_base::Init::Init()@plt"
   	;; successor: function call edge to function 0x00401070 "std::ios_base::Init::Init()@plt"
-┌─	;; successor: call return edge to basic block 0x004011ce
+┌─	;; successor: call return edge to basic block 0x0040110e
 │ 
-└▶	;; predecessor:  from instruction 0x004011c9 from basic block 0x004011c0
-  0x004011ce: ba 08 20 40 00            -08 mov      edx, 0x00402008<(data)__dso_handle>
-  0x004011d3: be b1 41 40 00            -08 mov      esi, 0x004041b1<(data)_ZStL8__ioinit>
-  0x004011d8: bf a0 10 40 00            -08 mov      edi, function 0x004010a0 "std::ios_base::Init::~Init()@plt"<(func)_ZNSt8ios_base4InitD1Ev@GLIBCXX_3.4>
-  0x004011dd: 48 83 c4 08               -08 add      rsp, 8
-  0x004011e1: e9 aa fe ff ff             00 jmp      function 0x00401090 "__cxa_atexit@plt"
+└▶	;; predecessor:  from instruction 0x00401109 from basic block 0x00401100
+  0x0040110e: ba 08 20 40 00            -08 mov      edx, 0x00402008<(data)__dso_handle>
+  0x00401113: be 91 41 40 00            -08 mov      esi, 0x00404191<(data)_ZStL8__ioinit>
+  0x00401118: bf a0 10 40 00            -08 mov      edi, function 0x004010a0 "std::ios_base::Init::~Init()@plt"<(func)_ZNSt8ios_base4InitD1Ev@GLIBCXX_3.4>
+  0x0040111d: 48 83 c4 08               -08 add      rsp, 8
+  0x00401121: e9 6a ff ff ff             00 jmp      function 0x00401090 "__cxa_atexit@plt"
   	;; successor: normal edge to function 0x00401090 "__cxa_atexit@plt"
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004011e6 "_start"
+;;; function 0x00401126 "_start"
 ;;; reasons for function: program entry point, referenced by symbol table
-;;; calls function 0x004015d0 "__libc_csu_fini"
+;;; calls function 0x004018e0 "__libc_csu_fini"
 ;;; calls function 0x00401080 "__libc_start_main@plt"
-;;; calls function 0x00401110 "main"
-;;; calls function 0x00401560 "__libc_csu_init"
+;;; calls function 0x004010f0 "main"
+;;; calls function 0x00401870 "__libc_csu_init"
 ;;; this function does not return to its caller
 
-0x004011e6: 31 ed                      00 xor      ebp, ebp
-0x004011e8: 49 89 d1                   00 mov      r9, rdx
-0x004011eb: 5e                         00 pop      rsi
-0x004011ec: 48 89 e2                  +08 mov      rdx, rsp
-0x004011ef: 48 83 e4 f0               +08 and      rsp, 0xf0<240,-16>
-0x004011f3: 50                         00 push     rax
-0x004011f4: 54                        -08 push     rsp
-0x004011f5: 49 c7 c0 d0 15 40 00      -10 mov      r8, function 0x004015d0 "__libc_csu_fini"<(func)__libc_csu_fini>
-0x004011fc: 48 c7 c1 60 15 40 00      -10 mov      rcx, function 0x00401560 "__libc_csu_init"<(func)__libc_csu_init>
-0x00401203: 48 c7 c7 10 11 40 00      -10 mov      rdi, function 0x00401110 "main"<(func)main>
-0x0040120a: e8 71 fe ff ff            -10 call     function 0x00401080 "__libc_start_main@plt"
-  	;; successor: function call edge to function 0x004015d0 "__libc_csu_fini"
-┌─	;; successor: call return edge to basic block 0x0040120f
+0x00401126: 31 ed                      00 xor      ebp, ebp
+0x00401128: 49 89 d1                   00 mov      r9, rdx
+0x0040112b: 5e                         00 pop      rsi
+0x0040112c: 48 89 e2                  +08 mov      rdx, rsp
+0x0040112f: 48 83 e4 f0               +08 and      rsp, 0xf0<240,-16>
+0x00401133: 50                         00 push     rax
+0x00401134: 54                        -08 push     rsp
+0x00401135: 49 c7 c0 e0 18 40 00      -10 mov      r8, function 0x004018e0 "__libc_csu_fini"<(func)__libc_csu_fini>
+0x0040113c: 48 c7 c1 70 18 40 00      -10 mov      rcx, function 0x00401870 "__libc_csu_init"<(func)__libc_csu_init>
+0x00401143: 48 c7 c7 f0 10 40 00      -10 mov      rdi, function 0x004010f0 "main"<(func)main>
+0x0040114a: e8 31 ff ff ff            -10 call     function 0x00401080 "__libc_start_main@plt"
+  	;; successor: function call edge to function 0x004018e0 "__libc_csu_fini"
+┌─	;; successor: call return edge to basic block 0x0040114f
 │ 	;; successor: function call edge to function 0x00401080 "__libc_start_main@plt"
-│ 	;; successor: function call edge to function 0x00401110 "main"
-│ 	;; successor: function call edge to function 0x00401560 "__libc_csu_init"
+│ 	;; successor: function call edge to function 0x004010f0 "main"
+│ 	;; successor: function call edge to function 0x00401870 "__libc_csu_init"
 │ 
-└▶	;; predecessor:  from instruction 0x0040120a from basic block 0x004011e6
-  0x0040120f: f4                        -10 hlt
+└▶	;; predecessor:  from instruction 0x0040114a from basic block 0x00401126
+  0x0040114f: f4                         ?? hlt
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x00401210 "deregister_tm_clones"
+;;; function 0x00401150 "deregister_tm_clones"
 ;;; reasons for function: referenced by symbol table
-;;; called from function 0x00401280 "__do_global_dtors_aux"
+;;; called from function 0x004011c0 "__do_global_dtors_aux"
 
-      	;; predecessor:  from instruction 0x00401291 from basic block 0x0040128d
-      0x00401210: b8 90 40 40 00             00 mov      eax, 0x00404090<(data)__TMC_END__>
-      0x00401215: 48 3d 90 40 40 00          00 cmp      rax, 0x00404090<(data)__TMC_END__>
-      0x0040121b: 74 13                      00 je       basic block 0x00401230
-┌─    	;; successor: normal edge to basic block 0x00401230
-│   ┌─	;; successor: normal edge to basic block 0x0040121d
+      	;; predecessor:  from instruction 0x004011d1 from basic block 0x004011cd
+      0x00401150: b8 80 40 40 00             00 mov      eax, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+      0x00401155: 48 3d 80 40 40 00          00 cmp      rax, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+      0x0040115b: 74 13                      00 je       basic block 0x00401170
+┌─    	;; successor: normal edge to basic block 0x00401170
+│   ┌─	;; successor: normal edge to basic block 0x0040115d
 │   │ 
-│   └▶	;; predecessor:  from instruction 0x0040121b from basic block 0x00401210
-│     0x0040121d: b8 00 00 00 00             00 mov      eax, 0
-│     0x00401222: 48 85 c0                   00 test     rax, rax
-│     0x00401225: 74 09                      00 je       basic block 0x00401230
-│ ┌─  	;; successor: normal edge to basic block 0x00401230
-│ │ ┌─	;; successor: normal edge to basic block 0x00401227
+│   └▶	;; predecessor:  from instruction 0x0040115b from basic block 0x00401150
+│     0x0040115d: b8 00 00 00 00             00 mov      eax, 0
+│     0x00401162: 48 85 c0                   00 test     rax, rax
+│     0x00401165: 74 09                      00 je       basic block 0x00401170
+│ ┌─  	;; successor: normal edge to basic block 0x00401170
+│ │ ┌─	;; successor: normal edge to basic block 0x00401167
 │ │ │ 
-│ │ └▶	;; predecessor:  from instruction 0x00401225 from basic block 0x0040121d
-│ │   0x00401227: bf 90 40 40 00             00 mov      edi, 0x00404090<(data)__TMC_END__>
-│ │   0x0040122c: ff e0                      00 jmp      rax
-│ │   	;; successor: normal edge to v130008[u64]
+│ │ └▶	;; predecessor:  from instruction 0x00401165 from basic block 0x0040115d
+│ │   0x00401167: bf 80 40 40 00             00 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │   0x0040116c: ff e0                      00 jmp      rax
+│ │   	;; successor: normal edge to v20006[u64]
 │ │   
-│ │   0x0040122e: 66 90                      ?? nop
-│ │ ┌─	;; successor: normal edge to basic block 0x00401230
+│ │   0x0040116e: 66 90                      ?? nop
+│ │ ┌─	;; successor: normal edge to basic block 0x00401170
 │ │ │ 
-└▶│ │ 	;; predecessor:  from instruction 0x0040121b from basic block 0x00401210
-  └▶│ 	;; predecessor:  from instruction 0x00401225 from basic block 0x0040121d
-    └▶	;; predecessor:  from basic block 0x0040122e
-      0x00401230: c3                         00 ret
-      	;; successor: function return edge to v20008[u64]
+└▶│ │ 	;; predecessor:  from instruction 0x0040115b from basic block 0x00401150
+  └▶│ 	;; predecessor:  from instruction 0x00401165 from basic block 0x0040115d
+    └▶	;; predecessor:  from basic block 0x0040116e
+      0x00401170: c3                         00 ret
+      	;; successor: function return edge to v130008[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x00401240 "register_tm_clones"
+;;; function 0x00401180 "register_tm_clones"
 ;;; reasons for function: referenced by symbol table
-;;; predecessor function 0x004012b0 "frame_dummy"
+;;; predecessor function 0x004011f0 "frame_dummy"
 
-      	;; predecessor:  from instruction 0x004012b4 from basic block 0x004012b0
-      0x00401240: be 90 40 40 00             00 mov      esi, 0x00404090<(data)__TMC_END__>
-      0x00401245: 48 81 ee 90 40 40 00       00 sub      rsi, 0x00404090<(data)__TMC_END__>
-      0x0040124c: 48 89 f0                   00 mov      rax, rsi
-      0x0040124f: 48 c1 ee 3f                00 shr      rsi, 0x3f<63>
-      0x00401253: 48 c1 f8 03                00 sar      rax, 3
-      0x00401257: 48 01 c6                   00 add      rsi, rax
-      0x0040125a: 48 d1 fe                   00 sar      rsi, 1
-      0x0040125d: 74 11                      00 je       basic block 0x00401270
-┌─    	;; successor: normal edge to basic block 0x00401270
-│   ┌─	;; successor: normal edge to basic block 0x0040125f
+      	;; predecessor:  from instruction 0x004011f4 from basic block 0x004011f0
+      0x00401180: be 80 40 40 00             00 mov      esi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+      0x00401185: 48 81 ee 80 40 40 00       00 sub      rsi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+      0x0040118c: 48 89 f0                   00 mov      rax, rsi
+      0x0040118f: 48 c1 ee 3f                00 shr      rsi, 0x3f<63>
+      0x00401193: 48 c1 f8 03                00 sar      rax, 3
+      0x00401197: 48 01 c6                   00 add      rsi, rax
+      0x0040119a: 48 d1 fe                   00 sar      rsi, 1
+      0x0040119d: 74 11                      00 je       basic block 0x004011b0
+┌─    	;; successor: normal edge to basic block 0x004011b0
+│   ┌─	;; successor: normal edge to basic block 0x0040119f
 │   │ 
-│   └▶	;; predecessor:  from instruction 0x0040125d from basic block 0x00401240
-│     0x0040125f: b8 00 00 00 00             00 mov      eax, 0
-│     0x00401264: 48 85 c0                   00 test     rax, rax
-│     0x00401267: 74 07                      00 je       basic block 0x00401270
-│ ┌─  	;; successor: normal edge to basic block 0x00401270
-│ │ ┌─	;; successor: normal edge to basic block 0x00401269
+│   └▶	;; predecessor:  from instruction 0x0040119d from basic block 0x00401180
+│     0x0040119f: b8 00 00 00 00             00 mov      eax, 0
+│     0x004011a4: 48 85 c0                   00 test     rax, rax
+│     0x004011a7: 74 07                      00 je       basic block 0x004011b0
+│ ┌─  	;; successor: normal edge to basic block 0x004011b0
+│ │ ┌─	;; successor: normal edge to basic block 0x004011a9
 │ │ │ 
-│ │ └▶	;; predecessor:  from instruction 0x00401267 from basic block 0x0040125f
-│ │   0x00401269: bf 90 40 40 00             00 mov      edi, 0x00404090<(data)__TMC_END__>
-│ │   0x0040126e: ff e0                      00 jmp      rax
-│ │   	;; successor: normal edge to v80010[u64]
+│ │ └▶	;; predecessor:  from instruction 0x004011a7 from basic block 0x0040119f
+│ │   0x004011a9: bf 80 40 40 00             00 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │   0x004011ae: ff e0                      00 jmp      rax
+│ │   	;; successor: normal edge to v10009[u64]
 │ │   
-└▶│   	;; predecessor:  from instruction 0x0040125d from basic block 0x00401240
-  └▶  	;; predecessor:  from instruction 0x00401267 from basic block 0x0040125f
-      0x00401270: c3                         00 ret
-      	;; successor: function return edge to v120005[u64]
+└▶│   	;; predecessor:  from instruction 0x0040119d from basic block 0x00401180
+  └▶  	;; predecessor:  from instruction 0x004011a7 from basic block 0x0040119f
+      0x004011b0: c3                         00 ret
+      	;; successor: function return edge to v80011[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x00401280 "__do_global_dtors_aux"
+;;; function 0x004011c0 "__do_global_dtors_aux"
 ;;; reasons for function: referenced by symbol table
-;;; calls function 0x00401210 "deregister_tm_clones"
+;;; calls function 0x00401150 "deregister_tm_clones"
 
-0x00401280: f3 0f 1e fa                00 nop
-0x00401284: 80 3d 25 2f 00 00 00       00 cmp      byte ds:[rip + 0x0000000000002f25<12069><absolute=0x00000000004041b0>], 0
-0x0040128b: 75 13                      00 jne      basic block 0x004012a0
-┌─  	;; successor: normal edge to basic block 0x004012a0
-│ ┌─	;; successor: normal edge to basic block 0x0040128d
+0x004011c0: f3 0f 1e fa                00 nop
+0x004011c4: 80 3d c5 2f 00 00 00       00 cmp      byte ds:[rip + 0x0000000000002fc5<12229><absolute=0x0000000000404190>], 0
+0x004011cb: 75 13                      00 jne      basic block 0x004011e0
+┌─  	;; successor: normal edge to basic block 0x004011e0
+│ ┌─	;; successor: normal edge to basic block 0x004011cd
 │ │ 
-│ └▶	;; predecessor:  from instruction 0x0040128b from basic block 0x00401280
-│   0x0040128d: 55                         00 push     rbp
-│   0x0040128e: 48 89 e5                  -08 mov      rbp, rsp
-│   0x00401291: e8 7a ff ff ff            -08 call     function 0x00401210 "deregister_tm_clones"<(func)deregister_tm_clones>
-│ ┌─	;; successor: call return edge to basic block 0x00401296
-│ │ 	;; successor: function call edge to function 0x00401210 "deregister_tm_clones"
+│ └▶	;; predecessor:  from instruction 0x004011cb from basic block 0x004011c0
+│   0x004011cd: 55                         00 push     rbp
+│   0x004011ce: 48 89 e5                  -08 mov      rbp, rsp
+│   0x004011d1: e8 7a ff ff ff            -08 call     function 0x00401150 "deregister_tm_clones"<(func)deregister_tm_clones>
+│ ┌─	;; successor: call return edge to basic block 0x004011d6
+│ │ 	;; successor: function call edge to function 0x00401150 "deregister_tm_clones"
 │ │ 
-│ └▶	;; predecessor:  from instruction 0x00401291 from basic block 0x0040128d
-│   0x00401296: c6 05 13 2f 00 00 01      -08 mov      byte ds:[rip + 0x0000000000002f13<12051><absolute=0x00000000004041b0>], 1
-│   0x0040129d: 5d                        -08 pop      rbp
-│   0x0040129e: c3                         00 ret
-│   	;; successor: function return edge to v10028[u64]
+│ └▶	;; predecessor:  from instruction 0x004011d1 from basic block 0x004011cd
+│   0x004011d6: c6 05 b3 2f 00 00 01      -08 mov      byte ds:[rip + 0x0000000000002fb3<12211><absolute=0x0000000000404190>], 1
+│   0x004011dd: 5d                        -08 pop      rbp
+│   0x004011de: c3                         00 ret
+│   	;; successor: function return edge to v70025[u64]
 │   
-│   0x0040129f: 90                         ?? nop
-│ ┌─	;; successor: normal edge to basic block 0x004012a0
+│   0x004011df: 90                         ?? nop
+│ ┌─	;; successor: normal edge to basic block 0x004011e0
 │ │ 
-└▶│ 	;; predecessor:  from instruction 0x0040128b from basic block 0x00401280
-  └▶	;; predecessor:  from basic block 0x0040129f
-    0x004012a0: c3                         00 ret
-    	;; successor: function return edge to v80008[u64]
+└▶│ 	;; predecessor:  from instruction 0x004011cb from basic block 0x004011c0
+  └▶	;; predecessor:  from basic block 0x004011df
+    0x004011e0: c3                         00 ret
+    	;; successor: function return edge to v40006[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004012b0 "frame_dummy"
+;;; function 0x004011f0 "frame_dummy"
 ;;; reasons for function: referenced by symbol table
-;;; successor function 0x00401240 "register_tm_clones"
+;;; successor function 0x00401180 "register_tm_clones"
 
-0x004012b0: f3 0f 1e fa                00 nop
-0x004012b4: eb 8a                      00 jmp      function 0x00401240 "register_tm_clones"<(func)register_tm_clones>
-	;; successor: normal edge to function 0x00401240 "register_tm_clones"
+0x004011f0: f3 0f 1e fa                00 nop
+0x004011f4: eb 8a                      00 jmp      function 0x00401180 "register_tm_clones"<(func)register_tm_clones>
+	;; successor: normal edge to function 0x00401180 "register_tm_clones"
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004012c0 "std::ctype<char>::do_widen(char) const"
+;;; function 0x00401200 "myfunc()"
+;;; mangled name is "_Z6myfuncv"
+;;; reasons for function: referenced by symbol table
+;;; called from function 0x004010f0 "main"
+;;; successor function 0x004015d0 "std::ctype<char>::do_widen(char) const"
+;;; calls function 0x004010d0 "operator new(unsigned long)@plt" 3 times
+;;; calls function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt" 5 times
+;;; calls function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt" 5 times
+;;; calls function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt" 5 times
+;;; successor function 0x00401860 "operator delete(void*, unsigned long)"
+;;; calls function 0x00401860 "operator delete(void*, unsigned long)" 2 times
+;;; calls function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt" 5 times
+;;; calls function 0x00401030 "std::__throw_bad_cast()@plt"
+
+                                                          	;; predecessor:  from instruction 0x004010f4 from basic block 0x004010f0
+                                                          0x00401200: 41 56                      00 push     r14
+                                                          0x00401202: bf 60 00 00 00            -08 mov      edi, 0x00000060<96>
+                                                          0x00401207: 41 55                     -08 push     r13
+                                                          0x00401209: 41 54                     -10 push     r12
+                                                          0x0040120b: 55                        -18 push     rbp
+                                                          0x0040120c: 48 83 ec 08               -20 sub      rsp, 8
+                                                          0x00401210: e8 bb fe ff ff            -28 call     function 0x004010d0 "operator new(unsigned long)@plt"
+                                                        ┌─	;; successor: call return edge to basic block 0x00401215
+                                                        │ 	;; successor: function call edge to function 0x004010d0 "operator new(unsigned long)@plt"
+                                                        │ 
+                                                        └▶	;; predecessor:  from instruction 0x00401210 from basic block 0x00401200
+                                                          0x00401215: bf 60 00 00 00            -28 mov      edi, 0x00000060<96>
+                                                          0x0040121a: 48 c7 00 f0 20 40 00      -28 mov      qword ds:[rax], 0x004020f0
+                                                          0x00401221: 48 89 c5                  -28 mov      rbp, rax
+                                                          0x00401224: 48 c7 40 10 10 21 40 00   -28 mov      qword ds:[rax + 0x10<16>], 0x00402110
+                                                          0x0040122c: c7 40 58 2a 00 00 00      -28 mov      dword ds:[rax + 0x58<88>], 0x0000002a<42>
+                                                          0x00401233: e8 98 fe ff ff            -28 call     function 0x004010d0 "operator new(unsigned long)@plt"
+                                                        ┌─	;; successor: call return edge to basic block 0x00401238
+                                                        │ 	;; successor: function call edge to function 0x004010d0 "operator new(unsigned long)@plt"
+                                                        │ 
+                                                        └▶	;; predecessor:  from instruction 0x00401233 from basic block 0x00401215
+                                                          0x00401238: bf 10 00 00 00            -28 mov      edi, 0x00000010<16>
+                                                          0x0040123d: 48 c7 00 f0 20 40 00      -28 mov      qword ds:[rax], 0x004020f0
+                                                          0x00401244: 49 89 c4                  -28 mov      r12, rax
+                                                          0x00401247: 48 c7 40 10 10 21 40 00   -28 mov      qword ds:[rax + 0x10<16>], 0x00402110
+                                                          0x0040124f: c7 40 58 2a 00 00 00      -28 mov      dword ds:[rax + 0x58<88>], 0x0000002a<42>
+                                                          0x00401256: e8 75 fe ff ff            -28 call     function 0x004010d0 "operator new(unsigned long)@plt"
+                                                        ┌─	;; successor: call return edge to basic block 0x0040125b
+                                                        │ 	;; successor: function call edge to function 0x004010d0 "operator new(unsigned long)@plt"
+                                                        │ 
+                                                        └▶	;; predecessor:  from instruction 0x00401256 from basic block 0x00401238
+                                                          0x0040125b: ba 0d 00 00 00            -28 mov      edx, 13
+                                                          0x00401260: be 48 20 40 00            -28 mov      esi, 0x00402048<"Cls1::func2()">
+                                                          0x00401265: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+                                                          0x0040126a: c7 40 08 00 00 00 00      -28 mov      dword ds:[rax + 8], 0
+                                                          0x00401271: 49 89 c5                  -28 mov      r13, rax
+                                                          0x00401274: c6 40 0c 00               -28 mov      byte ds:[rax + 12], 0
+                                                          0x00401278: 48 c7 00 d8 20 40 00      -28 mov      qword ds:[rax], 0x004020d8
+                                                          0x0040127f: e8 2c fe ff ff            -28 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+                                                          	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+                                                        ┌─	;; successor: call return edge to basic block 0x00401284
+                                                        │ 
+                                                        └▶	;; predecessor:  from instruction 0x0040127f from basic block 0x0040125b
+                                                          0x00401284: 48 8b 05 f5 2d 00 00      -28 mov      rax, qword ds:[rip + 0x0000000000002df5<11765><absolute=0x0000000000404080>]
+                                                          0x0040128b: 48 8b 40 e8               -28 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+                                                          0x0040128f: 4c 8b b0 70 41 40 00      -28 mov      r14, qword ds:[rax + 0x00404170]
+                                                          0x00401296: 4d 85 f6                  -28 test     r14, r14
+                                                          0x00401299: 0f 84 28 03 00 00         -28 je       basic block 0x004015c7
+┌─                                                        	;; successor: normal edge to basic block 0x004015c7
+│                                                       ┌─	;; successor: normal edge to basic block 0x0040129f
+│                                                       │ 
+│                                                       └▶	;; predecessor:  from instruction 0x00401299 from basic block 0x00401284
+│                                                         0x0040129f: 41 80 7e 38 00            -28 cmp      byte ds:[r14 + 0x38<56>], 0
+│                                                         0x004012a4: 0f 84 16 02 00 00         -28 je       basic block 0x004014c0
+│                     ┌─                                  	;; successor: normal edge to basic block 0x004014c0
+│                     │                                 ┌─	;; successor: normal edge to basic block 0x004012aa
+│                     │                                 │ 
+│                     │                                 └▶	;; predecessor:  from instruction 0x004012a4 from basic block 0x0040129f
+│                     │                                   0x004012aa: 41 0f be 76 43            -28 movsx    esi, byte ds:[r14 + 0x43<67>]
+│                     │                                 ┌─	;; successor: normal edge to basic block 0x004012af
+│                     │                                 │ 
+│                     │                                 └▶	;; predecessor:  from basic block 0x004012aa
+│                   ┌▶│                                   	;; predecessor:  from instruction 0x004014da from basic block 0x004014c8
+│                 ┌▶│ │                                   	;; predecessor:  from instruction 0x004014e8 from basic block 0x004014e5
+│                 │ │ │                                   0x004012af: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│                 │ │ │                                   0x004012b4: e8 27 fe ff ff            -28 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│                 │ │ │                                 ┌─	;; successor: call return edge to basic block 0x004012b9
+│                 │ │ │                                 │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│                 │ │ │                                 │ 
+│                 │ │ │                                 └▶	;; predecessor:  from instruction 0x004012b4 from basic block 0x004012af
+│                 │ │ │                                   0x004012b9: 48 89 c7                  -28 mov      rdi, rax
+│                 │ │ │                                   0x004012bc: e8 ff fd ff ff            -28 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│                 │ │ │                                   	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│                 │ │ │                                 ┌─	;; successor: call return edge to basic block 0x004012c1
+│                 │ │ │                                 │ 
+│                 │ │ │                                 └▶	;; predecessor:  from instruction 0x004012bc from basic block 0x004012b9
+│                 │ │ │                                   0x004012c1: 48 8b 45 00               -28 mov      rax, qword ds:[rbp + 0]
+│                 │ │ │                                   0x004012c5: 48 8b 00                  -28 mov      rax, qword ds:[rax]
+│                 │ │ │                                   0x004012c8: 48 3d e0 17 40 00         -28 cmp      rax, function 0x004017e0 "Cls3::func1()"<(func)_ZN4Cls35func1Ev>
+│                 │ │ │                                   0x004012ce: 0f 85 ac 02 00 00         -28 jne      basic block 0x00401580
+│   ┌─            │ │ │                                   	;; successor: normal edge to basic block 0x00401580
+│   │             │ │ │                                 ┌─	;; successor: normal edge to basic block 0x004012d4
+│   │             │ │ │                                 │ 
+│   │             │ │ │                                 └▶	;; predecessor:  from instruction 0x004012ce from basic block 0x004012c1
+│   │             │ │ │                                   0x004012d4: ba 0d 00 00 00            -28 mov      edx, 13
+│   │             │ │ │                                   0x004012d9: be 3a 20 40 00            -28 mov      esi, 0x0040203a<"Cls3::func1()">
+│   │             │ │ │                                   0x004012de: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│   │             │ │ │                                   0x004012e3: e8 c8 fd ff ff            -28 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+│   │             │ │ │                                   	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+│   │             │ │ │                                 ┌─	;; successor: call return edge to basic block 0x004012e8
+│   │             │ │ │                                 │ 
+│   │             │ │ │                                 └▶	;; predecessor:  from instruction 0x004012e3 from basic block 0x004012d4
+│   │             │ │ │                                   0x004012e8: 48 8b 05 91 2d 00 00      -28 mov      rax, qword ds:[rip + 0x0000000000002d91<11665><absolute=0x0000000000404080>]
+│   │             │ │ │                                   0x004012ef: 48 8b 40 e8               -28 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+│   │             │ │ │                                   0x004012f3: 4c 8b b0 70 41 40 00      -28 mov      r14, qword ds:[rax + 0x00404170]
+│   │             │ │ │                                   0x004012fa: 4d 85 f6                  -28 test     r14, r14
+│   │             │ │ │                                   0x004012fd: 0f 84 c4 02 00 00         -28 je       basic block 0x004015c7
+│   │             │ │ │                                 ┌─	;; successor: normal edge to basic block 0x00401303
+│ ┌─│             │ │ │                                 │ 	;; successor: normal edge to basic block 0x004015c7
+│ │ │             │ │ │                                 │ 
+│ │ │             │ │ │                                 └▶	;; predecessor:  from instruction 0x004012fd from basic block 0x004012e8
+│ │ │             │ │ │                                   0x00401303: 41 80 7e 38 00            -28 cmp      byte ds:[r14 + 0x38<56>], 0
+│ │ │             │ │ │                                   0x00401308: 0f 84 82 01 00 00         -28 je       basic block 0x00401490
+│ │ │             │ │ │                   ┌─              	;; successor: normal edge to basic block 0x00401490
+│ │ │             │ │ │                   │             ┌─	;; successor: normal edge to basic block 0x0040130e
+│ │ │             │ │ │                   │             │ 
+│ │ │             │ │ │                   │             └▶	;; predecessor:  from instruction 0x00401308 from basic block 0x00401303
+│ │ │             │ │ │                   │               0x0040130e: 41 0f be 76 43            -28 movsx    esi, byte ds:[r14 + 0x43<67>]
+│ │ │             │ │ │                   │             ┌─	;; successor: normal edge to basic block 0x00401313
+│ │ │             │ │ │                   │             │ 
+│ │ │             │ │ │                   │             └▶	;; predecessor:  from basic block 0x0040130e
+│ │ │             │ │ │                 ┌▶│               	;; predecessor:  from instruction 0x004014aa from basic block 0x00401498
+│ │ │             │ │ │           ┌▶    │ │               	;; predecessor:  from instruction 0x004014b8 from basic block 0x004014b5
+│ │ │             │ │ │           │     │ │               0x00401313: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │             │ │ │           │     │ │               0x00401318: e8 c3 fd ff ff            -28 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │             │ │ │           │     │ │             ┌─	;; successor: call return edge to basic block 0x0040131d
+│ │ │             │ │ │           │     │ │             │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │             │ │ │           │     │ │             │ 
+│ │ │             │ │ │           │     │ │             └▶	;; predecessor:  from instruction 0x00401318 from basic block 0x00401313
+│ │ │             │ │ │           │     │ │               0x0040131d: 48 89 c7                  -28 mov      rdi, rax
+│ │ │             │ │ │           │     │ │               0x00401320: e8 9b fd ff ff            -28 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │             │ │ │           │     │ │               	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │             │ │ │           │     │ │             ┌─	;; successor: call return edge to basic block 0x00401325
+│ │ │             │ │ │           │     │ │             │ 
+│ │ │             │ │ │           │     │ │             └▶	;; predecessor:  from instruction 0x00401320 from basic block 0x0040131d
+│ │ │             │ │ │           │     │ │               0x00401325: 48 8b 45 00               -28 mov      rax, qword ds:[rbp + 0]
+│ │ │             │ │ │           │     │ │               0x00401329: 48 8b 40 08               -28 mov      rax, qword ds:[rax + 8]
+│ │ │             │ │ │           │     │ │               0x0040132d: 48 3d 60 16 40 00         -28 cmp      rax, function 0x00401660 "Cls3::func3()"<(func)_ZN4Cls35func3Ev>
+│ │ │             │ │ │           │     │ │               0x00401333: 0f 85 60 02 00 00         -28 jne      basic block 0x00401599
+│ │ │   ┌─        │ │ │           │     │ │               	;; successor: normal edge to basic block 0x00401599
+│ │ │   │         │ │ │           │     │ │             ┌─	;; successor: normal edge to basic block 0x00401339
+│ │ │   │         │ │ │           │     │ │             │ 
+│ │ │   │         │ │ │           │     │ │             └▶	;; predecessor:  from instruction 0x00401333 from basic block 0x00401325
+│ │ │   │ ┌▶      │ │ │           │     │ │               	;; predecessor:  from instruction 0x00401593 from basic block 0x00401585
+│ │ │   │ │       │ │ │           │     │ │               0x00401339: ba 0d 00 00 00            -28 mov      edx, 13
+│ │ │   │ │       │ │ │           │     │ │               0x0040133e: be 1e 20 40 00            -28 mov      esi, 0x0040201e<"Cls3::func3()">
+│ │ │   │ │       │ │ │           │     │ │               0x00401343: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │   │ │       │ │ │           │     │ │               0x00401348: e8 63 fd ff ff            -28 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+│ │ │   │ │       │ │ │           │     │ │               	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+│ │ │   │ │       │ │ │           │     │ │             ┌─	;; successor: call return edge to basic block 0x0040134d
+│ │ │   │ │       │ │ │           │     │ │             │ 
+│ │ │   │ │       │ │ │           │     │ │             └▶	;; predecessor:  from instruction 0x00401348 from basic block 0x00401339
+│ │ │   │ │       │ │ │           │     │ │               0x0040134d: 48 8b 05 2c 2d 00 00      -28 mov      rax, qword ds:[rip + 0x0000000000002d2c<11564><absolute=0x0000000000404080>]
+│ │ │   │ │       │ │ │           │     │ │               0x00401354: 48 8b 40 e8               -28 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+│ │ │   │ │       │ │ │           │     │ │               0x00401358: 4c 8b b0 70 41 40 00      -28 mov      r14, qword ds:[rax + 0x00404170]
+│ │ │   │ │       │ │ │           │     │ │               0x0040135f: 4d 85 f6                  -28 test     r14, r14
+│ │ │   │ │       │ │ │           │     │ │               0x00401362: 0f 84 5f 02 00 00         -28 je       basic block 0x004015c7
+│ │ │   │ │       │ │ │           │     │ │             ┌─	;; successor: normal edge to basic block 0x00401368
+│ │ │ ┌─│ │       │ │ │           │     │ │             │ 	;; successor: normal edge to basic block 0x004015c7
+│ │ │ │ │ │       │ │ │           │     │ │             │ 
+│ │ │ │ │ │       │ │ │           │     │ │             └▶	;; predecessor:  from instruction 0x00401362 from basic block 0x0040134d
+│ │ │ │ │ │       │ │ │           │     │ │               0x00401368: 41 80 7e 38 00            -28 cmp      byte ds:[r14 + 0x38<56>], 0
+│ │ │ │ │ │       │ │ │           │     │ │               0x0040136d: 0f 84 7d 01 00 00         -28 je       basic block 0x004014f0
+│ │ │ │ │ │       │ │ │           │   ┌─│ │               	;; successor: normal edge to basic block 0x004014f0
+│ │ │ │ │ │       │ │ │           │   │ │ │             ┌─	;; successor: normal edge to basic block 0x00401373
+│ │ │ │ │ │       │ │ │           │   │ │ │             │ 
+│ │ │ │ │ │       │ │ │           │   │ │ │             └▶	;; predecessor:  from instruction 0x0040136d from basic block 0x00401368
+│ │ │ │ │ │       │ │ │           │   │ │ │               0x00401373: 41 0f be 76 43            -28 movsx    esi, byte ds:[r14 + 0x43<67>]
+│ │ │ │ │ │       │ │ │           │   │ │ │             ┌─	;; successor: normal edge to basic block 0x00401378
+│ │ │ │ │ │       │ │ │           │   │ │ │             │ 
+│ │ │ │ │ │       │ │ │           │   │ │ │             └▶	;; predecessor:  from basic block 0x00401373
+│ │ │ │ │ │       │ │ │           │ ┌▶│ │ │               	;; predecessor:  from instruction 0x0040150a from basic block 0x004014f8
+│ │ │ │ │ │       │ │ │         ┌▶│ │ │ │ │               	;; predecessor:  from instruction 0x00401518 from basic block 0x00401515
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │               0x00401378: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │               0x0040137d: e8 5e fd ff ff            -28 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │             ┌─	;; successor: call return edge to basic block 0x00401382
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │             │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │             │ 
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │             └▶	;; predecessor:  from instruction 0x0040137d from basic block 0x00401378
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │               0x00401382: 48 89 c7                  -28 mov      rdi, rax
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │               0x00401385: e8 36 fd ff ff            -28 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │               	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │             ┌─	;; successor: call return edge to basic block 0x0040138a
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │             │ 
+│ │ │ │ │ │       │ │ │         │ │ │ │ │ │             └▶	;; predecessor:  from instruction 0x00401385 from basic block 0x00401382
+│ │ │ │ │ │   ┌▶  │ │ │         │ │ │ │ │ │               	;; predecessor:  from basic block 0x0040159e
+│ │ │ │ │ │   │   │ │ │         │ │ │ │ │ │               0x0040138a: 48 8b 45 10               -28 mov      rax, qword ds:[rbp + 0x10<16>]
+│ │ │ │ │ │   │   │ │ │         │ │ │ │ │ │               0x0040138e: 48 8d 7d 10               -28 lea      rdi, ds:[rbp + 0x10<16>]
+│ │ │ │ │ │   │   │ │ │         │ │ │ │ │ │               0x00401392: 48 8b 40 08               -28 mov      rax, qword ds:[rax + 8]
+│ │ │ │ │ │   │   │ │ │         │ │ │ │ │ │               0x00401396: 48 3d e0 15 40 00         -28 cmp      rax, function 0x004015e0 "Cls2::func4()"<(func)_ZN4Cls25func4Ev>
+│ │ │ │ │ │   │   │ │ │         │ │ │ │ │ │               0x0040139c: 0f 85 06 02 00 00         -28 jne      basic block 0x004015a8
+│ │ │ │ │ │   │ ┌─│ │ │         │ │ │ │ │ │               	;; successor: normal edge to basic block 0x004015a8
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │             ┌─	;; successor: normal edge to basic block 0x004013a2
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │             │ 
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │             └▶	;; predecessor:  from instruction 0x0040139c from basic block 0x0040138a
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               0x004013a2: ba 0d 00 00 00            -28 mov      edx, 13
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               0x004013a7: be 10 20 40 00            -28 mov      esi, 0x00402010<"Cls2::func4()">
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               0x004013ac: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               0x004013b1: e8 fa fc ff ff            -28 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │             ┌─	;; successor: call return edge to basic block 0x004013b6
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │             │ 
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │             └▶	;; predecessor:  from instruction 0x004013b1 from basic block 0x004013a2
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               0x004013b6: 48 8b 05 c3 2c 00 00      -28 mov      rax, qword ds:[rip + 0x0000000000002cc3<11459><absolute=0x0000000000404080>]
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               0x004013bd: 48 8b 40 e8               -28 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               0x004013c1: 4c 8b b0 70 41 40 00      -28 mov      r14, qword ds:[rax + 0x00404170]
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               0x004013c8: 4d 85 f6                  -28 test     r14, r14
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │               0x004013cb: 0f 84 f6 01 00 00         -28 je       basic block 0x004015c7
+│ │ │ │ │ │   │ │ │ │ │         │ │ │ │ │ │             ┌─	;; successor: normal edge to basic block 0x004013d1
+│ │ │ │ │ │ ┌─│ │ │ │ │         │ │ │ │ │ │             │ 	;; successor: normal edge to basic block 0x004015c7
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │             │ 
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │             └▶	;; predecessor:  from instruction 0x004013cb from basic block 0x004013b6
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │               0x004013d1: 41 80 7e 38 00            -28 cmp      byte ds:[r14 + 0x38<56>], 0
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │               0x004013d6: 0f 84 44 01 00 00         -28 je       basic block 0x00401520
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │     ┌─        	;; successor: normal edge to basic block 0x00401520
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │     │       ┌─	;; successor: normal edge to basic block 0x004013dc
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │     │       │ 
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │     │       └▶	;; predecessor:  from instruction 0x004013d6 from basic block 0x004013d1
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │     │         0x004013dc: 41 0f be 76 43            -28 movsx    esi, byte ds:[r14 + 0x43<67>]
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │     │       ┌─	;; successor: normal edge to basic block 0x004013e1
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │     │       │ 
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │     │       └▶	;; predecessor:  from basic block 0x004013dc
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │   ┌▶│         	;; predecessor:  from instruction 0x0040153a from basic block 0x00401528
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ ┌▶│ │         	;; predecessor:  from instruction 0x00401548 from basic block 0x00401545
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │         0x004013e1: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │         0x004013e6: e8 f5 fc ff ff            -28 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │       ┌─	;; successor: call return edge to basic block 0x004013eb
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │       │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │       │ 
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │       └▶	;; predecessor:  from instruction 0x004013e6 from basic block 0x004013e1
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │         0x004013eb: 48 89 c7                  -28 mov      rdi, rax
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │         0x004013ee: e8 cd fc ff ff            -28 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │         	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │       ┌─	;; successor: call return edge to basic block 0x004013f3
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │       │ 
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │       └▶	;; predecessor:  from instruction 0x004013ee from basic block 0x004013eb
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │         0x004013f3: 49 8b 04 24               -28 mov      rax, qword ds:[r12]
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │         0x004013f7: 48 8b 00                  -28 mov      rax, qword ds:[rax]
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │         0x004013fa: 48 3d e0 17 40 00         -28 cmp      rax, function 0x004017e0 "Cls3::func1()"<(func)_ZN4Cls35func1Ev>
+│ │ │ │ │ │ │ │ │ │ │ │         │ │ │ │ │ │ │ │ │         0x00401400: 0f 85 b7 01 00 00         -28 jne      basic block 0x004015bd
+│ │ │ │ │ │ │ │ │ │ │ │   ┌─    │ │ │ │ │ │ │ │ │         	;; successor: normal edge to basic block 0x004015bd
+│ │ │ │ │ │ │ │ │ │ │ │   │     │ │ │ │ │ │ │ │ │       ┌─	;; successor: normal edge to basic block 0x00401406
+│ │ │ │ │ │ │ │ │ │ │ │   │     │ │ │ │ │ │ │ │ │       │ 
+│ │ │ │ │ │ │ │ │ │ │ │   │     │ │ │ │ │ │ │ │ │       └▶	;; predecessor:  from instruction 0x00401400 from basic block 0x004013f3
+│ │ │ │ │ │ │ │ │ │ │ │   │ ┌▶  │ │ │ │ │ │ │ │ │         	;; predecessor:  from instruction 0x004015b7 from basic block 0x004015aa
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         0x00401406: ba 0d 00 00 00            -28 mov      edx, 13
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         0x0040140b: be 3a 20 40 00            -28 mov      esi, 0x0040203a<"Cls3::func1()">
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         0x00401410: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         0x00401415: e8 96 fc ff ff            -28 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │       ┌─	;; successor: call return edge to basic block 0x0040141a
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │       │ 
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │       └▶	;; predecessor:  from instruction 0x00401415 from basic block 0x00401406
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         0x0040141a: 48 8b 05 5f 2c 00 00      -28 mov      rax, qword ds:[rip + 0x0000000000002c5f<11359><absolute=0x0000000000404080>]
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         0x00401421: 48 8b 40 e8               -28 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         0x00401425: 4c 8b b0 70 41 40 00      -28 mov      r14, qword ds:[rax + 0x00404170]
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         0x0040142c: 4d 85 f6                  -28 test     r14, r14
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │         0x0040142f: 0f 84 92 01 00 00         -28 je       basic block 0x004015c7
+│ │ │ │ │ │ │ │ │ │ │ │   │ │   │ │ │ │ │ │ │ │ │       ┌─	;; successor: normal edge to basic block 0x00401435
+│ │ │ │ │ │ │ │ │ │ │ │ ┌─│ │   │ │ │ │ │ │ │ │ │       │ 	;; successor: normal edge to basic block 0x004015c7
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │       │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │       └▶	;; predecessor:  from instruction 0x0040142f from basic block 0x0040141a
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │         0x00401435: 41 80 7e 38 00            -28 cmp      byte ds:[r14 + 0x38<56>], 0
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │         0x0040143a: 0f 84 10 01 00 00         -28 je       basic block 0x00401550
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │     ┌─  	;; successor: normal edge to basic block 0x00401550
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │     │ ┌─	;; successor: normal edge to basic block 0x00401440
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │     │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │     │ └▶	;; predecessor:  from instruction 0x0040143a from basic block 0x00401435
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │     │   0x00401440: 41 0f be 76 43            -28 movsx    esi, byte ds:[r14 + 0x43<67>]
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │     │ ┌─	;; successor: normal edge to basic block 0x00401445
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │     │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │     │ └▶	;; predecessor:  from basic block 0x00401440
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │   ┌▶│   	;; predecessor:  from instruction 0x0040156a from basic block 0x00401558
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ ┌▶│ │   	;; predecessor:  from instruction 0x00401578 from basic block 0x00401575
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │   0x00401445: bf 80 40 40 00            -28 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │   0x0040144a: e8 91 fc ff ff            -28 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x0040144f
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │ │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x0040144a from basic block 0x00401445
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │   0x0040144f: 48 89 c7                  -28 mov      rdi, rax
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │   0x00401452: e8 69 fc ff ff            -28 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401457
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │ │ 	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x00401452 from basic block 0x0040144f
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ ┌▶│ │ │ │ │ │ │ │ │ │ │ │   	;; predecessor:  from basic block 0x004015c2
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401457: 48 89 ef                  -28 mov      rdi, rbp
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x0040145a: be 60 00 00 00            -28 mov      esi, 0x00000060<96>
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x0040145f: e8 fc 03 00 00            -28 call     function 0x00401860 "operator delete(void*, unsigned long)"<(func)_ZdlPvm>
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401464
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ 	;; successor: function call edge to function 0x00401860 "operator delete(void*, unsigned long)"
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x0040145f from basic block 0x00401457
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401464: 4c 89 e7                  -28 mov      rdi, r12
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401467: be 10 00 00 00            -28 mov      esi, 0x00000010<16>
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x0040146c: e8 ef 03 00 00            -28 call     function 0x00401860 "operator delete(void*, unsigned long)"<(func)_ZdlPvm>
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401471
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ 	;; successor: function call edge to function 0x00401860 "operator delete(void*, unsigned long)"
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x0040146c from basic block 0x00401464
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401471: 48 83 c4 08               -28 add      rsp, 8
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401475: 4c 89 ef                  -20 mov      rdi, r13
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401478: be 10 00 00 00            -20 mov      esi, 0x00000010<16>
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x0040147d: 5d                        -20 pop      rbp
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x0040147e: 41 5c                     -18 pop      r12
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401480: 41 5d                     -10 pop      r13
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401482: 41 5e                     -08 pop      r14
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401484: e9 d7 03 00 00             00 jmp      function 0x00401860 "operator delete(void*, unsigned long)"<(func)_ZdlPvm>
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   	;; successor: normal edge to function 0x00401860 "operator delete(void*, unsigned long)"
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   0x00401489: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ ┌─	;; successor: normal edge to basic block 0x00401490
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ └▶│ │ │ │ │ │ │ 	;; predecessor:  from instruction 0x00401308 from basic block 0x00401303
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ └▶	;; predecessor:  from basic block 0x00401489
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │   0x00401490: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │   0x00401493: e8 c8 fb ff ff            -28 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │   	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401498
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x00401493 from basic block 0x00401490
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │   0x00401498: 49 8b 06                  -28 mov      rax, qword ds:[r14]
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │   0x0040149b: be 0a 00 00 00            -28 mov      esi, 10
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │   0x004014a0: 48 8b 40 30               -28 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │   0x004014a4: 48 3d d0 15 40 00         -28 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │   0x004014aa: 0f 84 63 fe ff ff         -28 je       basic block 0x00401313
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │ │ ┌─	;; successor: normal edge to basic block 0x004014b0
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ └─  │ │ │ │ │ │ │ 	;; successor: normal edge to basic block 0x00401313
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x004014aa from basic block 0x00401498
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │   0x004014b0: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │   0x004014b3: ff d0                     -28 call     rax
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x004014b5
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │ │ 	;; successor: function call edge to v90053[u64]
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x004014b3 from basic block 0x004014b0
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │   0x004014b5: 0f be f0                  -28 movsx    esi, al
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │     │ │ │ │ │ │   0x004014b8: e9 56 fe ff ff            -28 jmp      basic block 0x00401313
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ └─│ │     │ │ │ │ │ │   	;; successor: normal edge to basic block 0x00401313
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │     │ │ │ │ │ │   
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014bd: 0f 1f 00                   ?? nop      dword ds:[rax]
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │     │ │ │ │ │ │ ┌─	;; successor: normal edge to basic block 0x004014c0
+│ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │ │   │ │     │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │ └▶│ │ │ │ │   │ │     │ │ │ │ │ │ │ 	;; predecessor:  from instruction 0x004012a4 from basic block 0x0040129f
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │ └▶	;; predecessor:  from basic block 0x004014bd
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014c0: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014c3: e8 98 fb ff ff            -28 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │   	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x004014c8
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x004014c3 from basic block 0x004014c0
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014c8: 49 8b 06                  -28 mov      rax, qword ds:[r14]
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014cb: be 0a 00 00 00            -28 mov      esi, 10
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014d0: 48 8b 40 30               -28 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014d4: 48 3d d0 15 40 00         -28 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014da: 0f 84 cf fd ff ff         -28 je       basic block 0x004012af
+│ │ │ │ │ │ │ │ │ │ │   │ │ │ │ │   │ │     │ │ │ │ │ │ ┌─	;; successor: normal edge to basic block 0x004014e0
+│ │ │ │ │ │ │ │ │ │ └─  │ │ │ │ │   │ │     │ │ │ │ │ │ │ 	;; successor: normal edge to basic block 0x004012af
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x004014da from basic block 0x004014c8
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014e0: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014e3: ff d0                     -28 call     rax
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x004014e5
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │ │ 	;; successor: function call edge to v80067[u64]
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x004014e3 from basic block 0x004014e0
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014e5: 0f be f0                  -28 movsx    esi, al
+│ │ │ │ │ │ │ │ │ │     │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014e8: e9 c2 fd ff ff            -28 jmp      basic block 0x004012af
+│ │ │ │ │ │ │ │ │ └─    │ │ │ │ │   │ │     │ │ │ │ │ │   	;; successor: normal edge to basic block 0x004012af
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │ │     │ │ │ │ │ │   
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │ │     │ │ │ │ │ │   0x004014ed: 0f 1f 00                   ?? nop      dword ds:[rax]
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │ │     │ │ │ │ │ │ ┌─	;; successor: normal edge to basic block 0x004014f0
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │ │     │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │ └▶    │ │ │ │ │ │ │ 	;; predecessor:  from instruction 0x0040136d from basic block 0x00401368
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │ └▶	;; predecessor:  from basic block 0x004014ed
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │   0x004014f0: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │   0x004014f3: e8 68 fb ff ff            -28 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │   	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x004014f8
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x004014f3 from basic block 0x004014f0
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │   0x004014f8: 49 8b 06                  -28 mov      rax, qword ds:[r14]
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │   0x004014fb: be 0a 00 00 00            -28 mov      esi, 10
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │   0x00401500: 48 8b 40 30               -28 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │   0x00401504: 48 3d d0 15 40 00         -28 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │   0x0040150a: 0f 84 68 fe ff ff         -28 je       basic block 0x00401378
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   │       │ │ │ │ │ │ ┌─	;; successor: normal edge to basic block 0x00401510
+│ │ │ │ │ │ │ │ │       │ │ │ │ │   └─      │ │ │ │ │ │ │ 	;; successor: normal edge to basic block 0x00401378
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x0040150a from basic block 0x004014f8
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │   0x00401510: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │   0x00401513: ff d0                     -28 call     rax
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401515
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │ │ 	;; successor: function call edge to v80059[u64]
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │ └▶	;; predecessor:  from instruction 0x00401513 from basic block 0x00401510
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │   0x00401515: 0f be f0                  -28 movsx    esi, al
+│ │ │ │ │ │ │ │ │       │ │ │ │ │           │ │ │ │ │ │   0x00401518: e9 5b fe ff ff            -28 jmp      basic block 0x00401378
+│ │ │ │ │ │ │ │ │       │ │ │ │ └─          │ │ │ │ │ │   	;; successor: normal edge to basic block 0x00401378
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │ │ │ │ │   
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │ │ │ │ │   0x0040151d: 0f 1f 00                   ?? nop      dword ds:[rax]
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │ │ │ │ │ ┌─	;; successor: normal edge to basic block 0x00401520
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │ │ │ │ │ │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │ └▶│ │ │ │ 	;; predecessor:  from instruction 0x004013d6 from basic block 0x004013d1
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │ └▶	;; predecessor:  from basic block 0x0040151d
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │   0x00401520: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │   0x00401523: e8 38 fb ff ff            -28 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │   	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │ ┌─	;; successor: call return edge to basic block 0x00401528
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │ │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │ └▶	;; predecessor:  from instruction 0x00401523 from basic block 0x00401520
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │   0x00401528: 49 8b 06                  -28 mov      rax, qword ds:[r14]
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │   0x0040152b: be 0a 00 00 00            -28 mov      esi, 10
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │   0x00401530: 48 8b 40 30               -28 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │   0x00401534: 48 3d d0 15 40 00         -28 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │   0x0040153a: 0f 84 a1 fe ff ff         -28 je       basic block 0x004013e1
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ │   │ │ │ ┌─	;; successor: normal edge to basic block 0x00401540
+│ │ │ │ │ │ │ │ │       │ │ │ │             │ └─  │ │ │ │ 	;; successor: normal edge to basic block 0x004013e1
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │ │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │ └▶	;; predecessor:  from instruction 0x0040153a from basic block 0x00401528
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │   0x00401540: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │   0x00401543: ff d0                     -28 call     rax
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │ ┌─	;; successor: call return edge to basic block 0x00401545
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │ │ 	;; successor: function call edge to v30051[u64]
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │ │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │ └▶	;; predecessor:  from instruction 0x00401543 from basic block 0x00401540
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │   0x00401545: 0f be f0                  -28 movsx    esi, al
+│ │ │ │ │ │ │ │ │       │ │ │ │             │     │ │ │   0x00401548: e9 94 fe ff ff            -28 jmp      basic block 0x004013e1
+│ │ │ │ │ │ │ │ │       │ │ │ │             └─    │ │ │   	;; successor: normal edge to basic block 0x004013e1
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │ │   
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │ │   0x0040154d: 0f 1f 00                   ?? nop      dword ds:[rax]
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │ │ ┌─	;; successor: normal edge to basic block 0x00401550
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │ │ │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │ └▶│ 	;; predecessor:  from instruction 0x0040143a from basic block 0x00401435
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │   └▶	;; predecessor:  from basic block 0x0040154d
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │     0x00401550: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │     0x00401553: e8 08 fb ff ff            -28 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │     	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │   ┌─	;; successor: call return edge to basic block 0x00401558
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │   │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │   └▶	;; predecessor:  from instruction 0x00401553 from basic block 0x00401550
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │     0x00401558: 49 8b 06                  -28 mov      rax, qword ds:[r14]
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │     0x0040155b: be 0a 00 00 00            -28 mov      esi, 10
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │     0x00401560: 48 8b 40 30               -28 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │     0x00401564: 48 3d d0 15 40 00         -28 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │     0x0040156a: 0f 84 d5 fe ff ff         -28 je       basic block 0x00401445
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ │   ┌─	;; successor: normal edge to basic block 0x00401570
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │ └─  │ 	;; successor: normal edge to basic block 0x00401445
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │     │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │     └▶	;; predecessor:  from instruction 0x0040156a from basic block 0x00401558
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │       0x00401570: 4c 89 f7                  -28 mov      rdi, r14
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │       0x00401573: ff d0                     -28 call     rax
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │     ┌─	;; successor: call return edge to basic block 0x00401575
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │     │ 	;; successor: function call edge to v110044[u64]
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │     │ 
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │     └▶	;; predecessor:  from instruction 0x00401573 from basic block 0x00401570
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │       0x00401575: 0f be f0                  -28 movsx    esi, al
+│ │ │ │ │ │ │ │ │       │ │ │ │                   │       0x00401578: e9 c8 fe ff ff            -28 jmp      basic block 0x00401445
+│ │ │ │ │ │ │ │ │       │ │ │ │                   └─      	;; successor: normal edge to basic block 0x00401445
+│ │ │ │ │ │ │ │ │       │ │ │ │                           
+│ │ │ │ │ │ │ │ │       │ │ │ │                           0x0040157d: 0f 1f 00                   ?? nop      dword ds:[rax]
+│ │ │ │ │ │ │ │ │       │ │ │ │                         ┌─	;; successor: normal edge to basic block 0x00401580
+│ │ │ │ │ │ │ │ │       │ │ │ │                         │ 
+│ │ └▶│ │ │ │ │ │       │ │ │ │                         │ 	;; predecessor:  from instruction 0x004012ce from basic block 0x004012c1
+│ │   │ │ │ │ │ │       │ │ │ │                         └▶	;; predecessor:  from basic block 0x0040157d
+│ │   │ │ │ │ │ │       │ │ │ │                           0x00401580: 48 89 ef                  -28 mov      rdi, rbp
+│ │   │ │ │ │ │ │       │ │ │ │                           0x00401583: ff d0                     -28 call     rax
+│ │   │ │ │ │ │ │       │ │ │ │                         ┌─	;; successor: call return edge to basic block 0x00401585
+│ │   │ │ │ │ │ │       │ │ │ │                         │ 	;; successor: function call edge to v120036[u64]
+│ │   │ │ │ │ │ │       │ │ │ │                         │ 
+│ │   │ │ │ │ │ │       │ │ │ │                         └▶	;; predecessor:  from instruction 0x00401583 from basic block 0x00401580
+│ │   │ │ │ │ │ │       │ │ │ │                           0x00401585: 48 8b 45 00               -28 mov      rax, qword ds:[rbp + 0]
+│ │   │ │ │ │ │ │       │ │ │ │                           0x00401589: 48 8b 40 08               -28 mov      rax, qword ds:[rax + 8]
+│ │   │ │ │ │ │ │       │ │ │ │                           0x0040158d: 48 3d 60 16 40 00         -28 cmp      rax, function 0x00401660 "Cls3::func3()"<(func)_ZN4Cls35func3Ev>
+│ │   │ │ │ │ │ │       │ │ │ │                           0x00401593: 0f 84 a0 fd ff ff         -28 je       basic block 0x00401339
+│ │   │ │ │ │ │ │       │ │ │ │                         ┌─	;; successor: normal edge to basic block 0x00401599
+│ │   │ │ └─│ │ │       │ │ │ │                         │ 	;; successor: normal edge to basic block 0x00401339
+│ │   │ │   │ │ │       │ │ │ │                         │ 
+│ │   │ └▶  │ │ │       │ │ │ │                         │ 	;; predecessor:  from instruction 0x00401333 from basic block 0x00401325
+│ │   │     │ │ │       │ │ │ │                         └▶	;; predecessor:  from instruction 0x00401593 from basic block 0x00401585
+│ │   │     │ │ │       │ │ │ │                           0x00401599: 48 89 ef                  -28 mov      rdi, rbp
+│ │   │     │ │ │       │ │ │ │                           0x0040159c: ff d0                     -28 call     rax
+│ │   │     │ │ │       │ │ │ │                         ┌─	;; successor: call return edge to basic block 0x0040159e
+│ │   │     │ │ │       │ │ │ │                         │ 	;; successor: function call edge to v40036[u64]
+│ │   │     │ │ │       │ │ │ │                         │ 
+│ │   │     │ │ │       │ │ │ │                         └▶	;; predecessor:  from instruction 0x0040159c from basic block 0x00401599
+│ │   │     │ │ │       │ │ │ │                           0x0040159e: e9 e7 fd ff ff            -28 jmp      basic block 0x0040138a
+│ │   │     │ └─│       │ │ │ │                           	;; successor: normal edge to basic block 0x0040138a
+│ │   │     │   │       │ │ │ │                           
+│ │   │     │   │       │ │ │ │                           0x004015a3: 0f 1f 44 00 00             ?? nop      dword ds:[rax + rax + 0]
+│ │   │     │   │       │ │ │ │                         ┌─	;; successor: normal edge to basic block 0x004015a8
+│ │   │     │   │       │ │ │ │                         │ 
+│ │   │     │   └▶      │ │ │ │                         │ 	;; predecessor:  from instruction 0x0040139c from basic block 0x0040138a
+│ │   │     │           │ │ │ │                         └▶	;; predecessor:  from basic block 0x004015a3
+│ │   │     │           │ │ │ │                           0x004015a8: ff d0                     -28 call     rax
+│ │   │     │           │ │ │ │                         ┌─	;; successor: call return edge to basic block 0x004015aa
+│ │   │     │           │ │ │ │                         │ 	;; successor: function call edge to v70033[u64]
+│ │   │     │           │ │ │ │                         │ 
+│ │   │     │           │ │ │ │                         └▶	;; predecessor:  from basic block 0x004015a8
+│ │   │     │           │ │ │ │                           0x004015aa: 49 8b 04 24               -28 mov      rax, qword ds:[r12]
+│ │   │     │           │ │ │ │                           0x004015ae: 48 8b 00                  -28 mov      rax, qword ds:[rax]
+│ │   │     │           │ │ │ │                           0x004015b1: 48 3d e0 17 40 00         -28 cmp      rax, function 0x004017e0 "Cls3::func1()"<(func)_ZN4Cls35func1Ev>
+│ │   │     │           │ │ │ │                           0x004015b7: 0f 84 49 fe ff ff         -28 je       basic block 0x00401406
+│ │   │     │           │ │ │ │                         ┌─	;; successor: normal edge to basic block 0x004015bd
+│ │   │     │           │ │ └─│                         │ 	;; successor: normal edge to basic block 0x00401406
+│ │   │     │           │ │   │                         │ 
+│ │   │     │           │ └▶  │                         │ 	;; predecessor:  from instruction 0x00401400 from basic block 0x004013f3
+│ │   │     │           │     │                         └▶	;; predecessor:  from instruction 0x004015b7 from basic block 0x004015aa
+│ │   │     │           │     │                           0x004015bd: 4c 89 e7                  -28 mov      rdi, r12
+│ │   │     │           │     │                           0x004015c0: ff d0                     -28 call     rax
+│ │   │     │           │     │                         ┌─	;; successor: call return edge to basic block 0x004015c2
+│ │   │     │           │     │                         │ 	;; successor: function call edge to v20039[u64]
+│ │   │     │           │     │                         │ 
+│ │   │     │           │     │                         └▶	;; predecessor:  from instruction 0x004015c0 from basic block 0x004015bd
+│ │   │     │           │     │                           0x004015c2: e9 90 fe ff ff            -28 jmp      basic block 0x00401457
+│ │   │     │           │     └─                          	;; successor: normal edge to basic block 0x00401457
+│ │   │     │           │                                 
+└▶│   │     │           │                                 	;; predecessor:  from instruction 0x00401299 from basic block 0x00401284
+  └▶  │     │           │                                 	;; predecessor:  from instruction 0x004012fd from basic block 0x004012e8
+      └▶    │           │                                 	;; predecessor:  from instruction 0x00401362 from basic block 0x0040134d
+            └▶          │                                 	;; predecessor:  from instruction 0x004013cb from basic block 0x004013b6
+                        └▶                                	;; predecessor:  from instruction 0x0040142f from basic block 0x0040141a
+                                                          0x004015c7: e8 64 fa ff ff            -28 call     function 0x00401030 "std::__throw_bad_cast()@plt"
+                                                        ┌─	;; successor: call return edge to basic block 0x004015cc
+                                                        │ 	;; successor: function call edge to function 0x00401030 "std::__throw_bad_cast()@plt"
+                                                        │ 
+                                                        └▶	;; predecessor:  from basic block 0x004015c7
+                                                          0x004015cc: 0f 1f 40 00               -28 nop      dword ds:[rax + 0]
+                                                          	;; successor: normal edge to function 0x004015d0 "std::ctype<char>::do_widen(char) const"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; function 0x004015d0 "std::ctype<char>::do_widen(char) const"
 ;;; mangled name is "_ZNKSt5ctypeIcE8do_widenEc"
 ;;; reasons for function: referenced by symbol table
+;;; predecessor function 0x00401200 "myfunc()"
 
-0x004012c0: 89 f0                      00 mov      eax, esi
-0x004012c2: c3                         00 ret
+	;; predecessor:  from basic block 0x004015cc
+0x004015d0: 89 f0                      00 mov      eax, esi
+0x004015d2: c3                         00 ret
 	;; successor: function return edge to v140005[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004012d0 "Cls1::func1()"
-;;; mangled name is "_ZN4Cls15func1Ev"
-;;; reasons for function: referenced by symbol table
-;;; successor function 0x00401350 "Cls3::func3()"
-;;; calls function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-;;; successor function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-;;; calls function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-;;; calls function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-;;; calls function 0x00401030 "std::__throw_bad_cast()@plt"
-
-0x004012d0: 55                         00 push     rbp
-0x004012d1: ba 0d 00 00 00            -08 mov      edx, 13
-0x004012d6: be 10 20 40 00            -08 mov      esi, 0x00402010<"Cls1::func1()">
-0x004012db: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-0x004012e0: e8 db fd ff ff            -08 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-          	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-        ┌─	;; successor: call return edge to basic block 0x004012e5
-        │ 
-        └▶	;; predecessor:  from instruction 0x004012e0 from basic block 0x004012d0
-          0x004012e5: 48 8b 05 b4 2d 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002db4<11700><absolute=0x00000000004040a0>]
-          0x004012ec: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
-          0x004012f0: 48 8b a8 90 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404190]
-          0x004012f7: 48 85 ed                  -08 test     rbp, rbp
-          0x004012fa: 74 4b                     -08 je       basic block 0x00401347
-┌─        	;; successor: normal edge to basic block 0x00401347
-│       ┌─	;; successor: normal edge to basic block 0x004012fc
-│       │ 
-│       └▶	;; predecessor:  from instruction 0x004012fa from basic block 0x004012e5
-│         0x004012fc: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
-│         0x00401300: 74 1e                     -08 je       basic block 0x00401320
-│     ┌─  	;; successor: normal edge to basic block 0x00401320
-│     │ ┌─	;; successor: normal edge to basic block 0x00401302
-│     │ │ 
-│     │ └▶	;; predecessor:  from instruction 0x00401300 from basic block 0x004012fc
-│     │   0x00401302: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
-│     │ ┌─	;; successor: normal edge to basic block 0x00401306
-│     │ │ 
-│     │ └▶	;; predecessor:  from basic block 0x00401302
-│   ┌▶│   	;; predecessor:  from instruction 0x0040133b from basic block 0x00401328
-│ ┌▶│ │   	;; predecessor:  from instruction 0x00401345 from basic block 0x00401342
-│ │ │ │   0x00401306: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-│ │ │ │   0x0040130b: e8 f0 fd ff ff            -08 call     function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-│ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401310
-│ │ │ │ │ 	;; successor: function call edge to function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-│ │ │ │ │ 
-│ │ │ │ └▶	;; predecessor:  from instruction 0x0040130b from basic block 0x00401306
-│ │ │ │   0x00401310: 5d                        -08 pop      rbp
-│ │ │ │   0x00401311: 48 89 c7                   00 mov      rdi, rax
-│ │ │ │   0x00401314: e9 b7 fd ff ff             00 jmp      function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-│ │ │ │   	;; successor: normal edge to function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-│ │ │ │   
-│ │ │ │   0x00401319: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
-│ │ │ │ ┌─	;; successor: normal edge to basic block 0x00401320
-│ │ │ │ │ 
-│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401300 from basic block 0x004012fc
-│ │ │   └▶	;; predecessor:  from basic block 0x00401319
-│ │ │     0x00401320: 48 89 ef                  -08 mov      rdi, rbp
-│ │ │     0x00401323: e8 38 fd ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-│ │ │     	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-│ │ │   ┌─	;; successor: call return edge to basic block 0x00401328
-│ │ │   │ 
-│ │ │   └▶	;; predecessor:  from instruction 0x00401323 from basic block 0x00401320
-│ │ │     0x00401328: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
-│ │ │     0x0040132c: be 0a 00 00 00            -08 mov      esi, 10
-│ │ │     0x00401331: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
-│ │ │     0x00401335: 48 3d c0 12 40 00         -08 cmp      rax, function 0x004012c0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
-│ │ │     0x0040133b: 74 c9                     -08 je       basic block 0x00401306
-│ │ │   ┌─	;; successor: normal edge to basic block 0x0040133d
-│ │ └─  │ 	;; successor: normal edge to basic block 0x00401306
-│ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x0040133b from basic block 0x00401328
-│ │       0x0040133d: 48 89 ef                  -08 mov      rdi, rbp
-│ │       0x00401340: ff d0                     -08 call     rax
-│ │       	;; successor: function call edge to v120030[u64]
-│ │     ┌─	;; successor: call return edge to basic block 0x00401342
-│ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x00401340 from basic block 0x0040133d
-│ │       0x00401342: 0f be f0                  -08 movsx    esi, al
-│ │       0x00401345: eb bf                     -08 jmp      basic block 0x00401306
-│ └─      	;; successor: normal edge to basic block 0x00401306
-│         
-└▶        	;; predecessor:  from instruction 0x004012fa from basic block 0x004012e5
-          0x00401347: e8 e4 fc ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
-        ┌─	;; successor: call return edge to basic block 0x0040134c
-        │ 	;; successor: function call edge to function 0x00401030 "std::__throw_bad_cast()@plt"
-        │ 
-        └▶	;; predecessor:  from basic block 0x00401347
-          0x0040134c: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
-          	;; successor: normal edge to function 0x00401350 "Cls3::func3()"
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x00401350 "Cls3::func3()"
-;;; mangled name is "_ZN4Cls35func3Ev"
-;;; reasons for function: referenced by symbol table
-;;; predecessor function 0x004012d0 "Cls1::func1()"
-;;; successor function 0x004013d0 "non-virtual thunk to Cls3::func3()"
-;;; calls function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-;;; successor function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-;;; calls function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-;;; calls function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-;;; calls function 0x00401030 "std::__throw_bad_cast()@plt"
-
-          	;; predecessor:  from basic block 0x0040134c
-          0x00401350: 55                         00 push     rbp
-          0x00401351: ba 0d 00 00 00            -08 mov      edx, 13
-          0x00401356: be 1e 20 40 00            -08 mov      esi, 0x0040201e<"Cls3::func3()">
-          0x0040135b: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-          0x00401360: e8 5b fd ff ff            -08 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-          	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-        ┌─	;; successor: call return edge to basic block 0x00401365
-        │ 
-        └▶	;; predecessor:  from instruction 0x00401360 from basic block 0x00401350
-          0x00401365: 48 8b 05 34 2d 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002d34<11572><absolute=0x00000000004040a0>]
-          0x0040136c: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
-          0x00401370: 48 8b a8 90 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404190]
-          0x00401377: 48 85 ed                  -08 test     rbp, rbp
-          0x0040137a: 74 4b                     -08 je       basic block 0x004013c7
-┌─        	;; successor: normal edge to basic block 0x004013c7
-│       ┌─	;; successor: normal edge to basic block 0x0040137c
-│       │ 
-│       └▶	;; predecessor:  from instruction 0x0040137a from basic block 0x00401365
-│         0x0040137c: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
-│         0x00401380: 74 1e                     -08 je       basic block 0x004013a0
-│     ┌─  	;; successor: normal edge to basic block 0x004013a0
-│     │ ┌─	;; successor: normal edge to basic block 0x00401382
-│     │ │ 
-│     │ └▶	;; predecessor:  from instruction 0x00401380 from basic block 0x0040137c
-│     │   0x00401382: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
-│     │ ┌─	;; successor: normal edge to basic block 0x00401386
-│     │ │ 
-│     │ └▶	;; predecessor:  from basic block 0x00401382
-│   ┌▶│   	;; predecessor:  from instruction 0x004013bb from basic block 0x004013a8
-│ ┌▶│ │   	;; predecessor:  from instruction 0x004013c5 from basic block 0x004013c2
-│ │ │ │   0x00401386: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-│ │ │ │   0x0040138b: e8 70 fd ff ff            -08 call     function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-│ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401390
-│ │ │ │ │ 	;; successor: function call edge to function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-│ │ │ │ │ 
-│ │ │ │ └▶	;; predecessor:  from instruction 0x0040138b from basic block 0x00401386
-│ │ │ │   0x00401390: 5d                        -08 pop      rbp
-│ │ │ │   0x00401391: 48 89 c7                   00 mov      rdi, rax
-│ │ │ │   0x00401394: e9 37 fd ff ff             00 jmp      function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-│ │ │ │   	;; successor: normal edge to function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-│ │ │ │   
-│ │ │ │   0x00401399: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
-│ │ │ │ ┌─	;; successor: normal edge to basic block 0x004013a0
-│ │ │ │ │ 
-│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401380 from basic block 0x0040137c
-│ │ │   └▶	;; predecessor:  from basic block 0x00401399
-│ │ │     0x004013a0: 48 89 ef                  -08 mov      rdi, rbp
-│ │ │     0x004013a3: e8 b8 fc ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-│ │ │     	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-│ │ │   ┌─	;; successor: call return edge to basic block 0x004013a8
-│ │ │   │ 
-│ │ │   └▶	;; predecessor:  from instruction 0x004013a3 from basic block 0x004013a0
-│ │ │     0x004013a8: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
-│ │ │     0x004013ac: be 0a 00 00 00            -08 mov      esi, 10
-│ │ │     0x004013b1: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
-│ │ │     0x004013b5: 48 3d c0 12 40 00         -08 cmp      rax, function 0x004012c0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
-│ │ │     0x004013bb: 74 c9                     -08 je       basic block 0x00401386
-│ │ │   ┌─	;; successor: normal edge to basic block 0x004013bd
-│ │ └─  │ 	;; successor: normal edge to basic block 0x00401386
-│ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x004013bb from basic block 0x004013a8
-│ │       0x004013bd: 48 89 ef                  -08 mov      rdi, rbp
-│ │       0x004013c0: ff d0                     -08 call     rax
-│ │     ┌─	;; successor: call return edge to basic block 0x004013c2
-│ │     │ 	;; successor: function call edge to v50040[u64]
-│ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x004013c0 from basic block 0x004013bd
-│ │       0x004013c2: 0f be f0                  -08 movsx    esi, al
-│ │       0x004013c5: eb bf                     -08 jmp      basic block 0x00401386
-│ └─      	;; successor: normal edge to basic block 0x00401386
-│         
-└▶        	;; predecessor:  from instruction 0x0040137a from basic block 0x00401365
-          0x004013c7: e8 64 fc ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
-        ┌─	;; successor: call return edge to basic block 0x004013cc
-        │ 	;; successor: function call edge to function 0x00401030 "std::__throw_bad_cast()@plt"
-        │ 
-        └▶	;; predecessor:  from basic block 0x004013c7
-          0x004013cc: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
-          	;; successor: normal edge to function 0x004013d0 "non-virtual thunk to Cls3::func3()"
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004013d0 "non-virtual thunk to Cls3::func3()"
-;;; mangled name is "_ZThn16_N4Cls35func3Ev"
-;;; reasons for function: referenced by symbol table
-;;; predecessor function 0x00401350 "Cls3::func3()"
-;;; successor function 0x00401450 "Cls2::func4()"
-;;; calls function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-;;; successor function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-;;; calls function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-;;; calls function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-;;; calls function 0x00401030 "std::__throw_bad_cast()@plt"
-
-          	;; predecessor:  from basic block 0x004013cc
-          0x004013d0: 55                         00 push     rbp
-          0x004013d1: ba 0d 00 00 00            -08 mov      edx, 13
-          0x004013d6: be 1e 20 40 00            -08 mov      esi, 0x0040201e<"Cls3::func3()">
-          0x004013db: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-          0x004013e0: e8 db fc ff ff            -08 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-          	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-        ┌─	;; successor: call return edge to basic block 0x004013e5
-        │ 
-        └▶	;; predecessor:  from instruction 0x004013e0 from basic block 0x004013d0
-          0x004013e5: 48 8b 05 b4 2c 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002cb4<11444><absolute=0x00000000004040a0>]
-          0x004013ec: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
-          0x004013f0: 48 8b a8 90 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404190]
-          0x004013f7: 48 85 ed                  -08 test     rbp, rbp
-          0x004013fa: 74 4b                     -08 je       basic block 0x00401447
-┌─        	;; successor: normal edge to basic block 0x00401447
-│       ┌─	;; successor: normal edge to basic block 0x004013fc
-│       │ 
-│       └▶	;; predecessor:  from instruction 0x004013fa from basic block 0x004013e5
-│         0x004013fc: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
-│         0x00401400: 74 1e                     -08 je       basic block 0x00401420
-│     ┌─  	;; successor: normal edge to basic block 0x00401420
-│     │ ┌─	;; successor: normal edge to basic block 0x00401402
-│     │ │ 
-│     │ └▶	;; predecessor:  from instruction 0x00401400 from basic block 0x004013fc
-│     │   0x00401402: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
-│     │ ┌─	;; successor: normal edge to basic block 0x00401406
-│     │ │ 
-│     │ └▶	;; predecessor:  from basic block 0x00401402
-│   ┌▶│   	;; predecessor:  from instruction 0x0040143b from basic block 0x00401428
-│ ┌▶│ │   	;; predecessor:  from instruction 0x00401445 from basic block 0x00401442
-│ │ │ │   0x00401406: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-│ │ │ │   0x0040140b: e8 f0 fc ff ff            -08 call     function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-│ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401410
-│ │ │ │ │ 	;; successor: function call edge to function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-│ │ │ │ │ 
-│ │ │ │ └▶	;; predecessor:  from instruction 0x0040140b from basic block 0x00401406
-│ │ │ │   0x00401410: 5d                        -08 pop      rbp
-│ │ │ │   0x00401411: 48 89 c7                   00 mov      rdi, rax
-│ │ │ │   0x00401414: e9 b7 fc ff ff             00 jmp      function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-│ │ │ │   	;; successor: normal edge to function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-│ │ │ │   
-│ │ │ │   0x00401419: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
-│ │ │ │ ┌─	;; successor: normal edge to basic block 0x00401420
-│ │ │ │ │ 
-│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401400 from basic block 0x004013fc
-│ │ │   └▶	;; predecessor:  from basic block 0x00401419
-│ │ │     0x00401420: 48 89 ef                  -08 mov      rdi, rbp
-│ │ │     0x00401423: e8 38 fc ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-│ │ │     	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-│ │ │   ┌─	;; successor: call return edge to basic block 0x00401428
-│ │ │   │ 
-│ │ │   └▶	;; predecessor:  from instruction 0x00401423 from basic block 0x00401420
-│ │ │     0x00401428: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
-│ │ │     0x0040142c: be 0a 00 00 00            -08 mov      esi, 10
-│ │ │     0x00401431: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
-│ │ │     0x00401435: 48 3d c0 12 40 00         -08 cmp      rax, function 0x004012c0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
-│ │ │     0x0040143b: 74 c9                     -08 je       basic block 0x00401406
-│ │ │   ┌─	;; successor: normal edge to basic block 0x0040143d
-│ │ └─  │ 	;; successor: normal edge to basic block 0x00401406
-│ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x0040143b from basic block 0x00401428
-│ │       0x0040143d: 48 89 ef                  -08 mov      rdi, rbp
-│ │       0x00401440: ff d0                     -08 call     rax
-│ │     ┌─	;; successor: call return edge to basic block 0x00401442
-│ │     │ 	;; successor: function call edge to v100046[u64]
-│ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x00401440 from basic block 0x0040143d
-│ │       0x00401442: 0f be f0                  -08 movsx    esi, al
-│ │       0x00401445: eb bf                     -08 jmp      basic block 0x00401406
-│ └─      	;; successor: normal edge to basic block 0x00401406
-│         
-└▶        	;; predecessor:  from instruction 0x004013fa from basic block 0x004013e5
-          0x00401447: e8 e4 fb ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
-        ┌─	;; successor: call return edge to basic block 0x0040144c
-        │ 	;; successor: function call edge to function 0x00401030 "std::__throw_bad_cast()@plt"
-        │ 
-        └▶	;; predecessor:  from basic block 0x00401447
-          0x0040144c: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
-          	;; successor: normal edge to function 0x00401450 "Cls2::func4()"
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x00401450 "Cls2::func4()"
+;;; function 0x004015e0 "Cls2::func4()"
 ;;; mangled name is "_ZN4Cls25func4Ev"
 ;;; reasons for function: referenced by symbol table
-;;; predecessor function 0x004013d0 "non-virtual thunk to Cls3::func3()"
-;;; successor function 0x004014d0 "Cls3::func1()"
-;;; calls function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-;;; successor function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+;;; successor function 0x00401660 "Cls3::func3()"
+;;; calls function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+;;; successor function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
 ;;; calls function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-;;; calls function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+;;; calls function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
 ;;; calls function 0x00401030 "std::__throw_bad_cast()@plt"
 
-          	;; predecessor:  from basic block 0x0040144c
-          0x00401450: 55                         00 push     rbp
-          0x00401451: ba 0d 00 00 00            -08 mov      edx, 13
-          0x00401456: be 2c 20 40 00            -08 mov      esi, 0x0040202c<"Cls2::func4()">
-          0x0040145b: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-          0x00401460: e8 5b fc ff ff            -08 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-          	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-        ┌─	;; successor: call return edge to basic block 0x00401465
+0x004015e0: 55                         00 push     rbp
+0x004015e1: ba 0d 00 00 00            -08 mov      edx, 13
+0x004015e6: be 10 20 40 00            -08 mov      esi, 0x00402010<"Cls2::func4()">
+0x004015eb: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+0x004015f0: e8 bb fa ff ff            -08 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+          	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+        ┌─	;; successor: call return edge to basic block 0x004015f5
         │ 
-        └▶	;; predecessor:  from instruction 0x00401460 from basic block 0x00401450
-          0x00401465: 48 8b 05 34 2c 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002c34<11316><absolute=0x00000000004040a0>]
-          0x0040146c: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
-          0x00401470: 48 8b a8 90 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404190]
-          0x00401477: 48 85 ed                  -08 test     rbp, rbp
-          0x0040147a: 74 4b                     -08 je       basic block 0x004014c7
-┌─        	;; successor: normal edge to basic block 0x004014c7
-│       ┌─	;; successor: normal edge to basic block 0x0040147c
+        └▶	;; predecessor:  from instruction 0x004015f0 from basic block 0x004015e0
+          0x004015f5: 48 8b 05 84 2a 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002a84<10884><absolute=0x0000000000404080>]
+          0x004015fc: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+          0x00401600: 48 8b a8 70 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404170]
+          0x00401607: 48 85 ed                  -08 test     rbp, rbp
+          0x0040160a: 74 4b                     -08 je       basic block 0x00401657
+┌─        	;; successor: normal edge to basic block 0x00401657
+│       ┌─	;; successor: normal edge to basic block 0x0040160c
 │       │ 
-│       └▶	;; predecessor:  from instruction 0x0040147a from basic block 0x00401465
-│         0x0040147c: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
-│         0x00401480: 74 1e                     -08 je       basic block 0x004014a0
-│     ┌─  	;; successor: normal edge to basic block 0x004014a0
-│     │ ┌─	;; successor: normal edge to basic block 0x00401482
+│       └▶	;; predecessor:  from instruction 0x0040160a from basic block 0x004015f5
+│         0x0040160c: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
+│         0x00401610: 74 1e                     -08 je       basic block 0x00401630
+│     ┌─  	;; successor: normal edge to basic block 0x00401630
+│     │ ┌─	;; successor: normal edge to basic block 0x00401612
 │     │ │ 
-│     │ └▶	;; predecessor:  from instruction 0x00401480 from basic block 0x0040147c
-│     │   0x00401482: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
-│     │ ┌─	;; successor: normal edge to basic block 0x00401486
+│     │ └▶	;; predecessor:  from instruction 0x00401610 from basic block 0x0040160c
+│     │   0x00401612: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
+│     │ ┌─	;; successor: normal edge to basic block 0x00401616
 │     │ │ 
-│     │ └▶	;; predecessor:  from basic block 0x00401482
-│   ┌▶│   	;; predecessor:  from instruction 0x004014bb from basic block 0x004014a8
-│ ┌▶│ │   	;; predecessor:  from instruction 0x004014c5 from basic block 0x004014c2
-│ │ │ │   0x00401486: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-│ │ │ │   0x0040148b: e8 70 fc ff ff            -08 call     function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-│ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401490
-│ │ │ │ │ 	;; successor: function call edge to function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│     │ └▶	;; predecessor:  from basic block 0x00401612
+│   ┌▶│   	;; predecessor:  from instruction 0x0040164b from basic block 0x00401638
+│ ┌▶│ │   	;; predecessor:  from instruction 0x00401655 from basic block 0x00401652
+│ │ │ │   0x00401616: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │   0x0040161b: e8 c0 fa ff ff            -08 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401620
+│ │ │ │ │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
 │ │ │ │ │ 
-│ │ │ │ └▶	;; predecessor:  from instruction 0x0040148b from basic block 0x00401486
-│ │ │ │   0x00401490: 5d                        -08 pop      rbp
-│ │ │ │   0x00401491: 48 89 c7                   00 mov      rdi, rax
-│ │ │ │   0x00401494: e9 37 fc ff ff             00 jmp      function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-│ │ │ │   	;; successor: normal edge to function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │ └▶	;; predecessor:  from instruction 0x0040161b from basic block 0x00401616
+│ │ │ │   0x00401620: 5d                        -08 pop      rbp
+│ │ │ │   0x00401621: 48 89 c7                   00 mov      rdi, rax
+│ │ │ │   0x00401624: e9 97 fa ff ff             00 jmp      function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │   	;; successor: normal edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
 │ │ │ │   
-│ │ │ │   0x00401499: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
-│ │ │ │ ┌─	;; successor: normal edge to basic block 0x004014a0
+│ │ │ │   0x00401629: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
+│ │ │ │ ┌─	;; successor: normal edge to basic block 0x00401630
 │ │ │ │ │ 
-│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401480 from basic block 0x0040147c
-│ │ │   └▶	;; predecessor:  from basic block 0x00401499
-│ │ │     0x004014a0: 48 89 ef                  -08 mov      rdi, rbp
-│ │ │     0x004014a3: e8 b8 fb ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401610 from basic block 0x0040160c
+│ │ │   └▶	;; predecessor:  from basic block 0x00401629
+│ │ │     0x00401630: 48 89 ef                  -08 mov      rdi, rbp
+│ │ │     0x00401633: e8 28 fa ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
 │ │ │     	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-│ │ │   ┌─	;; successor: call return edge to basic block 0x004014a8
+│ │ │   ┌─	;; successor: call return edge to basic block 0x00401638
 │ │ │   │ 
-│ │ │   └▶	;; predecessor:  from instruction 0x004014a3 from basic block 0x004014a0
-│ │ │     0x004014a8: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
-│ │ │     0x004014ac: be 0a 00 00 00            -08 mov      esi, 10
-│ │ │     0x004014b1: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
-│ │ │     0x004014b5: 48 3d c0 12 40 00         -08 cmp      rax, function 0x004012c0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
-│ │ │     0x004014bb: 74 c9                     -08 je       basic block 0x00401486
-│ │ │   ┌─	;; successor: normal edge to basic block 0x004014bd
-│ │ └─  │ 	;; successor: normal edge to basic block 0x00401486
+│ │ │   └▶	;; predecessor:  from instruction 0x00401633 from basic block 0x00401630
+│ │ │     0x00401638: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
+│ │ │     0x0040163c: be 0a 00 00 00            -08 mov      esi, 10
+│ │ │     0x00401641: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │     0x00401645: 48 3d d0 15 40 00         -08 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │     0x0040164b: 74 c9                     -08 je       basic block 0x00401616
+│ │ │   ┌─	;; successor: normal edge to basic block 0x0040164d
+│ │ └─  │ 	;; successor: normal edge to basic block 0x00401616
 │ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x004014bb from basic block 0x004014a8
-│ │       0x004014bd: 48 89 ef                  -08 mov      rdi, rbp
-│ │       0x004014c0: ff d0                     -08 call     rax
-│ │     ┌─	;; successor: call return edge to basic block 0x004014c2
-│ │     │ 	;; successor: function call edge to v90045[u64]
+│ │     └▶	;; predecessor:  from instruction 0x0040164b from basic block 0x00401638
+│ │       0x0040164d: 48 89 ef                  -08 mov      rdi, rbp
+│ │       0x00401650: ff d0                     -08 call     rax
+│ │       	;; successor: function call edge to v70052[u64]
+│ │     ┌─	;; successor: call return edge to basic block 0x00401652
 │ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x004014c0 from basic block 0x004014bd
-│ │       0x004014c2: 0f be f0                  -08 movsx    esi, al
-│ │       0x004014c5: eb bf                     -08 jmp      basic block 0x00401486
-│ └─      	;; successor: normal edge to basic block 0x00401486
+│ │     └▶	;; predecessor:  from instruction 0x00401650 from basic block 0x0040164d
+│ │       0x00401652: 0f be f0                  -08 movsx    esi, al
+│ │       0x00401655: eb bf                     -08 jmp      basic block 0x00401616
+│ └─      	;; successor: normal edge to basic block 0x00401616
 │         
-└▶        	;; predecessor:  from instruction 0x0040147a from basic block 0x00401465
-          0x004014c7: e8 64 fb ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
-        ┌─	;; successor: call return edge to basic block 0x004014cc
+└▶        	;; predecessor:  from instruction 0x0040160a from basic block 0x004015f5
+          0x00401657: e8 d4 f9 ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
+        ┌─	;; successor: call return edge to basic block 0x0040165c
         │ 	;; successor: function call edge to function 0x00401030 "std::__throw_bad_cast()@plt"
         │ 
-        └▶	;; predecessor:  from basic block 0x004014c7
-          0x004014cc: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
-          	;; successor: normal edge to function 0x004014d0 "Cls3::func1()"
+        └▶	;; predecessor:  from basic block 0x00401657
+          0x0040165c: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
+          	;; successor: normal edge to function 0x00401660 "Cls3::func3()"
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004014d0 "Cls3::func1()"
+;;; function 0x00401660 "Cls3::func3()"
+;;; mangled name is "_ZN4Cls35func3Ev"
+;;; reasons for function: referenced by symbol table
+;;; predecessor function 0x004015e0 "Cls2::func4()"
+;;; successor function 0x004016e0 "non-virtual thunk to Cls3::func3()"
+;;; calls function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+;;; successor function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+;;; calls function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+;;; calls function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+;;; calls function 0x00401030 "std::__throw_bad_cast()@plt"
+
+          	;; predecessor:  from basic block 0x0040165c
+          0x00401660: 55                         00 push     rbp
+          0x00401661: ba 0d 00 00 00            -08 mov      edx, 13
+          0x00401666: be 1e 20 40 00            -08 mov      esi, 0x0040201e<"Cls3::func3()">
+          0x0040166b: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+          0x00401670: e8 3b fa ff ff            -08 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+          	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+        ┌─	;; successor: call return edge to basic block 0x00401675
+        │ 
+        └▶	;; predecessor:  from instruction 0x00401670 from basic block 0x00401660
+          0x00401675: 48 8b 05 04 2a 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002a04<10756><absolute=0x0000000000404080>]
+          0x0040167c: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+          0x00401680: 48 8b a8 70 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404170]
+          0x00401687: 48 85 ed                  -08 test     rbp, rbp
+          0x0040168a: 74 4b                     -08 je       basic block 0x004016d7
+┌─        	;; successor: normal edge to basic block 0x004016d7
+│       ┌─	;; successor: normal edge to basic block 0x0040168c
+│       │ 
+│       └▶	;; predecessor:  from instruction 0x0040168a from basic block 0x00401675
+│         0x0040168c: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
+│         0x00401690: 74 1e                     -08 je       basic block 0x004016b0
+│     ┌─  	;; successor: normal edge to basic block 0x004016b0
+│     │ ┌─	;; successor: normal edge to basic block 0x00401692
+│     │ │ 
+│     │ └▶	;; predecessor:  from instruction 0x00401690 from basic block 0x0040168c
+│     │   0x00401692: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
+│     │ ┌─	;; successor: normal edge to basic block 0x00401696
+│     │ │ 
+│     │ └▶	;; predecessor:  from basic block 0x00401692
+│   ┌▶│   	;; predecessor:  from instruction 0x004016cb from basic block 0x004016b8
+│ ┌▶│ │   	;; predecessor:  from instruction 0x004016d5 from basic block 0x004016d2
+│ │ │ │   0x00401696: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │   0x0040169b: e8 40 fa ff ff            -08 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ ┌─	;; successor: call return edge to basic block 0x004016a0
+│ │ │ │ │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ │ 
+│ │ │ │ └▶	;; predecessor:  from instruction 0x0040169b from basic block 0x00401696
+│ │ │ │   0x004016a0: 5d                        -08 pop      rbp
+│ │ │ │   0x004016a1: 48 89 c7                   00 mov      rdi, rax
+│ │ │ │   0x004016a4: e9 17 fa ff ff             00 jmp      function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │   	;; successor: normal edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │   
+│ │ │ │   0x004016a9: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
+│ │ │ │ ┌─	;; successor: normal edge to basic block 0x004016b0
+│ │ │ │ │ 
+│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401690 from basic block 0x0040168c
+│ │ │   └▶	;; predecessor:  from basic block 0x004016a9
+│ │ │     0x004016b0: 48 89 ef                  -08 mov      rdi, rbp
+│ │ │     0x004016b3: e8 a8 f9 ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │     	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │   ┌─	;; successor: call return edge to basic block 0x004016b8
+│ │ │   │ 
+│ │ │   └▶	;; predecessor:  from instruction 0x004016b3 from basic block 0x004016b0
+│ │ │     0x004016b8: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
+│ │ │     0x004016bc: be 0a 00 00 00            -08 mov      esi, 10
+│ │ │     0x004016c1: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │     0x004016c5: 48 3d d0 15 40 00         -08 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │     0x004016cb: 74 c9                     -08 je       basic block 0x00401696
+│ │ │   ┌─	;; successor: normal edge to basic block 0x004016cd
+│ │ └─  │ 	;; successor: normal edge to basic block 0x00401696
+│ │     │ 
+│ │     └▶	;; predecessor:  from instruction 0x004016cb from basic block 0x004016b8
+│ │       0x004016cd: 48 89 ef                  -08 mov      rdi, rbp
+│ │       0x004016d0: ff d0                     -08 call     rax
+│ │     ┌─	;; successor: call return edge to basic block 0x004016d2
+│ │     │ 	;; successor: function call edge to v50067[u64]
+│ │     │ 
+│ │     └▶	;; predecessor:  from instruction 0x004016d0 from basic block 0x004016cd
+│ │       0x004016d2: 0f be f0                  -08 movsx    esi, al
+│ │       0x004016d5: eb bf                     -08 jmp      basic block 0x00401696
+│ └─      	;; successor: normal edge to basic block 0x00401696
+│         
+└▶        	;; predecessor:  from instruction 0x0040168a from basic block 0x00401675
+          0x004016d7: e8 54 f9 ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
+        ┌─	;; successor: call return edge to basic block 0x004016dc
+        │ 	;; successor: function call edge to function 0x00401030 "std::__throw_bad_cast()@plt"
+        │ 
+        └▶	;; predecessor:  from basic block 0x004016d7
+          0x004016dc: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
+          	;; successor: normal edge to function 0x004016e0 "non-virtual thunk to Cls3::func3()"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; function 0x004016e0 "non-virtual thunk to Cls3::func3()"
+;;; mangled name is "_ZThn16_N4Cls35func3Ev"
+;;; reasons for function: referenced by symbol table
+;;; predecessor function 0x00401660 "Cls3::func3()"
+;;; successor function 0x00401760 "Cls1::func1()"
+;;; calls function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+;;; successor function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+;;; calls function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+;;; calls function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+;;; calls function 0x00401030 "std::__throw_bad_cast()@plt"
+
+          	;; predecessor:  from basic block 0x004016dc
+          0x004016e0: 55                         00 push     rbp
+          0x004016e1: ba 0d 00 00 00            -08 mov      edx, 13
+          0x004016e6: be 1e 20 40 00            -08 mov      esi, 0x0040201e<"Cls3::func3()">
+          0x004016eb: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+          0x004016f0: e8 bb f9 ff ff            -08 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+          	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+        ┌─	;; successor: call return edge to basic block 0x004016f5
+        │ 
+        └▶	;; predecessor:  from instruction 0x004016f0 from basic block 0x004016e0
+          0x004016f5: 48 8b 05 84 29 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002984<10628><absolute=0x0000000000404080>]
+          0x004016fc: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+          0x00401700: 48 8b a8 70 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404170]
+          0x00401707: 48 85 ed                  -08 test     rbp, rbp
+          0x0040170a: 74 4b                     -08 je       basic block 0x00401757
+┌─        	;; successor: normal edge to basic block 0x00401757
+│       ┌─	;; successor: normal edge to basic block 0x0040170c
+│       │ 
+│       └▶	;; predecessor:  from instruction 0x0040170a from basic block 0x004016f5
+│         0x0040170c: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
+│         0x00401710: 74 1e                     -08 je       basic block 0x00401730
+│     ┌─  	;; successor: normal edge to basic block 0x00401730
+│     │ ┌─	;; successor: normal edge to basic block 0x00401712
+│     │ │ 
+│     │ └▶	;; predecessor:  from instruction 0x00401710 from basic block 0x0040170c
+│     │   0x00401712: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
+│     │ ┌─	;; successor: normal edge to basic block 0x00401716
+│     │ │ 
+│     │ └▶	;; predecessor:  from basic block 0x00401712
+│   ┌▶│   	;; predecessor:  from instruction 0x0040174b from basic block 0x00401738
+│ ┌▶│ │   	;; predecessor:  from instruction 0x00401755 from basic block 0x00401752
+│ │ │ │   0x00401716: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │   0x0040171b: e8 c0 f9 ff ff            -08 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401720
+│ │ │ │ │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ │ 
+│ │ │ │ └▶	;; predecessor:  from instruction 0x0040171b from basic block 0x00401716
+│ │ │ │   0x00401720: 5d                        -08 pop      rbp
+│ │ │ │   0x00401721: 48 89 c7                   00 mov      rdi, rax
+│ │ │ │   0x00401724: e9 97 f9 ff ff             00 jmp      function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │   	;; successor: normal edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │   
+│ │ │ │   0x00401729: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
+│ │ │ │ ┌─	;; successor: normal edge to basic block 0x00401730
+│ │ │ │ │ 
+│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401710 from basic block 0x0040170c
+│ │ │   └▶	;; predecessor:  from basic block 0x00401729
+│ │ │     0x00401730: 48 89 ef                  -08 mov      rdi, rbp
+│ │ │     0x00401733: e8 28 f9 ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │     	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │   ┌─	;; successor: call return edge to basic block 0x00401738
+│ │ │   │ 
+│ │ │   └▶	;; predecessor:  from instruction 0x00401733 from basic block 0x00401730
+│ │ │     0x00401738: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
+│ │ │     0x0040173c: be 0a 00 00 00            -08 mov      esi, 10
+│ │ │     0x00401741: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │     0x00401745: 48 3d d0 15 40 00         -08 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │     0x0040174b: 74 c9                     -08 je       basic block 0x00401716
+│ │ │   ┌─	;; successor: normal edge to basic block 0x0040174d
+│ │ └─  │ 	;; successor: normal edge to basic block 0x00401716
+│ │     │ 
+│ │     └▶	;; predecessor:  from instruction 0x0040174b from basic block 0x00401738
+│ │       0x0040174d: 48 89 ef                  -08 mov      rdi, rbp
+│ │       0x00401750: ff d0                     -08 call     rax
+│ │     ┌─	;; successor: call return edge to basic block 0x00401752
+│ │     │ 	;; successor: function call edge to v30063[u64]
+│ │     │ 
+│ │     └▶	;; predecessor:  from instruction 0x00401750 from basic block 0x0040174d
+│ │       0x00401752: 0f be f0                  -08 movsx    esi, al
+│ │       0x00401755: eb bf                     -08 jmp      basic block 0x00401716
+│ └─      	;; successor: normal edge to basic block 0x00401716
+│         
+└▶        	;; predecessor:  from instruction 0x0040170a from basic block 0x004016f5
+          0x00401757: e8 d4 f8 ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
+        ┌─	;; successor: call return edge to basic block 0x0040175c
+        │ 	;; successor: function call edge to function 0x00401030 "std::__throw_bad_cast()@plt"
+        │ 
+        └▶	;; predecessor:  from basic block 0x00401757
+          0x0040175c: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
+          	;; successor: normal edge to function 0x00401760 "Cls1::func1()"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; function 0x00401760 "Cls1::func1()"
+;;; mangled name is "_ZN4Cls15func1Ev"
+;;; reasons for function: referenced by symbol table
+;;; predecessor function 0x004016e0 "non-virtual thunk to Cls3::func3()"
+;;; successor function 0x004017e0 "Cls3::func1()"
+;;; calls function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+;;; successor function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+;;; calls function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+;;; calls function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+;;; calls function 0x00401030 "std::__throw_bad_cast()@plt"
+
+          	;; predecessor:  from basic block 0x0040175c
+          0x00401760: 55                         00 push     rbp
+          0x00401761: ba 0d 00 00 00            -08 mov      edx, 13
+          0x00401766: be 2c 20 40 00            -08 mov      esi, 0x0040202c<"Cls1::func1()">
+          0x0040176b: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+          0x00401770: e8 3b f9 ff ff            -08 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+          	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+        ┌─	;; successor: call return edge to basic block 0x00401775
+        │ 
+        └▶	;; predecessor:  from instruction 0x00401770 from basic block 0x00401760
+          0x00401775: 48 8b 05 04 29 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002904<10500><absolute=0x0000000000404080>]
+          0x0040177c: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+          0x00401780: 48 8b a8 70 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404170]
+          0x00401787: 48 85 ed                  -08 test     rbp, rbp
+          0x0040178a: 74 4b                     -08 je       basic block 0x004017d7
+┌─        	;; successor: normal edge to basic block 0x004017d7
+│       ┌─	;; successor: normal edge to basic block 0x0040178c
+│       │ 
+│       └▶	;; predecessor:  from instruction 0x0040178a from basic block 0x00401775
+│         0x0040178c: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
+│         0x00401790: 74 1e                     -08 je       basic block 0x004017b0
+│     ┌─  	;; successor: normal edge to basic block 0x004017b0
+│     │ ┌─	;; successor: normal edge to basic block 0x00401792
+│     │ │ 
+│     │ └▶	;; predecessor:  from instruction 0x00401790 from basic block 0x0040178c
+│     │   0x00401792: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
+│     │ ┌─	;; successor: normal edge to basic block 0x00401796
+│     │ │ 
+│     │ └▶	;; predecessor:  from basic block 0x00401792
+│   ┌▶│   	;; predecessor:  from instruction 0x004017cb from basic block 0x004017b8
+│ ┌▶│ │   	;; predecessor:  from instruction 0x004017d5 from basic block 0x004017d2
+│ │ │ │   0x00401796: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │   0x0040179b: e8 40 f9 ff ff            -08 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ ┌─	;; successor: call return edge to basic block 0x004017a0
+│ │ │ │ │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ │ 
+│ │ │ │ └▶	;; predecessor:  from instruction 0x0040179b from basic block 0x00401796
+│ │ │ │   0x004017a0: 5d                        -08 pop      rbp
+│ │ │ │   0x004017a1: 48 89 c7                   00 mov      rdi, rax
+│ │ │ │   0x004017a4: e9 17 f9 ff ff             00 jmp      function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │   	;; successor: normal edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │   
+│ │ │ │   0x004017a9: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
+│ │ │ │ ┌─	;; successor: normal edge to basic block 0x004017b0
+│ │ │ │ │ 
+│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401790 from basic block 0x0040178c
+│ │ │   └▶	;; predecessor:  from basic block 0x004017a9
+│ │ │     0x004017b0: 48 89 ef                  -08 mov      rdi, rbp
+│ │ │     0x004017b3: e8 a8 f8 ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │     	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │   ┌─	;; successor: call return edge to basic block 0x004017b8
+│ │ │   │ 
+│ │ │   └▶	;; predecessor:  from instruction 0x004017b3 from basic block 0x004017b0
+│ │ │     0x004017b8: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
+│ │ │     0x004017bc: be 0a 00 00 00            -08 mov      esi, 10
+│ │ │     0x004017c1: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │     0x004017c5: 48 3d d0 15 40 00         -08 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │     0x004017cb: 74 c9                     -08 je       basic block 0x00401796
+│ │ │   ┌─	;; successor: normal edge to basic block 0x004017cd
+│ │ └─  │ 	;; successor: normal edge to basic block 0x00401796
+│ │     │ 
+│ │     └▶	;; predecessor:  from instruction 0x004017cb from basic block 0x004017b8
+│ │       0x004017cd: 48 89 ef                  -08 mov      rdi, rbp
+│ │       0x004017d0: ff d0                     -08 call     rax
+│ │     ┌─	;; successor: call return edge to basic block 0x004017d2
+│ │     │ 	;; successor: function call edge to v40065[u64]
+│ │     │ 
+│ │     └▶	;; predecessor:  from instruction 0x004017d0 from basic block 0x004017cd
+│ │       0x004017d2: 0f be f0                  -08 movsx    esi, al
+│ │       0x004017d5: eb bf                     -08 jmp      basic block 0x00401796
+│ └─      	;; successor: normal edge to basic block 0x00401796
+│         
+└▶        	;; predecessor:  from instruction 0x0040178a from basic block 0x00401775
+          0x004017d7: e8 54 f8 ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
+        ┌─	;; successor: call return edge to basic block 0x004017dc
+        │ 	;; successor: function call edge to function 0x00401030 "std::__throw_bad_cast()@plt"
+        │ 
+        └▶	;; predecessor:  from basic block 0x004017d7
+          0x004017dc: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
+          	;; successor: normal edge to function 0x004017e0 "Cls3::func1()"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; function 0x004017e0 "Cls3::func1()"
 ;;; mangled name is "_ZN4Cls35func1Ev"
 ;;; reasons for function: referenced by symbol table
-;;; predecessor function 0x00401450 "Cls2::func4()"
-;;; successor function 0x00401550 "operator delete(void*, unsigned long)"
-;;; calls function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-;;; successor function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+;;; predecessor function 0x00401760 "Cls1::func1()"
+;;; successor function 0x00401860 "operator delete(void*, unsigned long)"
+;;; calls function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+;;; successor function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
 ;;; calls function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-;;; calls function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+;;; calls function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
 ;;; calls function 0x00401030 "std::__throw_bad_cast()@plt"
 
-          	;; predecessor:  from basic block 0x004014cc
-          0x004014d0: 55                         00 push     rbp
-          0x004014d1: ba 0d 00 00 00            -08 mov      edx, 13
-          0x004014d6: be 3a 20 40 00            -08 mov      esi, 0x0040203a<"Cls3::func1()">
-          0x004014db: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-          0x004014e0: e8 db fb ff ff            -08 call     function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-          	;; successor: function call edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
-        ┌─	;; successor: call return edge to basic block 0x004014e5
+          	;; predecessor:  from basic block 0x004017dc
+          0x004017e0: 55                         00 push     rbp
+          0x004017e1: ba 0d 00 00 00            -08 mov      edx, 13
+          0x004017e6: be 3a 20 40 00            -08 mov      esi, 0x0040203a<"Cls3::func1()">
+          0x004017eb: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+          0x004017f0: e8 bb f8 ff ff            -08 call     function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+          	;; successor: function call edge to function 0x004010b0 "std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)@plt"
+        ┌─	;; successor: call return edge to basic block 0x004017f5
         │ 
-        └▶	;; predecessor:  from instruction 0x004014e0 from basic block 0x004014d0
-          0x004014e5: 48 8b 05 b4 2b 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002bb4<11188><absolute=0x00000000004040a0>]
-          0x004014ec: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
-          0x004014f0: 48 8b a8 90 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404190]
-          0x004014f7: 48 85 ed                  -08 test     rbp, rbp
-          0x004014fa: 74 4b                     -08 je       basic block 0x00401547
-┌─        	;; successor: normal edge to basic block 0x00401547
-│       ┌─	;; successor: normal edge to basic block 0x004014fc
+        └▶	;; predecessor:  from instruction 0x004017f0 from basic block 0x004017e0
+          0x004017f5: 48 8b 05 84 28 00 00      -08 mov      rax, qword ds:[rip + 0x0000000000002884<10372><absolute=0x0000000000404080>]
+          0x004017fc: 48 8b 40 e8               -08 mov      rax, qword ds:[rax + 0xe8<232,-24>]
+          0x00401800: 48 8b a8 70 41 40 00      -08 mov      rbp, qword ds:[rax + 0x00404170]
+          0x00401807: 48 85 ed                  -08 test     rbp, rbp
+          0x0040180a: 74 4b                     -08 je       basic block 0x00401857
+┌─        	;; successor: normal edge to basic block 0x00401857
+│       ┌─	;; successor: normal edge to basic block 0x0040180c
 │       │ 
-│       └▶	;; predecessor:  from instruction 0x004014fa from basic block 0x004014e5
-│         0x004014fc: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
-│         0x00401500: 74 1e                     -08 je       basic block 0x00401520
-│     ┌─  	;; successor: normal edge to basic block 0x00401520
-│     │ ┌─	;; successor: normal edge to basic block 0x00401502
+│       └▶	;; predecessor:  from instruction 0x0040180a from basic block 0x004017f5
+│         0x0040180c: 80 7d 38 00               -08 cmp      byte ds:[rbp + 0x38<56>], 0
+│         0x00401810: 74 1e                     -08 je       basic block 0x00401830
+│     ┌─  	;; successor: normal edge to basic block 0x00401830
+│     │ ┌─	;; successor: normal edge to basic block 0x00401812
 │     │ │ 
-│     │ └▶	;; predecessor:  from instruction 0x00401500 from basic block 0x004014fc
-│     │   0x00401502: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
-│     │ ┌─	;; successor: normal edge to basic block 0x00401506
+│     │ └▶	;; predecessor:  from instruction 0x00401810 from basic block 0x0040180c
+│     │   0x00401812: 0f be 75 43               -08 movsx    esi, byte ds:[rbp + 0x43<67>]
+│     │ ┌─	;; successor: normal edge to basic block 0x00401816
 │     │ │ 
-│     │ └▶	;; predecessor:  from basic block 0x00401502
-│   ┌▶│   	;; predecessor:  from instruction 0x0040153b from basic block 0x00401528
-│ ┌▶│ │   	;; predecessor:  from instruction 0x00401545 from basic block 0x00401542
-│ │ │ │   0x00401506: bf a0 40 40 00            -08 mov      edi, 0x004040a0<(data)_ZSt4cout@GLIBCXX_3.4>
-│ │ │ │   0x0040150b: e8 f0 fb ff ff            -08 call     function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
-│ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401510
-│ │ │ │ │ 	;; successor: function call edge to function 0x00401100 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│     │ └▶	;; predecessor:  from basic block 0x00401812
+│   ┌▶│   	;; predecessor:  from instruction 0x0040184b from basic block 0x00401838
+│ ┌▶│ │   	;; predecessor:  from instruction 0x00401855 from basic block 0x00401852
+│ │ │ │   0x00401816: bf 80 40 40 00            -08 mov      edi, 0x00404080<(data)_ZSt4cout@GLIBCXX_3.4>
+│ │ │ │   0x0040181b: e8 c0 f8 ff ff            -08 call     function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
+│ │ │ │ ┌─	;; successor: call return edge to basic block 0x00401820
+│ │ │ │ │ 	;; successor: function call edge to function 0x004010e0 "std::basic_ostream<char, std::char_traits<char> >::put(char)@plt"
 │ │ │ │ │ 
-│ │ │ │ └▶	;; predecessor:  from instruction 0x0040150b from basic block 0x00401506
-│ │ │ │   0x00401510: 5d                        -08 pop      rbp
-│ │ │ │   0x00401511: 48 89 c7                   00 mov      rdi, rax
-│ │ │ │   0x00401514: e9 b7 fb ff ff             00 jmp      function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
-│ │ │ │   	;; successor: normal edge to function 0x004010d0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │ └▶	;; predecessor:  from instruction 0x0040181b from basic block 0x00401816
+│ │ │ │   0x00401820: 5d                        -08 pop      rbp
+│ │ │ │   0x00401821: 48 89 c7                   00 mov      rdi, rax
+│ │ │ │   0x00401824: e9 97 f8 ff ff             00 jmp      function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
+│ │ │ │   	;; successor: normal edge to function 0x004010c0 "std::basic_ostream<char, std::char_traits<char> >::flush()@plt"
 │ │ │ │   
-│ │ │ │   0x00401519: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
-│ │ │ │ ┌─	;; successor: normal edge to basic block 0x00401520
+│ │ │ │   0x00401829: 0f 1f 80 00 00 00 00       ?? nop      dword ds:[rax + 0]
+│ │ │ │ ┌─	;; successor: normal edge to basic block 0x00401830
 │ │ │ │ │ 
-│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401500 from basic block 0x004014fc
-│ │ │   └▶	;; predecessor:  from basic block 0x00401519
-│ │ │     0x00401520: 48 89 ef                  -08 mov      rdi, rbp
-│ │ │     0x00401523: e8 38 fb ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
+│ │ │ └▶│ 	;; predecessor:  from instruction 0x00401810 from basic block 0x0040180c
+│ │ │   └▶	;; predecessor:  from basic block 0x00401829
+│ │ │     0x00401830: 48 89 ef                  -08 mov      rdi, rbp
+│ │ │     0x00401833: e8 28 f8 ff ff            -08 call     function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
 │ │ │     	;; successor: function call edge to function 0x00401060 "std::ctype<char>::_M_widen_init() const@plt"
-│ │ │   ┌─	;; successor: call return edge to basic block 0x00401528
+│ │ │   ┌─	;; successor: call return edge to basic block 0x00401838
 │ │ │   │ 
-│ │ │   └▶	;; predecessor:  from instruction 0x00401523 from basic block 0x00401520
-│ │ │     0x00401528: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
-│ │ │     0x0040152c: be 0a 00 00 00            -08 mov      esi, 10
-│ │ │     0x00401531: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
-│ │ │     0x00401535: 48 3d c0 12 40 00         -08 cmp      rax, function 0x004012c0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
-│ │ │     0x0040153b: 74 c9                     -08 je       basic block 0x00401506
-│ │ │   ┌─	;; successor: normal edge to basic block 0x0040153d
-│ │ └─  │ 	;; successor: normal edge to basic block 0x00401506
+│ │ │   └▶	;; predecessor:  from instruction 0x00401833 from basic block 0x00401830
+│ │ │     0x00401838: 48 8b 45 00               -08 mov      rax, qword ds:[rbp + 0]
+│ │ │     0x0040183c: be 0a 00 00 00            -08 mov      esi, 10
+│ │ │     0x00401841: 48 8b 40 30               -08 mov      rax, qword ds:[rax + 0x30<48>]
+│ │ │     0x00401845: 48 3d d0 15 40 00         -08 cmp      rax, function 0x004015d0 "std::ctype<char>::do_widen(char) const"<(func)_ZNKSt5ctypeIcE8do_widenEc>
+│ │ │     0x0040184b: 74 c9                     -08 je       basic block 0x00401816
+│ │ │   ┌─	;; successor: normal edge to basic block 0x0040184d
+│ │ └─  │ 	;; successor: normal edge to basic block 0x00401816
 │ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x0040153b from basic block 0x00401528
-│ │       0x0040153d: 48 89 ef                  -08 mov      rdi, rbp
-│ │       0x00401540: ff d0                     -08 call     rax
-│ │     ┌─	;; successor: call return edge to basic block 0x00401542
-│ │     │ 	;; successor: function call edge to v120042[u64]
+│ │     └▶	;; predecessor:  from instruction 0x0040184b from basic block 0x00401838
+│ │       0x0040184d: 48 89 ef                  -08 mov      rdi, rbp
+│ │       0x00401850: ff d0                     -08 call     rax
+│ │     ┌─	;; successor: call return edge to basic block 0x00401852
+│ │     │ 	;; successor: function call edge to v70070[u64]
 │ │     │ 
-│ │     └▶	;; predecessor:  from instruction 0x00401540 from basic block 0x0040153d
-│ │       0x00401542: 0f be f0                  -08 movsx    esi, al
-│ │       0x00401545: eb bf                     -08 jmp      basic block 0x00401506
-│ └─      	;; successor: normal edge to basic block 0x00401506
+│ │     └▶	;; predecessor:  from instruction 0x00401850 from basic block 0x0040184d
+│ │       0x00401852: 0f be f0                  -08 movsx    esi, al
+│ │       0x00401855: eb bf                     -08 jmp      basic block 0x00401816
+│ └─      	;; successor: normal edge to basic block 0x00401816
 │         
-└▶        	;; predecessor:  from instruction 0x004014fa from basic block 0x004014e5
-          0x00401547: e8 e4 fa ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
-        ┌─	;; successor: call return edge to basic block 0x0040154c
+└▶        	;; predecessor:  from instruction 0x0040180a from basic block 0x004017f5
+          0x00401857: e8 d4 f7 ff ff            -08 call     function 0x00401030 "std::__throw_bad_cast()@plt"
+        ┌─	;; successor: call return edge to basic block 0x0040185c
         │ 	;; successor: function call edge to function 0x00401030 "std::__throw_bad_cast()@plt"
         │ 
-        └▶	;; predecessor:  from basic block 0x00401547
-          0x0040154c: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
-          	;; successor: normal edge to function 0x00401550 "operator delete(void*, unsigned long)"
+        └▶	;; predecessor:  from basic block 0x00401857
+          0x0040185c: 0f 1f 40 00               -08 nop      dword ds:[rax + 0]
+          	;; successor: normal edge to function 0x00401860 "operator delete(void*, unsigned long)"
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x00401550 "operator delete(void*, unsigned long)"
+;;; function 0x00401860 "operator delete(void*, unsigned long)"
 ;;; mangled name is "_ZdlPvm"
 ;;; reasons for function: referenced by symbol table
-;;; predecessor function 0x004014d0 "Cls3::func1()"
-;;; called from function 0x00401110 "main" 2 times
+;;; predecessor function 0x004017e0 "Cls3::func1()"
+;;; predecessor function 0x00401200 "myfunc()"
+;;; called from function 0x00401200 "myfunc()" 2 times
 ;;; successor function 0x00401050 "operator delete(void*)@plt"
 
-	;; predecessor:  from instruction 0x004011a3 from basic block 0x0040119b
-	;; predecessor:  from instruction 0x004011b0 from basic block 0x004011a8
-	;; predecessor:  from basic block 0x0040154c
-0x00401550: f3 0f 1e fa                00 nop
-0x00401554: e9 f7 fa ff ff             00 jmp      function 0x00401050 "operator delete(void*)@plt"
+	;; predecessor:  from instruction 0x0040145f from basic block 0x00401457
+	;; predecessor:  from instruction 0x0040146c from basic block 0x00401464
+	;; predecessor:  from instruction 0x00401484 from basic block 0x00401471
+	;; predecessor:  from basic block 0x0040185c
+0x00401860: f3 0f 1e fa                00 nop
+0x00401864: e9 e7 f7 ff ff             00 jmp      function 0x00401050 "operator delete(void*)@plt"
 	;; successor: normal edge to function 0x00401050 "operator delete(void*)@plt"
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x00401560 "__libc_csu_init"
+;;; function 0x00401870 "__libc_csu_init"
 ;;; reasons for function: referenced by symbol table
-;;; called from function 0x004011e6 "_start"
+;;; called from function 0x00401126 "_start"
 ;;; calls function 0x00401000 "_init"
 
-      	;; predecessor:  from instruction 0x0040120a from basic block 0x004011e6
-      0x00401560: 41 57                      00 push     r15
-      0x00401562: 41 89 ff                  -08 mov      r15d, edi
-      0x00401565: 41 56                     -08 push     r14
-      0x00401567: 49 89 f6                  -10 mov      r14, rsi
-      0x0040156a: 41 55                     -10 push     r13
-      0x0040156c: 49 89 d5                  -18 mov      r13, rdx
-      0x0040156f: 41 54                     -18 push     r12
-      0x00401571: 4c 8d 25 b0 27 00 00      -20 lea      r12, ds:[rip + 0x00000000000027b0<10160><absolute=0x0000000000403d28>]
-      0x00401578: 55                        -20 push     rbp
-      0x00401579: 48 8d 2d b8 27 00 00      -28 lea      rbp, ds:[rip + 0x00000000000027b8<10168><absolute=0x0000000000403d38>]
-      0x00401580: 53                        -28 push     rbx
-      0x00401581: 4c 29 e5                  -30 sub      rbp, r12
-      0x00401584: 31 db                     -30 xor      ebx, ebx
-      0x00401586: 48 c1 fd 03               -30 sar      rbp, 3
-      0x0040158a: 48 83 ec 08               -30 sub      rsp, 8
-      0x0040158e: e8 6d fa ff ff            -38 call     function 0x00401000 "_init"<(func)_init>
+      	;; predecessor:  from instruction 0x0040114a from basic block 0x00401126
+      0x00401870: 41 57                      00 push     r15
+      0x00401872: 41 89 ff                  -08 mov      r15d, edi
+      0x00401875: 41 56                     -08 push     r14
+      0x00401877: 49 89 f6                  -10 mov      r14, rsi
+      0x0040187a: 41 55                     -10 push     r13
+      0x0040187c: 49 89 d5                  -18 mov      r13, rdx
+      0x0040187f: 41 54                     -18 push     r12
+      0x00401881: 4c 8d 25 a0 24 00 00      -20 lea      r12, ds:[rip + 0x00000000000024a0<9376><absolute=0x0000000000403d28>]
+      0x00401888: 55                        -20 push     rbp
+      0x00401889: 48 8d 2d a8 24 00 00      -28 lea      rbp, ds:[rip + 0x00000000000024a8<9384><absolute=0x0000000000403d38>]
+      0x00401890: 53                        -28 push     rbx
+      0x00401891: 4c 29 e5                  -30 sub      rbp, r12
+      0x00401894: 31 db                     -30 xor      ebx, ebx
+      0x00401896: 48 c1 fd 03               -30 sar      rbp, 3
+      0x0040189a: 48 83 ec 08               -30 sub      rsp, 8
+      0x0040189e: e8 5d f7 ff ff            -38 call     function 0x00401000 "_init"<(func)_init>
       	;; successor: function call edge to function 0x00401000 "_init"
-    ┌─	;; successor: call return edge to basic block 0x00401593
+    ┌─	;; successor: call return edge to basic block 0x004018a3
     │ 
-    └▶	;; predecessor:  from instruction 0x0040158e from basic block 0x00401560
-      0x00401593: 48 85 ed                  -38 test     rbp, rbp
-      0x00401596: 74 1e                     -38 je       basic block 0x004015b6
-┌─    	;; successor: normal edge to basic block 0x004015b6
-│   ┌─	;; successor: normal edge to basic block 0x00401598
+    └▶	;; predecessor:  from instruction 0x0040189e from basic block 0x00401870
+      0x004018a3: 48 85 ed                  -38 test     rbp, rbp
+      0x004018a6: 74 1e                     -38 je       basic block 0x004018c6
+┌─    	;; successor: normal edge to basic block 0x004018c6
+│   ┌─	;; successor: normal edge to basic block 0x004018a8
 │   │ 
-│   └▶	;; predecessor:  from instruction 0x00401596 from basic block 0x00401593
-│     0x00401598: 0f 1f 84 00 00 00 00 00   -38 nop      dword ds:[rax + rax + 0]
-│   ┌─	;; successor: normal edge to basic block 0x004015a0
+│   └▶	;; predecessor:  from instruction 0x004018a6 from basic block 0x004018a3
+│     0x004018a8: 0f 1f 84 00 00 00 00 00   -38 nop      dword ds:[rax + rax + 0]
+│   ┌─	;; successor: normal edge to basic block 0x004018b0
 │   │ 
-│   └▶	;; predecessor:  from basic block 0x00401598
-│ ┌▶  	;; predecessor:  from instruction 0x004015b4 from basic block 0x004015ad
-│ │   0x004015a0: 4c 89 ea                  -38 mov      rdx, r13
-│ │   0x004015a3: 4c 89 f6                  -38 mov      rsi, r14
-│ │   0x004015a6: 44 89 ff                  -38 mov      edi, r15d
-│ │   0x004015a9: 41 ff 14 dc               -38 call     qword ds:[r12 + rbx * 8]
-│ │ ┌─	;; successor: call return edge to basic block 0x004015ad
-│ │ │ 	;; successor: function call edge to v30047[u64]
+│   └▶	;; predecessor:  from basic block 0x004018a8
+│ ┌▶  	;; predecessor:  from instruction 0x004018c4 from basic block 0x004018bd
+│ │   0x004018b0: 4c 89 ea                  -38 mov      rdx, r13
+│ │   0x004018b3: 4c 89 f6                  -38 mov      rsi, r14
+│ │   0x004018b6: 44 89 ff                  -38 mov      edi, r15d
+│ │   0x004018b9: 41 ff 14 dc               -38 call     qword ds:[r12 + rbx * 8]
+│ │   	;; successor: function call edge to v110070[u64]
+│ │ ┌─	;; successor: call return edge to basic block 0x004018bd
 │ │ │ 
-│ │ └▶	;; predecessor:  from instruction 0x004015a9 from basic block 0x004015a0
-│ │   0x004015ad: 48 83 c3 01               -38 add      rbx, 1
-│ │   0x004015b1: 48 39 eb                  -38 cmp      rbx, rbp
-│ │   0x004015b4: 75 ea                     -38 jne      basic block 0x004015a0
-│ │ ┌─	;; successor: normal edge to basic block 0x004015b6
-│ └─│ 	;; successor: normal edge to basic block 0x004015a0
+│ │ └▶	;; predecessor:  from instruction 0x004018b9 from basic block 0x004018b0
+│ │   0x004018bd: 48 83 c3 01               -38 add      rbx, 1
+│ │   0x004018c1: 48 39 eb                  -38 cmp      rbx, rbp
+│ │   0x004018c4: 75 ea                     -38 jne      basic block 0x004018b0
+│ │ ┌─	;; successor: normal edge to basic block 0x004018c6
+│ └─│ 	;; successor: normal edge to basic block 0x004018b0
 │   │ 
-└▶  │ 	;; predecessor:  from instruction 0x00401596 from basic block 0x00401593
-    └▶	;; predecessor:  from instruction 0x004015b4 from basic block 0x004015ad
-      0x004015b6: 48 83 c4 08               -38 add      rsp, 8
-      0x004015ba: 5b                        -30 pop      rbx
-      0x004015bb: 5d                        -28 pop      rbp
-      0x004015bc: 41 5c                     -20 pop      r12
-      0x004015be: 41 5d                     -18 pop      r13
-      0x004015c0: 41 5e                     -10 pop      r14
-      0x004015c2: 41 5f                     -08 pop      r15
-      0x004015c4: c3                         00 ret
-      	;; successor: function return edge to v110046[u64]
+└▶  │ 	;; predecessor:  from instruction 0x004018a6 from basic block 0x004018a3
+    └▶	;; predecessor:  from instruction 0x004018c4 from basic block 0x004018bd
+      0x004018c6: 48 83 c4 08               -38 add      rsp, 8
+      0x004018ca: 5b                        -30 pop      rbx
+      0x004018cb: 5d                        -28 pop      rbp
+      0x004018cc: 41 5c                     -20 pop      r12
+      0x004018ce: 41 5d                     -18 pop      r13
+      0x004018d0: 41 5e                     -10 pop      r14
+      0x004018d2: 41 5f                     -08 pop      r15
+      0x004018d4: c3                         00 ret
+      	;; successor: function return edge to v60056[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004015d0 "__libc_csu_fini"
+;;; function 0x004018e0 "__libc_csu_fini"
 ;;; reasons for function: referenced by symbol table
-;;; called from function 0x004011e6 "_start"
+;;; called from function 0x00401126 "_start"
 
-	;; predecessor:  from instruction 0x0040120a from basic block 0x004011e6
-0x004015d0: f3 c3                      00 ret
+	;; predecessor:  from instruction 0x0040114a from basic block 0x00401126
+0x004018e0: f3 c3                      00 ret
 	;; successor: function return edge to v60000[u64]
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; function 0x004015d4 "_fini"
+;;; function 0x004018e4 "_fini"
 ;;; reasons for function: referenced by symbol table
 
-0x004015d4: 48 83 ec 08                00 sub      rsp, 8
-0x004015d8: 48 83 c4 08               -08 add      rsp, 8
-0x004015dc: c3                         00 ret
+0x004018e4: 48 83 ec 08                00 sub      rsp, 8
+0x004018e8: 48 83 c4 08               -08 add      rsp, 8
+0x004018ec: c3                         00 ret
 	;; successor: function return edge to v30001[u64]
 
 

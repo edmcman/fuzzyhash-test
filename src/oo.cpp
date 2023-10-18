@@ -59,7 +59,8 @@ public:
   }
 };
 
-int main() {
+void myfunc() {
+
   Cls3 *e = new Cls3();
   Cls1 *f = new Cls3();
   Cls1 *c1 = new Cls1();
@@ -76,4 +77,8 @@ int main() {
   delete e;
   delete f;
   delete c1;
+}
+
+int main() {
+  myfunc();
 }

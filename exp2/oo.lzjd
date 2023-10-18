@@ -1,67 +1,71 @@
-b'_fini' <==> b'_fini' (sim=1.0; lev=1.0)
-PLOTLZJD,True,b'_fini',b'_fini',1.0,1.0
-b'register_tm_clones' <==> b'register_tm_clones' (sim=1.0; lev=1.0)
-PLOTLZJD,True,b'register_tm_clones',b'register_tm_clones',1.0,1.0
-b'_start' <==> b'_start' (sim=1.0; lev=1.0)
-PLOTLZJD,True,b'_start',b'_start',1.0,1.0
-b'deregister_tm_clones' <==> b'deregister_tm_clones' (sim=1.0; lev=1.0)
-PLOTLZJD,True,b'deregister_tm_clones',b'deregister_tm_clones',1.0,1.0
-b'frame_dummy' <==> b'frame_dummy' (sim=1.0; lev=1.0)
-PLOTLZJD,True,b'frame_dummy',b'frame_dummy',1.0,1.0
-b'__libc_csu_fini' <==> b'__libc_csu_fini' (sim=1.0; lev=1.0)
-PLOTLZJD,True,b'__libc_csu_fini',b'__libc_csu_fini',1.0,1.0
-b'_init' <==> b'_init' (sim=1.0; lev=1.0)
-PLOTLZJD,True,b'_init',b'_init',1.0,1.0
 b'_ZdlPvm' <==> b'_ZdlPvm' (sim=1.0; lev=1.0)
 PLOTLZJD,True,b'_ZdlPvm',b'_ZdlPvm',1.0,1.0
-b'__libc_csu_init' <==> b'__libc_csu_init' (sim=0.7111111111111111; lev=0.9900990099009901)
-PLOTLZJD,True,b'__libc_csu_init',b'__libc_csu_init',0.7111111111111111,0.9900990099009901
-b'__do_global_dtors_aux' <==> b'__do_global_dtors_aux' (sim=0.6216216216216216; lev=0.90625)
-PLOTLZJD,True,b'__do_global_dtors_aux',b'__do_global_dtors_aux',0.6216216216216216,0.90625
-b'_ZN4Cls35func3Ev' <==> b'_GLOBAL__sub_I_main' (sim=0.475; lev=0.6162790697674418)
-PLOTLZJD,False,b'_ZN4Cls35func3Ev',b'_GLOBAL__sub_I_main',0.475,0.6162790697674418
-b'_ZN4Cls3C2Ev' <==> b'_ZN4Cls35func1Ev' (sim=0.41935483870967744; lev=0.36363636363636365)
-PLOTLZJD,False,b'_ZN4Cls3C2Ev',b'_ZN4Cls35func1Ev',0.41935483870967744,0.36363636363636365
-b'_ZN4Cls25func3Ev' <==> b'_ZThn16_N4Cls35func3Ev' (sim=0.3625; lev=0.2851239669421488)
-PLOTLZJD,False,b'_ZN4Cls25func3Ev',b'_ZThn16_N4Cls35func3Ev',0.3625,0.2851239669421488
-b'main' <==> b'main' (sim=0.33879781420765026; lev=0.4375)
-PLOTLZJD,True,b'main',b'main',0.33879781420765026,0.4375
-b'_ZN4Cls15func1Ev' <==> b'_ZN4Cls35func3Ev' (sim=0.3375; lev=0.2851239669421488)
-PLOTLZJD,False,b'_ZN4Cls15func1Ev',b'_ZN4Cls35func3Ev',0.3375,0.2851239669421488
-b'_ZN4Cls25func4Ev' <==> b'_ZN4Cls25func4Ev' (sim=0.3170731707317073; lev=0.2851239669421488)
-PLOTLZJD,True,b'_ZN4Cls25func4Ev',b'_ZN4Cls25func4Ev',0.3170731707317073,0.2851239669421488
-b'_ZThn16_N4Cls35func3Ev' <==> b'_ZNKSt5ctypeIcE8do_widenEc' (sim=0.25; lev=0.25)
-PLOTLZJD,False,b'_ZThn16_N4Cls35func3Ev',b'_ZNKSt5ctypeIcE8do_widenEc',0.25,0.25
-Correct LZJD match: b'__libc_csu_fini' (sim=1.0)
-Correct LZJD match: b'__libc_csu_init' (sim=0.7111111111111111)
+b'_init' <==> b'_init' (sim=1.0; lev=1.0)
+PLOTLZJD,True,b'_init',b'_init',1.0,1.0
+b'_start' <==> b'_start' (sim=1.0; lev=1.0)
+PLOTLZJD,True,b'_start',b'_start',1.0,1.0
+b'frame_dummy' <==> b'frame_dummy' (sim=1.0; lev=1.0)
+PLOTLZJD,True,b'frame_dummy',b'frame_dummy',1.0,1.0
+b'register_tm_clones' <==> b'register_tm_clones' (sim=1.0; lev=1.0)
+PLOTLZJD,True,b'register_tm_clones',b'register_tm_clones',1.0,1.0
+b'__libc_csu_fini' <==> b'__libc_csu_fini' (sim=1.0; lev=1.0)
+PLOTLZJD,True,b'__libc_csu_fini',b'__libc_csu_fini',1.0,1.0
+b'deregister_tm_clones' <==> b'deregister_tm_clones' (sim=1.0; lev=1.0)
+PLOTLZJD,True,b'deregister_tm_clones',b'deregister_tm_clones',1.0,1.0
+b'_fini' <==> b'_fini' (sim=1.0; lev=1.0)
+PLOTLZJD,True,b'_fini',b'_fini',1.0,1.0
+b'__libc_csu_init' <==> b'__libc_csu_init' (sim=0.631578947368421; lev=0.9900990099009901)
+PLOTLZJD,True,b'__libc_csu_init',b'__libc_csu_init',0.631578947368421,0.9900990099009901
+b'__do_global_dtors_aux' <==> b'__do_global_dtors_aux' (sim=0.631578947368421; lev=0.90625)
+PLOTLZJD,True,b'__do_global_dtors_aux',b'__do_global_dtors_aux',0.631578947368421,0.90625
+b'_ZN4Cls35func1Ev' <==> b'_GLOBAL__sub_I__Z6myfuncv' (sim=0.475; lev=0.6162790697674418)
+PLOTLZJD,False,b'_ZN4Cls35func1Ev',b'_GLOBAL__sub_I__Z6myfuncv',0.475,0.6162790697674418
+b'_ZN4Cls3C2Ev' <==> b'_ZThn16_N4Cls35func3Ev' (sim=0.4; lev=0.36363636363636365)
+PLOTLZJD,False,b'_ZN4Cls3C2Ev',b'_ZThn16_N4Cls35func3Ev',0.4,0.36363636363636365
+b'_ZThn16_N4Cls35func3Ev' <==> b'main' (sim=0.3888888888888889; lev=0.25)
+PLOTLZJD,False,b'_ZThn16_N4Cls35func3Ev',b'main',0.3888888888888889,0.25
+b'_ZN4Cls35func3Ev' <==> b'_ZN4Cls35func1Ev' (sim=0.3670886075949367; lev=0.2851239669421488)
+PLOTLZJD,False,b'_ZN4Cls35func3Ev',b'_ZN4Cls35func1Ev',0.3670886075949367,0.2851239669421488
+b'_ZN4Cls15func1Ev' <==> b'_ZN4Cls25func4Ev' (sim=0.3375; lev=0.2851239669421488)
+PLOTLZJD,False,b'_ZN4Cls15func1Ev',b'_ZN4Cls25func4Ev',0.3375,0.2851239669421488
+b'_Z41__static_initialization_and_destruction_0ii' <==> b'_ZN4Cls35func3Ev' (sim=0.32608695652173914; lev=0.31818181818181823)
+PLOTLZJD,False,b'_Z41__static_initialization_and_destruction_0ii',b'_ZN4Cls35func3Ev',0.32608695652173914,0.31818181818181823
+b'_GLOBAL__sub_I__Z6myfuncv' <==> b'_ZNKSt5ctypeIcE8do_widenEc' (sim=0.23809523809523808; lev=0.1428571428571429)
+PLOTLZJD,False,b'_GLOBAL__sub_I__Z6myfuncv',b'_ZNKSt5ctypeIcE8do_widenEc',0.23809523809523808,0.1428571428571429
+b'_Z6myfuncv' <==> b'_Z6myfuncv' (sim=0.22115384615384615; lev=0.2505567928730512)
+PLOTLZJD,True,b'_Z6myfuncv',b'_Z6myfuncv',0.22115384615384615,0.2505567928730512
+Correct LZJD match: b'__libc_csu_init' (sim=0.631578947368421)
+Incorrect LZJD match: b'main'
+Incorrect LZJD match: b'_ZN4Cls25func4Ev'
 Correct LZJD match: b'_start' (sim=1.0)
-Correct LZJD match: b'_fini' (sim=1.0)
-Incorrect LZJD match: b'_ZN4Cls35func1Ev'
-Incorrect LZJD match: b'_ZN4Cls35func3Ev'
-Incorrect LZJD match: b'_ZThn16_N4Cls35func3Ev'
-Correct LZJD match: b'main' (sim=0.33879781420765026)
-Correct LZJD match: b'_init' (sim=1.0)
-Incorrect LZJD match: b'_GLOBAL__sub_I_main'
 Correct LZJD match: b'register_tm_clones' (sim=1.0)
-Correct LZJD match: b'_ZN4Cls25func4Ev' (sim=0.3170731707317073)
+Incorrect LZJD match: b'_ZN4Cls35func3Ev'
+Correct LZJD match: b'_fini' (sim=1.0)
+Correct LZJD match: b'__libc_csu_fini' (sim=1.0)
+Correct LZJD match: b'_Z6myfuncv' (sim=0.22115384615384615)
 Correct LZJD match: b'_ZdlPvm' (sim=1.0)
-Correct LZJD match: b'__do_global_dtors_aux' (sim=0.6216216216216216)
+Incorrect LZJD match: b'_GLOBAL__sub_I__Z6myfuncv'
 Correct LZJD match: b'frame_dummy' (sim=1.0)
+Incorrect LZJD match: b'_ZThn16_N4Cls35func3Ev'
+Incorrect LZJD match: b'_ZN4Cls35func1Ev'
 Correct LZJD match: b'deregister_tm_clones' (sim=1.0)
-PLOTFSE,True,b'_fini',b'_fini',1.0,0.25
-PLOTFSE,True,b'__libc_csu_fini',b'__libc_csu_fini',1.0,0.25
-PLOTFSE,True,b'register_tm_clones',b'register_tm_clones',1.0,0.25
-PLOTFSE,True,b'deregister_tm_clones',b'deregister_tm_clones',1.0,0.25
-PLOTFSE,True,b'_start',b'_start',1.0,0.25
-PLOTFSE,True,b'_init',b'_init',1.0,0.25
-PLOTFSE,True,b'_ZdlPvm',b'_ZdlPvm',1.0,0.25
-PLOTFSE,True,b'frame_dummy',b'frame_dummy',1.0,0.25
-PLOTFSE,False,b'_ZN4Cls15func1Ev',b'__do_global_dtors_aux',0.0,0.25
-PLOTFSE,False,b'__libc_csu_init',b'_ZN4Cls35func3Ev',0.0,0.25
-PLOTFSE,False,b'_ZN4Cls15func2Ev',b'_ZN4Cls35func1Ev',0.0,0.25
-PLOTFSE,False,b'_ZN4Cls25func3Ev',b'_ZN4Cls25func4Ev',0.0,0.25
-PLOTFSE,True,b'main',b'main',0.0,0.25
-PLOTFSE,False,b'_ZN4Cls25func4Ev',b'_ZNKSt5ctypeIcE8do_widenEc',0.0,0.25
-PLOTFSE,False,b'_Z41__static_initialization_and_destruction_0ii',b'__libc_csu_init',0.0,0.25
-PLOTFSE,True,b'_ZThn16_N4Cls35func3Ev',b'_ZThn16_N4Cls35func3Ev',0.0,0.25
-PLOTFSE,False,b'_ZN4Cls1C2Ev',b'_GLOBAL__sub_I_main',0.0,0.25
+Correct LZJD match: b'__do_global_dtors_aux' (sim=0.631578947368421)
+Correct LZJD match: b'_init' (sim=1.0)
+PLOTFSE,True,b'_start',b'_start',1.0,0.2505567928730512
+PLOTFSE,True,b'_ZdlPvm',b'_ZdlPvm',1.0,0.2505567928730512
+PLOTFSE,True,b'frame_dummy',b'frame_dummy',1.0,0.2505567928730512
+PLOTFSE,True,b'_init',b'_init',1.0,0.2505567928730512
+PLOTFSE,True,b'register_tm_clones',b'register_tm_clones',1.0,0.2505567928730512
+PLOTFSE,True,b'deregister_tm_clones',b'deregister_tm_clones',1.0,0.2505567928730512
+PLOTFSE,True,b'_fini',b'_fini',1.0,0.2505567928730512
+PLOTFSE,True,b'__libc_csu_fini',b'__libc_csu_fini',1.0,0.2505567928730512
+PLOTFSE,False,b'_ZN4Cls3C2Ev',b'_ZN4Cls35func3Ev',0.0,0.2505567928730512
+PLOTFSE,False,b'_ZN4Cls35func3Ev',b'_ZN4Cls35func1Ev',0.0,0.2505567928730512
+PLOTFSE,False,b'_Z41__static_initialization_and_destruction_0ii',b'_ZNKSt5ctypeIcE8do_widenEc',0.0,0.2505567928730512
+PLOTFSE,False,b'_ZN4Cls25func3Ev',b'__do_global_dtors_aux',0.0,0.2505567928730512
+PLOTFSE,False,b'_ZN4Cls2C2Ev',b'_ZThn16_N4Cls35func3Ev',0.0,0.2505567928730512
+PLOTFSE,False,b'__do_global_dtors_aux',b'__libc_csu_init',0.0,0.2505567928730512
+PLOTFSE,True,b'main',b'main',0.0,0.2505567928730512
+PLOTFSE,False,b'_ZN4Cls15func2Ev',b'_Z6myfuncv',0.0,0.2505567928730512
+PLOTFSE,False,b'_ZN4Cls35func1Ev',b'_ZN4Cls25func4Ev',0.0,0.2505567928730512
+PLOTFSE,False,b'__libc_csu_init',b'_GLOBAL__sub_I__Z6myfuncv',0.0,0.2505567928730512

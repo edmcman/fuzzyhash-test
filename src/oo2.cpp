@@ -3,10 +3,6 @@
 #include <iostream>
 #include "oohelper.hpp"
 
-int myfunction() {
-  return 42;
-}
-
 class Cls1 {
 public:
   int x;
@@ -63,9 +59,10 @@ public:
   }
 };
 
-int main() {
+void otherfunc() {
+}
 
-  myfunction();
+void myfunc() {
 
   Cls3 *e = new Cls3();
   Cls1 *f = new Cls3();
@@ -83,4 +80,8 @@ int main() {
   delete e;
   delete f;
   delete c1;
+}
+
+int main() {
+  myfunc();
 }
