@@ -10,6 +10,8 @@ import tqdm
 import editdistance
 import itertools
 
+import sklearn.metrics
+
 j1 = json.load(open(sys.argv[1], "r"))
 j2 = json.load(open(sys.argv[2], "r"))
 
@@ -134,9 +136,9 @@ if False:
 intersect_fun_names = set(name_fun(f, m1, return_none_for_unknown=True) for f in funs1.keys()) & set(name_fun(f, m2, return_none_for_unknown=True) for f in funs2.keys()) - {None}
 #print(intersection_funs)
 
-matches = greedy_entity_matching(sims)
 
-if True:
+if False:
+    matches = greedy_entity_matching(sims)
     for f1, f2, b1, b2, sim in tqdm.tqdm(matches, desc="Printing matches"):
         name1 = name_fun(f1, m1)
         name2 = name_fun(f2, m2)
@@ -145,45 +147,129 @@ if True:
         correct = name1 == name2 and name1 in intersect_fun_names and name2 in intersect_fun_names
         print("PLOTLZJD,%s,%s,%s,%s,%s" % (correct, name1, name2, sim, lev))
 
-# How many (fun, fun, _) matches do we have?
-correct_matches = [next(((fun, sim) for f1, f2, _, _, sim in matches if name_fun(f1, m1) == fun and name_fun(f2, m2) == fun), None) for fun in intersect_fun_names]
-correct_matches = dict(x for x in correct_matches if x is not None)
-num_correct = len(correct_matches)
-accuracy = num_correct / float(len(intersect_fun_names))
+    # How many (fun, fun, _) matches do we have?
+    correct_matches = [next(((fun, sim) for f1, f2, _, _, sim in matches if name_fun(f1, m1) == fun and name_fun(f2, m2) == fun), None) for fun in intersect_fun_names]
+    correct_matches = dict(x for x in correct_matches if x is not None)
+    num_correct = len(correct_matches)
+    accuracy = num_correct / float(len(intersect_fun_names))
 
-#print(correct_matches)
+    #print(correct_matches)
 
-for fun in intersect_fun_names:
-    if fun in correct_matches:
-        sim = correct_matches[fun]
-        print(f"Correct LZJD match: {fun} (sim={sim})")
-    else:
-        print(f"Incorrect LZJD match: {fun}")
+    for fun in intersect_fun_names:
+        if fun in correct_matches:
+            sim = correct_matches[fun]
+            print(f"Correct LZJD match: {fun} (sim={sim})")
+        else:
+            print(f"Incorrect LZJD match: {fun}")
 
-# Since we have the fn2hash json parsed and everything here, it makes sense to
-# just compute the TP and FP for PIC hash here.
+    # Since we have the fn2hash json parsed and everything here, it makes sense to
+    # just compute the TP and FP for PIC hash here.
 
-# But there can be multiple functions with the same PIC hash in a binary.  So,
-# what we'll do is use the greedy matching algorithm, which will pick an
-# arbitrary match if there are multiple functions with the same PIC hash.
+    # But there can be multiple functions with the same PIC hash in a binary.  So,
+    # what we'll do is use the greedy matching algorithm, which will pick an
+    # arbitrary match if there are multiple functions with the same PIC hash.
 
-#j1hash = {f['fn_addr']: f['pic_hash'] for f in j1['analysis']}
-#j2hash = {f['fn_addr']: f['pic_hash'] for f in j2['analysis']}
+    #j1hash = {f['fn_addr']: f['pic_hash'] for f in j1['analysis']}
+    #j2hash = {f['fn_addr']: f['pic_hash'] for f in j2['analysis']}
 
-pic_comparisons = [(addr1, addr2, 1.0 if hash1 == hash2 else 0.0) for ((addr1, (hash1, _)), (addr2, (hash2, _))) in itertools.product(funs1.items(), funs2.items())]
-random.shuffle(pic_comparisons)
-pic_comparisons.sort(key=lambda t: -t[2])
+    pic_comparisons = [(addr1, addr2, 1.0 if hash1 == hash2 else 0.0) for ((addr1, (hash1, _)), (addr2, (hash2, _))) in itertools.product(funs1.items(), funs2.items())]
+    random.shuffle(pic_comparisons)
+    pic_comparisons.sort(key=lambda t: -t[2])
 
-pic_matches = greedy_entity_matching(pic_comparisons)
+    pic_matches = greedy_entity_matching(pic_comparisons)
 
-for f1, f2, sim in pic_matches:
-    name1 = name_fun(f1, m1)
-    name2 = name_fun(f2, m2)
-    correct = name1 == name2 and name1 in intersect_fun_names and name2 in intersect_fun_names
-    lev = lev_sim(b1, b2)
-    print("PLOTFSE,%s,%s,%s,%s,%s" % (correct, name1, name2, sim, lev))
+    for f1, f2, sim in pic_matches:
+        name1 = name_fun(f1, m1)
+        name2 = name_fun(f2, m2)
+        correct = name1 == name2 and name1 in intersect_fun_names and name2 in intersect_fun_names
+        lev = lev_sim(b1, b2)
+        print("PLOTFSE,%s,%s,%s,%s,%s" % (correct, name1, name2, sim, lev))
 
-#import ipdb
-#ipdb.set_trace()
+def cmp(addr1, addr2, pred):
+    return (pred, (name_fun(addr1, m1) == name_fun(addr2, m2)))
 
-#print(f"LZJD Accuracy: {accuracy}")
+# fse
+y_fse = [cmp(addr1, addr2, hash1 == hash2) for ((addr1, (hash1, _)), (addr2, (hash2, _))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="fse pairs", total=len(funs1)*len(funs2))]
+
+#print(list(y))
+
+y_predfse, y_true = zip(*y_fse)
+
+def summarize_confusion(m):
+    tp = m[0][0]
+    fn = m[0][1]
+    fp = m[1][0]
+    tn = m[1][1]
+    positive = sum(m[0])
+    negative = sum(m[1])
+    pp = m[0][0] + m[1][0]
+    accuracy = (m[0][0] + m[1][1]) / (positive + negative)
+    try:
+        recall = tp / positive
+    except:
+        recall = None
+    try:
+        precision = tp / pp
+    except:
+        precision = None
+    return {"accuracy": accuracy, "recall": recall, "precision": precision}
+
+fsecm = sklearn.metrics.confusion_matrix(y_true, y_predfse, labels=[True, False])
+fsesum = summarize_confusion(fsecm)
+fsesum.update({"technique": "fse"})
+print(f"FSE\n{fsecm}\n{fsesum}")
+
+lzjds = []
+
+# lzjd
+for i in tqdm.tqdm(range(10), desc="lzjd iterations"):
+    t = i / 10.0
+
+    y_lzjd = [cmp(addr1, addr2, eds_sim(fuzzyhash1, fuzzyhash2) >= t) for ((addr1, (_, fuzzyhash1)), (addr2, (_, fuzzyhash2))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="lzjd inner loop", total=len(funs1)*len(funs2))]
+
+    y_predlzjd, _ = zip(*y_lzjd)
+
+    cm = sklearn.metrics.confusion_matrix(y_true, y_predlzjd, labels=[True, False])
+    lzjdsum = summarize_confusion(cm)
+    lzjdsum.update({"threshold": t, "technique": "lzjd"})
+    lzjds = lzjds + [lzjdsum]
+    print(f"LZJD {i}\n{cm}\n{lzjdsum}")
+
+# thanks chatgpt!
+import matplotlib.pyplot as plt
+
+data = lzjds + [fsesum]
+
+techniques = {}
+for entry in data:
+    technique = entry['technique']
+    if technique not in techniques:
+        techniques[technique] = {'precision': [], 'recall': [], 'threshold': []}
+    techniques[technique]['precision'].append(entry['precision'])
+    techniques[technique]['recall'].append(entry['recall'])
+    if 'threshold' in entry:
+        techniques[technique]['threshold'].append(entry['threshold'])
+
+# Create a color map for different techniques
+colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k']
+
+THRESHOLD = (0.2, 0.02)
+
+# Create the plot
+plt.figure(figsize=(6, 4))
+for i, technique in enumerate(techniques):
+    plt.plot(techniques[technique]['precision'], techniques[technique]['recall'], marker='o', linestyle='-', color=colors[i], label=technique, alpha=0.7)
+    last = (-5, -5)
+    for j, txt in enumerate(techniques[technique]['threshold']):
+        new = (techniques[technique]['precision'][j], techniques[technique]['recall'][j])
+        if abs(new[0] - last[0]) > THRESHOLD[0] or abs(new[1] - last[1]) > THRESHOLD[1]:
+            plt.annotate(f'Threshold: {txt}', (techniques[technique]['precision'][j], techniques[technique]['recall'][j]), textcoords='offset points', xytext=(5,5))
+            last = new
+
+
+plt.xlabel('Precision')
+plt.ylabel('Recall')
+plt.title('Precision vs. Recall')
+plt.legend()
+plt.grid(True)
+plt.savefig(sys.argv[5], dpi=300)
