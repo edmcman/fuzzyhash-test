@@ -219,26 +219,43 @@ fsesum = summarize_confusion(fsecm)
 fsesum.update({"technique": "fse"})
 print(f"FSE\n{fsecm}\n{fsesum}")
 
-lzjds = []
+threshold_range = list(np.arange(0.5,1.01,0.05))
 
 # lzjd
-for i in tqdm.tqdm(range(10), desc="lzjd iterations"):
-    t = i / 10.0
+lzjds = []
+for t in tqdm.tqdm(threshold_range, desc="lzjd iterations"):
 
     y_lzjd = [cmp(addr1, addr2, eds_sim(fuzzyhash1, fuzzyhash2) >= t) for ((addr1, (_, fuzzyhash1)), (addr2, (_, fuzzyhash2))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="lzjd inner loop", total=len(funs1)*len(funs2))]
 
     y_predlzjd, _ = zip(*y_lzjd)
 
     cm = sklearn.metrics.confusion_matrix(y_true, y_predlzjd, labels=[True, False])
-    lzjdsum = summarize_confusion(cm)
-    lzjdsum.update({"threshold": t, "technique": "lzjd"})
-    lzjds = lzjds + [lzjdsum]
-    print(f"LZJD {i}\n{cm}\n{lzjdsum}")
+    levsum = summarize_confusion(cm)
+    levsum.update({"threshold": t, "technique": "lzjd"})
+    lzjds = lzjds + [levsum]
+    print(f"LZJD {t}\n{cm}\n{levsum}")
+
+# edit distance
+levs = []
+for t in tqdm.tqdm(threshold_range, desc="ed iterations"):
+
+    y_lev = [cmp(addr1, addr2, lev_sim(bytes1, bytes2) >= t) for ((addr1, (bytes1, _)), (addr2, (bytes2, _))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="lzjd inner loop", total=len(funs1)*len(funs2))]
+
+    y_predlev, _ = zip(*y_lev)
+
+    cm = sklearn.metrics.confusion_matrix(y_true, y_predlev, labels=[True, False])
+    levsum = summarize_confusion(cm)
+    levsum.update({"threshold": t, "technique": "lev"})
+    levs = levs + [levsum]
+    print(f"LEV {t}\n{cm}\n{levsum}")
+
 
 # thanks chatgpt!
 import matplotlib.pyplot as plt
 
-data = lzjds + [fsesum]
+data = lzjds + levs + [fsesum]
+
+print(data)
 
 techniques = {}
 for entry in data:
