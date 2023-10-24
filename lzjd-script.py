@@ -236,10 +236,11 @@ for t in tqdm.tqdm(threshold_range, desc="lzjd iterations"):
     print(f"LZJD {t}\n{cm}\n{levsum}")
 
 # edit distance
+# XXX refactor me to avoid duplicating edit distance computations
 levs = []
 for t in tqdm.tqdm(threshold_range, desc="ed iterations"):
 
-    y_lev = [cmp(addr1, addr2, lev_sim(bytes1, bytes2) >= t) for ((addr1, (bytes1, _)), (addr2, (bytes2, _))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="lzjd inner loop", total=len(funs1)*len(funs2))]
+    y_lev = [cmp(addr1, addr2, lev_sim(bytes1, bytes2) >= t) for ((addr1, (bytes1, _)), (addr2, (bytes2, _))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="ed inner loop", total=len(funs1)*len(funs2))]
 
     y_predlev, _ = zip(*y_lev)
 
