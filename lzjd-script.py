@@ -221,11 +221,14 @@ print(f"FSE\n{fsecm}\n{fsesum}")
 
 threshold_range = list(np.arange(0.5,1.01,0.05))
 
+# Compare each pair a single time
+all_comparisons = [(addr1, addr2, eds_sim(fuzzyhash1, fuzzyhash2), lev_sim(bytes1, bytes2)) for ((addr1, (bytes1, fuzzyhash1)), (addr2, (bytes2, fuzzyhash2))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="all comparisons loop", total=len(funs1)*len(funs2))]
+
 # lzjd
 lzjds = []
 for t in tqdm.tqdm(threshold_range, desc="lzjd iterations"):
 
-    y_lzjd = [cmp(addr1, addr2, eds_sim(fuzzyhash1, fuzzyhash2) >= t) for ((addr1, (_, fuzzyhash1)), (addr2, (_, fuzzyhash2))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="lzjd inner loop", total=len(funs1)*len(funs2))]
+    y_lzjd = [cmp(addr1, addr2, sim >= t) for (addr1, addr2, sim, _) in tqdm.tqdm(all_comparisons, desc="inner tqdm")]
 
     y_predlzjd, _ = zip(*y_lzjd)
 
@@ -240,7 +243,7 @@ for t in tqdm.tqdm(threshold_range, desc="lzjd iterations"):
 levs = []
 for t in tqdm.tqdm(threshold_range, desc="ed iterations"):
 
-    y_lev = [cmp(addr1, addr2, lev_sim(bytes1, bytes2) >= t) for ((addr1, (bytes1, _)), (addr2, (bytes2, _))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="ed inner loop", total=len(funs1)*len(funs2))]
+    y_lev = [cmp(addr1, addr2, sim >= t) for (addr1, addr2, _, sim) in tqdm.tqdm(all_comparisons, desc="inner lev")]
 
     y_predlev, _ = zip(*y_lev)
 
@@ -284,7 +287,8 @@ for i, technique in enumerate(techniques):
             plt.annotate(f'T={txt:.2f}', (techniques[technique]['precision'][j], techniques[technique]['recall'][j]), textcoords='offset points', xytext=(5,5))
             last = new
 
-
+plt.xlim([0, 1])
+plt.ylim([0, 1])
 plt.xlabel('Precision')
 plt.ylabel('Recall')
 plt.title('Precision vs. Recall')
