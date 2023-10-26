@@ -119,9 +119,9 @@ funs1 = {k: v for k,v in funs1.items() if name_fun(k, m1, return_none_for_unknow
 funs2 = {k: v for k,v in funs2.items() if name_fun(k, m2, return_none_for_unknown=True) is not None}
 
 
-sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2), desc="Comparing all pairs")]
-random.shuffle(sims)
-sims.sort(key=lambda t: -t[4])
+#sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2), desc="Comparing all pairs")]
+#random.shuffle(sims)
+#sims.sort(key=lambda t: -t[4])
 
 # We can't write all pairs for openssl, it's too big.
 if False:
@@ -188,8 +188,11 @@ if False:
 def cmp(addr1, addr2, pred):
     return (pred, (name_fun(addr1, m1) == name_fun(addr2, m2)))
 
+# Compare each pair a single time
+all_comparisons = [(addr1, addr2, bytes1 == bytes2, eds_sim(fuzzyhash1, fuzzyhash2), lev_sim(bytes1, bytes2)) for ((addr1, (bytes1, fuzzyhash1)), (addr2, (bytes2, fuzzyhash2))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="all comparisons loop", total=len(funs1)*len(funs2))]
+
 # fse
-y_fse = [cmp(addr1, addr2, hash1 == hash2) for ((addr1, (hash1, _)), (addr2, (hash2, _))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="fse pairs", total=len(funs1)*len(funs2))]
+y_fse = [cmp(addr1, addr2, eq) for (addr1, addr2, eq, _, _) in tqdm.tqdm(all_comparisons, desc="inner fse")]
 
 #print(list(y))
 
@@ -221,14 +224,12 @@ print(f"FSE\n{fsecm}\n{fsesum}")
 
 threshold_range = list(np.arange(0.5,1.01,0.05))
 
-# Compare each pair a single time
-all_comparisons = [(addr1, addr2, eds_sim(fuzzyhash1, fuzzyhash2), lev_sim(bytes1, bytes2)) for ((addr1, (bytes1, fuzzyhash1)), (addr2, (bytes2, fuzzyhash2))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="all comparisons loop", total=len(funs1)*len(funs2))]
 
 # lzjd
 lzjds = []
 for t in tqdm.tqdm(threshold_range, desc="lzjd iterations"):
 
-    y_lzjd = [cmp(addr1, addr2, sim >= t) for (addr1, addr2, sim, _) in tqdm.tqdm(all_comparisons, desc="inner tqdm")]
+    y_lzjd = [cmp(addr1, addr2, sim >= t) for (addr1, addr2, _, sim, _) in tqdm.tqdm(all_comparisons, desc="inner tqdm")]
 
     y_predlzjd, _ = zip(*y_lzjd)
 
@@ -243,7 +244,7 @@ for t in tqdm.tqdm(threshold_range, desc="lzjd iterations"):
 levs = []
 for t in tqdm.tqdm(threshold_range, desc="ed iterations"):
 
-    y_lev = [cmp(addr1, addr2, sim >= t) for (addr1, addr2, _, sim) in tqdm.tqdm(all_comparisons, desc="inner lev")]
+    y_lev = [cmp(addr1, addr2, sim >= t) for (addr1, addr2, _,_, sim) in tqdm.tqdm(all_comparisons, desc="inner lev")]
 
     y_predlev, _ = zip(*y_lev)
 
