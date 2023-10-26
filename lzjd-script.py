@@ -281,7 +281,7 @@ for i, technique in enumerate(techniques):
     for j, txt in enumerate(techniques[technique]['threshold']):
         new = (techniques[technique]['precision'][j], techniques[technique]['recall'][j])
         if abs(new[0] - last[0]) > THRESHOLD[0] or abs(new[1] - last[1]) > THRESHOLD[1]:
-            plt.annotate(f'T={txt:.1f}', (techniques[technique]['precision'][j], techniques[technique]['recall'][j]), textcoords='offset points', xytext=(5,5))
+            plt.annotate(f'T={txt:.2f}', (techniques[technique]['precision'][j], techniques[technique]['recall'][j]), textcoords='offset points', xytext=(5,5))
             last = new
 
 
