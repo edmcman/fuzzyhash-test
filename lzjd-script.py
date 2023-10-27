@@ -222,7 +222,7 @@ fsesum = summarize_confusion(fsecm)
 fsesum.update({"technique": "pic"})
 print(f"FSE\n{fsecm}\n{fsesum}")
 
-threshold_range = list(np.arange(0.5,1.01,0.05))
+threshold_range = list(np.arange(0.0,1.01,0.05))
 
 
 # lzjd
@@ -257,6 +257,7 @@ for t in tqdm.tqdm(threshold_range, desc="ed iterations"):
 
 # thanks chatgpt!
 import matplotlib.pyplot as plt
+import matplotlib.cm as cm
 
 data = lzjds + levs + [fsesum]
 
@@ -274,19 +275,53 @@ for entry in data:
 
 # Create a color map for different techniques
 colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k']
+markers = ['o', 's', '^', 'v', '<', '>', 'p', '*', 'H', '+', 'x', 'D']
+linestyles = ['-', '--', '-.', ':', '-', '--', '-.', ':'] 
+
+# Use a colormap, e.g., 'viridis'
+colormap = cm.viridis
+# Create a normalization based on these values
+norm = plt.Normalize(0.0, 1.0)
 
 THRESHOLD = (0.05, 0.02)
 
 # Create the plot
-plt.figure(figsize=(6, 4))
 for i, technique in enumerate(techniques):
-    plt.plot(techniques[technique]['precision'], techniques[technique]['recall'], marker='o', linestyle='-', color=colors[i], label=technique, alpha=0.7)
-    last = (-5, -5)
-    for j, txt in enumerate(techniques[technique]['threshold']):
-        new = (techniques[technique]['precision'][j], techniques[technique]['recall'][j])
-        if abs(new[0] - last[0]) > THRESHOLD[0] or abs(new[1] - last[1]) > THRESHOLD[1]:
-            plt.annotate(f'T={txt:.2f}', (techniques[technique]['precision'][j], techniques[technique]['recall'][j]), textcoords='offset points', xytext=(5,5))
-            last = new
+    # Sort the data by threshold for correct sequencing of colors
+    sorted_indices = np.argsort(techniques[technique]['threshold'])
+    print("WHAT", sorted_indices)
+    if len(sorted_indices) == 0:
+        # We have no thresholds
+        print("NO THRESHOLDS")
+        sorted_indices = [0]
+
+    precision = np.array(techniques[technique]['precision'])[sorted_indices]
+    recall = np.array(techniques[technique]['recall'])[sorted_indices]
+
+    threshold = np.array(techniques[technique]['threshold'])[sorted_indices] if len(sorted_indices) > 1 else []
+    
+    print("WHAT")
+    print("tech", technique)
+    print("prec", precision)
+    print(sorted_indices)
+
+    if len(precision) == 1:
+        j = 0
+        plt.plot(precision[j], recall[j], marker=markers[i], color="red", linestyle="", alpha=0.7, label=technique)
+    else:
+        for j in range(len(precision) - 1):  # -1 to prevent index out of range in the next step
+            # Get the color corresponding to the threshold
+            color = colormap(norm(threshold[j]))
+            
+            # Plot the line segment
+            plt.plot(precision[j:j+2], recall[j:j+2], marker=markers[i], markersize=3, linestyle=linestyles[i], color=color, alpha=0.5, label=technique if j == 0 else "")
+
+            #plt.annotate(f'T={threshold[j]:.2f}', (precision[j], recall[j]), textcoords='offset points', xytext=(5,5))
+
+# Create a colorbar to show the mapping from thresholds to colors
+sm = cm.ScalarMappable(cmap=colormap, norm=norm)
+sm.set_array([])
+plt.colorbar(sm, label='Threshold')
 
 plt.xlim([0, 1])
 plt.ylim([0, 1])
