@@ -219,7 +219,7 @@ def summarize_confusion(m):
 
 fsecm = sklearn.metrics.confusion_matrix(y_true, y_predfse, labels=[True, False])
 fsesum = summarize_confusion(fsecm)
-fsesum.update({"technique": "fse"})
+fsesum.update({"technique": "pic"})
 print(f"FSE\n{fsecm}\n{fsesum}")
 
 threshold_range = list(np.arange(0.5,1.01,0.05))
