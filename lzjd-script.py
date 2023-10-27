@@ -189,10 +189,11 @@ def cmp(addr1, addr2, pred):
     return (pred, (name_fun(addr1, m1) == name_fun(addr2, m2)))
 
 # Compare each pair a single time
-all_comparisons = [(addr1, addr2, bytes1 == bytes2, eds_sim(fuzzyhash1, fuzzyhash2), lev_sim(bytes1, bytes2)) for ((addr1, (bytes1, fuzzyhash1)), (addr2, (bytes2, fuzzyhash2))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="all comparisons loop", total=len(funs1)*len(funs2))]
+# addr1, addr2, bytes eq, fuzzy hash sim, lev sim, ground truth eq
+all_comparisons = [(addr1, addr2, bytes1 == bytes2, eds_sim(fuzzyhash1, fuzzyhash2), lev_sim(bytes1, bytes2), name_fun(addr1, m1) == name_fun(addr2, m2)) for ((addr1, (bytes1, fuzzyhash1)), (addr2, (bytes2, fuzzyhash2))) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), desc="all comparisons loop", total=len(funs1)*len(funs2))]
 
 # fse
-y_fse = [cmp(addr1, addr2, eq) for (addr1, addr2, eq, _, _) in tqdm.tqdm(all_comparisons, desc="inner fse")]
+y_fse = [(eq, groundeq) for (_, _, eq, _, _, groundeq) in tqdm.tqdm(all_comparisons, desc="inner fse")]
 
 #print(list(y))
 
@@ -229,7 +230,7 @@ threshold_range = list(np.arange(0.0,1.01,0.05))
 lzjds = []
 for t in tqdm.tqdm(threshold_range, desc="lzjd iterations"):
 
-    y_lzjd = [cmp(addr1, addr2, sim >= t) for (addr1, addr2, _, sim, _) in tqdm.tqdm(all_comparisons, desc="inner tqdm")]
+    y_lzjd = [(sim >= t, eq) for (_, _, _, sim, _, eq) in tqdm.tqdm(all_comparisons, desc="inner tqdm")]
 
     y_predlzjd, _ = zip(*y_lzjd)
 
@@ -244,7 +245,7 @@ for t in tqdm.tqdm(threshold_range, desc="lzjd iterations"):
 levs = []
 for t in tqdm.tqdm(threshold_range, desc="ed iterations"):
 
-    y_lev = [cmp(addr1, addr2, sim >= t) for (addr1, addr2, _,_, sim) in tqdm.tqdm(all_comparisons, desc="inner lev")]
+    y_lev = [(sim >= t, eq) for (_, _, _,_, sim, eq) in tqdm.tqdm(all_comparisons, desc="inner lev")]
 
     y_predlev, _ = zip(*y_lev)
 
@@ -289,10 +290,8 @@ THRESHOLD = (0.05, 0.02)
 for i, technique in enumerate(techniques):
     # Sort the data by threshold for correct sequencing of colors
     sorted_indices = np.argsort(techniques[technique]['threshold'])
-    print("WHAT", sorted_indices)
     if len(sorted_indices) == 0:
         # We have no thresholds
-        print("NO THRESHOLDS")
         sorted_indices = [0]
 
     precision = np.array(techniques[technique]['precision'])[sorted_indices]
@@ -300,11 +299,6 @@ for i, technique in enumerate(techniques):
 
     threshold = np.array(techniques[technique]['threshold'])[sorted_indices] if len(sorted_indices) > 1 else []
     
-    print("WHAT")
-    print("tech", technique)
-    print("prec", precision)
-    print(sorted_indices)
-
     if len(precision) == 1:
         j = 0
         plt.plot(precision[j], recall[j], marker=markers[i], color="red", linestyle="", alpha=0.7, label=technique)
@@ -331,3 +325,62 @@ plt.title('Precision vs. Recall')
 plt.legend()
 plt.grid(True)
 plt.savefig(sys.argv[5], dpi=300)
+
+# Create a CSV
+#csvdata = (x for (_, _, _, _, _, _) in all_comparisons)
+import csv
+with open("/tmp/csv.csv", 'w', newline='') as csvfile:
+    csvwriter = csv.writer(csvfile)
+    csvwriter.writerows([("addr1", "addr2", "pichasheq", "ljdz_sim", "lev_sim", "ground_eq")] + all_comparisons)
+
+def violin_plot(data, fname):
+    # Separate the values based on ground_eq
+    lev_sim_true = [item[4] for item in data if item[5]]
+    lev_sim_false = [item[4] for item in data if not item[5]]
+
+    pichasheq_true = [float(item[2]) for item in data if item[5]]
+    pichasheq_false = [float(item[2]) for item in data if not item[5]]
+
+    ljdz_sim_true = [item[3] for item in data if item[5]]
+    ljdz_sim_false = [item[3] for item in data if not item[5]]
+
+    # Group data for the plots
+    plot_data = {
+        'lev_sim': [lev_sim_true, lev_sim_false],
+        'pichasheq': [pichasheq_true, pichasheq_false],
+        'ljdz_sim': [ljdz_sim_true, ljdz_sim_false]
+    }
+
+    # Function to apply jitter
+    def jitter_points(points, position, jitter_strength=0.15):
+        jitter = jitter_strength * np.random.randn(len(points))
+        return [position + j for j in jitter]
+
+    # Create the combined plots
+    fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(18, 6))
+
+    # Positions for the boxplots, aligning them with the violin plots
+    positions = [1, 2]
+
+    for idx, (label, data) in enumerate(plot_data.items()):
+        # Violin plot
+        axes[idx].violinplot(data, showmeans=True, showmedians=True, positions=positions, widths=0.6)
+        
+        # Box plot overlayed on top of the violin plot
+        axes[idx].boxplot(data, positions=positions, vert=True, widths=0.3)
+        
+        # Jittered scatter plots
+        axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color='black', s=5, alpha=0.5)
+        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color='black', s=5, alpha=0.5)
+        
+        axes[idx].set_title(f'Violin, Box, and Scatter plot of {label} based on ground_eq')
+        axes[idx].set_ylabel(f'{label} value')
+        axes[idx].set_xticks(positions)
+        axes[idx].set_xticklabels(['True', 'False'])
+
+    plt.tight_layout()
+
+    # Save the figure to 'violin.png' with a resolution of 300 dpi
+    plt.savefig(fname, dpi=300)
+
+violin_plot(all_comparisons, sys.argv[6])

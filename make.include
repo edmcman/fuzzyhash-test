@@ -10,7 +10,7 @@ all: $(1).fse $(1).lzjd $(1).png
 $(1).fse: $(2).fn2hash.csv $(3).fn2hash.csv
 	python $(PHAROS_DIR)/../tools/fn2hash/fse.py $$^ > $$@
 $(1).lzjd: $(2).fn2hash.json $(3).fn2hash.json $(2) $(3)
-	python3 ../lzjd-script.py $$^ $(1).png > $$@
+	python3 ../lzjd-script.py $$^ $(1).png $(1)-violin.png > $$@
 $(1).plot.csv: $(1).lzjd
 	cat $$< | awk -F, 'BEGIN {OFS=","} /^PLOT/ {print}' | sed 's/^,//' > $$@
 $(1).png: $(1).lzjd
