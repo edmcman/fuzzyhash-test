@@ -2,6 +2,46 @@ FSE
 [[ 10   7]
  [  0 415]]
 {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'technique': 'pic'}
+LZJD 0.0
+[[ 17   0]
+ [415   0]]
+{'accuracy': 0.03935185185185185, 'recall': 1.0, 'precision': 0.03935185185185185, 'threshold': 0.0, 'technique': 'lzjd'}
+LZJD 0.05
+[[ 17   0]
+ [396  19]]
+{'accuracy': 0.08333333333333333, 'recall': 1.0, 'precision': 0.04116222760290557, 'threshold': 0.05, 'technique': 'lzjd'}
+LZJD 0.1
+[[ 17   0]
+ [349  66]]
+{'accuracy': 0.19212962962962962, 'recall': 1.0, 'precision': 0.04644808743169399, 'threshold': 0.1, 'technique': 'lzjd'}
+LZJD 0.15000000000000002
+[[ 16   1]
+ [293 122]]
+{'accuracy': 0.3194444444444444, 'recall': 0.9411764705882353, 'precision': 0.05177993527508091, 'threshold': 0.15000000000000002, 'technique': 'lzjd'}
+LZJD 0.2
+[[ 16   1]
+ [255 160]]
+{'accuracy': 0.4074074074074074, 'recall': 0.9411764705882353, 'precision': 0.05904059040590406, 'threshold': 0.2, 'technique': 'lzjd'}
+LZJD 0.25
+[[ 15   2]
+ [195 220]]
+{'accuracy': 0.5439814814814815, 'recall': 0.8823529411764706, 'precision': 0.07142857142857142, 'threshold': 0.25, 'technique': 'lzjd'}
+LZJD 0.30000000000000004
+[[ 14   3]
+ [108 307]]
+{'accuracy': 0.7430555555555556, 'recall': 0.8235294117647058, 'precision': 0.11475409836065574, 'threshold': 0.30000000000000004, 'technique': 'lzjd'}
+LZJD 0.35000000000000003
+[[ 13   4]
+ [ 85 330]]
+{'accuracy': 0.7939814814814815, 'recall': 0.7647058823529411, 'precision': 0.1326530612244898, 'threshold': 0.35000000000000003, 'technique': 'lzjd'}
+LZJD 0.4
+[[ 10   7]
+ [ 39 376]]
+{'accuracy': 0.8935185185185185, 'recall': 0.5882352941176471, 'precision': 0.20408163265306123, 'threshold': 0.4, 'technique': 'lzjd'}
+LZJD 0.45
+[[ 10   7]
+ [ 21 394]]
+{'accuracy': 0.9351851851851852, 'recall': 0.5882352941176471, 'precision': 0.3225806451612903, 'threshold': 0.45, 'technique': 'lzjd'}
 LZJD 0.5
 [[ 10   7]
  [ 12 403]]
@@ -14,38 +54,78 @@ LZJD 0.6000000000000001
 [[ 10   7]
  [  2 413]]
 {'accuracy': 0.9791666666666666, 'recall': 0.5882352941176471, 'precision': 0.8333333333333334, 'threshold': 0.6000000000000001, 'technique': 'lzjd'}
-LZJD 0.6500000000000001
+LZJD 0.65
 [[ 10   7]
  [  2 413]]
-{'accuracy': 0.9791666666666666, 'recall': 0.5882352941176471, 'precision': 0.8333333333333334, 'threshold': 0.6500000000000001, 'technique': 'lzjd'}
-LZJD 0.7000000000000002
+{'accuracy': 0.9791666666666666, 'recall': 0.5882352941176471, 'precision': 0.8333333333333334, 'threshold': 0.65, 'technique': 'lzjd'}
+LZJD 0.7000000000000001
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7000000000000002, 'technique': 'lzjd'}
-LZJD 0.7500000000000002
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7000000000000001, 'technique': 'lzjd'}
+LZJD 0.75
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7500000000000002, 'technique': 'lzjd'}
-LZJD 0.8000000000000003
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.75, 'technique': 'lzjd'}
+LZJD 0.8
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8000000000000003, 'technique': 'lzjd'}
-LZJD 0.8500000000000003
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8, 'technique': 'lzjd'}
+LZJD 0.8500000000000001
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8500000000000003, 'technique': 'lzjd'}
-LZJD 0.9000000000000004
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8500000000000001, 'technique': 'lzjd'}
+LZJD 0.9
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9000000000000004, 'technique': 'lzjd'}
-LZJD 0.9500000000000004
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9, 'technique': 'lzjd'}
+LZJD 0.9500000000000001
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9500000000000004, 'technique': 'lzjd'}
-LZJD 1.0000000000000004
-[[  0  17]
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9500000000000001, 'technique': 'lzjd'}
+LZJD 1.0
+[[ 10   7]
  [  0 415]]
-{'accuracy': 0.9606481481481481, 'recall': 0.0, 'precision': nan, 'threshold': 1.0000000000000004, 'technique': 'lzjd'}
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 1.0, 'technique': 'lzjd'}
+LEV 0.0
+[[ 17   0]
+ [415   0]]
+{'accuracy': 0.03935185185185185, 'recall': 1.0, 'precision': 0.03935185185185185, 'threshold': 0.0, 'technique': 'lev'}
+LEV 0.05
+[[ 16   1]
+ [361  54]]
+{'accuracy': 0.16203703703703703, 'recall': 0.9411764705882353, 'precision': 0.042440318302387266, 'threshold': 0.05, 'technique': 'lev'}
+LEV 0.1
+[[ 16   1]
+ [311 104]]
+{'accuracy': 0.2777777777777778, 'recall': 0.9411764705882353, 'precision': 0.04892966360856269, 'threshold': 0.1, 'technique': 'lev'}
+LEV 0.15000000000000002
+[[ 16   1]
+ [263 152]]
+{'accuracy': 0.3888888888888889, 'recall': 0.9411764705882353, 'precision': 0.05734767025089606, 'threshold': 0.15000000000000002, 'technique': 'lev'}
+LEV 0.2
+[[ 16   1]
+ [208 207]]
+{'accuracy': 0.5162037037037037, 'recall': 0.9411764705882353, 'precision': 0.07142857142857142, 'threshold': 0.2, 'technique': 'lev'}
+LEV 0.25
+[[ 15   2]
+ [174 241]]
+{'accuracy': 0.5925925925925926, 'recall': 0.8823529411764706, 'precision': 0.07936507936507936, 'threshold': 0.25, 'technique': 'lev'}
+LEV 0.30000000000000004
+[[ 12   5]
+ [ 95 320]]
+{'accuracy': 0.7685185185185185, 'recall': 0.7058823529411765, 'precision': 0.11214953271028037, 'threshold': 0.30000000000000004, 'technique': 'lev'}
+LEV 0.35000000000000003
+[[ 11   6]
+ [ 61 354]]
+{'accuracy': 0.8449074074074074, 'recall': 0.6470588235294118, 'precision': 0.1527777777777778, 'threshold': 0.35000000000000003, 'technique': 'lev'}
+LEV 0.4
+[[ 11   6]
+ [ 38 377]]
+{'accuracy': 0.8981481481481481, 'recall': 0.6470588235294118, 'precision': 0.22448979591836735, 'threshold': 0.4, 'technique': 'lev'}
+LEV 0.45
+[[ 11   6]
+ [ 15 400]]
+{'accuracy': 0.9513888888888888, 'recall': 0.6470588235294118, 'precision': 0.4230769230769231, 'threshold': 0.45, 'technique': 'lev'}
 LEV 0.5
 [[ 10   7]
  [ 12 403]]
@@ -58,36 +138,58 @@ LEV 0.6000000000000001
 [[ 10   7]
  [  8 407]]
 {'accuracy': 0.9652777777777778, 'recall': 0.5882352941176471, 'precision': 0.5555555555555556, 'threshold': 0.6000000000000001, 'technique': 'lev'}
-LEV 0.6500000000000001
+LEV 0.65
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.6500000000000001, 'technique': 'lev'}
-LEV 0.7000000000000002
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.65, 'technique': 'lev'}
+LEV 0.7000000000000001
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7000000000000002, 'technique': 'lev'}
-LEV 0.7500000000000002
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7000000000000001, 'technique': 'lev'}
+LEV 0.75
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7500000000000002, 'technique': 'lev'}
-LEV 0.8000000000000003
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.75, 'technique': 'lev'}
+LEV 0.8
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8000000000000003, 'technique': 'lev'}
-LEV 0.8500000000000003
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8, 'technique': 'lev'}
+LEV 0.8500000000000001
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8500000000000003, 'technique': 'lev'}
-LEV 0.9000000000000004
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8500000000000001, 'technique': 'lev'}
+LEV 0.9
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9000000000000004, 'technique': 'lev'}
-LEV 0.9500000000000004
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9, 'technique': 'lev'}
+LEV 0.9500000000000001
 [[ 10   7]
  [  0 415]]
-{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9500000000000004, 'technique': 'lev'}
-LEV 1.0000000000000004
-[[  0  17]
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9500000000000001, 'technique': 'lev'}
+LEV 1.0
+[[ 10   7]
  [  0 415]]
-{'accuracy': 0.9606481481481481, 'recall': 0.0, 'precision': nan, 'threshold': 1.0000000000000004, 'technique': 'lev'}
-[{'accuracy': 0.9560185185185185, 'recall': 0.5882352941176471, 'precision': 0.45454545454545453, 'threshold': 0.5, 'technique': 'lzjd'}, {'accuracy': 0.9791666666666666, 'recall': 0.5882352941176471, 'precision': 0.8333333333333334, 'threshold': 0.55, 'technique': 'lzjd'}, {'accuracy': 0.9791666666666666, 'recall': 0.5882352941176471, 'precision': 0.8333333333333334, 'threshold': 0.6000000000000001, 'technique': 'lzjd'}, {'accuracy': 0.9791666666666666, 'recall': 0.5882352941176471, 'precision': 0.8333333333333334, 'threshold': 0.6500000000000001, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7000000000000002, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7500000000000002, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8000000000000003, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8500000000000003, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9000000000000004, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9500000000000004, 'technique': 'lzjd'}, {'accuracy': 0.9606481481481481, 'recall': 0.0, 'precision': nan, 'threshold': 1.0000000000000004, 'technique': 'lzjd'}, {'accuracy': 0.9560185185185185, 'recall': 0.5882352941176471, 'precision': 0.45454545454545453, 'threshold': 0.5, 'technique': 'lev'}, {'accuracy': 0.9606481481481481, 'recall': 0.5882352941176471, 'precision': 0.5, 'threshold': 0.55, 'technique': 'lev'}, {'accuracy': 0.9652777777777778, 'recall': 0.5882352941176471, 'precision': 0.5555555555555556, 'threshold': 0.6000000000000001, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.6500000000000001, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7000000000000002, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7500000000000002, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8000000000000003, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8500000000000003, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9000000000000004, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9500000000000004, 'technique': 'lev'}, {'accuracy': 0.9606481481481481, 'recall': 0.0, 'precision': nan, 'threshold': 1.0000000000000004, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'technique': 'pic'}]
+{'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 1.0, 'technique': 'lev'}
+[{'accuracy': 0.03935185185185185, 'recall': 1.0, 'precision': 0.03935185185185185, 'threshold': 0.0, 'technique': 'lzjd'}, {'accuracy': 0.08333333333333333, 'recall': 1.0, 'precision': 0.04116222760290557, 'threshold': 0.05, 'technique': 'lzjd'}, {'accuracy': 0.19212962962962962, 'recall': 1.0, 'precision': 0.04644808743169399, 'threshold': 0.1, 'technique': 'lzjd'}, {'accuracy': 0.3194444444444444, 'recall': 0.9411764705882353, 'precision': 0.05177993527508091, 'threshold': 0.15000000000000002, 'technique': 'lzjd'}, {'accuracy': 0.4074074074074074, 'recall': 0.9411764705882353, 'precision': 0.05904059040590406, 'threshold': 0.2, 'technique': 'lzjd'}, {'accuracy': 0.5439814814814815, 'recall': 0.8823529411764706, 'precision': 0.07142857142857142, 'threshold': 0.25, 'technique': 'lzjd'}, {'accuracy': 0.7430555555555556, 'recall': 0.8235294117647058, 'precision': 0.11475409836065574, 'threshold': 0.30000000000000004, 'technique': 'lzjd'}, {'accuracy': 0.7939814814814815, 'recall': 0.7647058823529411, 'precision': 0.1326530612244898, 'threshold': 0.35000000000000003, 'technique': 'lzjd'}, {'accuracy': 0.8935185185185185, 'recall': 0.5882352941176471, 'precision': 0.20408163265306123, 'threshold': 0.4, 'technique': 'lzjd'}, {'accuracy': 0.9351851851851852, 'recall': 0.5882352941176471, 'precision': 0.3225806451612903, 'threshold': 0.45, 'technique': 'lzjd'}, {'accuracy': 0.9560185185185185, 'recall': 0.5882352941176471, 'precision': 0.45454545454545453, 'threshold': 0.5, 'technique': 'lzjd'}, {'accuracy': 0.9791666666666666, 'recall': 0.5882352941176471, 'precision': 0.8333333333333334, 'threshold': 0.55, 'technique': 'lzjd'}, {'accuracy': 0.9791666666666666, 'recall': 0.5882352941176471, 'precision': 0.8333333333333334, 'threshold': 0.6000000000000001, 'technique': 'lzjd'}, {'accuracy': 0.9791666666666666, 'recall': 0.5882352941176471, 'precision': 0.8333333333333334, 'threshold': 0.65, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7000000000000001, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.75, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8500000000000001, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9500000000000001, 'technique': 'lzjd'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 1.0, 'technique': 'lzjd'}, {'accuracy': 0.03935185185185185, 'recall': 1.0, 'precision': 0.03935185185185185, 'threshold': 0.0, 'technique': 'lev'}, {'accuracy': 0.16203703703703703, 'recall': 0.9411764705882353, 'precision': 0.042440318302387266, 'threshold': 0.05, 'technique': 'lev'}, {'accuracy': 0.2777777777777778, 'recall': 0.9411764705882353, 'precision': 0.04892966360856269, 'threshold': 0.1, 'technique': 'lev'}, {'accuracy': 0.3888888888888889, 'recall': 0.9411764705882353, 'precision': 0.05734767025089606, 'threshold': 0.15000000000000002, 'technique': 'lev'}, {'accuracy': 0.5162037037037037, 'recall': 0.9411764705882353, 'precision': 0.07142857142857142, 'threshold': 0.2, 'technique': 'lev'}, {'accuracy': 0.5925925925925926, 'recall': 0.8823529411764706, 'precision': 0.07936507936507936, 'threshold': 0.25, 'technique': 'lev'}, {'accuracy': 0.7685185185185185, 'recall': 0.7058823529411765, 'precision': 0.11214953271028037, 'threshold': 0.30000000000000004, 'technique': 'lev'}, {'accuracy': 0.8449074074074074, 'recall': 0.6470588235294118, 'precision': 0.1527777777777778, 'threshold': 0.35000000000000003, 'technique': 'lev'}, {'accuracy': 0.8981481481481481, 'recall': 0.6470588235294118, 'precision': 0.22448979591836735, 'threshold': 0.4, 'technique': 'lev'}, {'accuracy': 0.9513888888888888, 'recall': 0.6470588235294118, 'precision': 0.4230769230769231, 'threshold': 0.45, 'technique': 'lev'}, {'accuracy': 0.9560185185185185, 'recall': 0.5882352941176471, 'precision': 0.45454545454545453, 'threshold': 0.5, 'technique': 'lev'}, {'accuracy': 0.9606481481481481, 'recall': 0.5882352941176471, 'precision': 0.5, 'threshold': 0.55, 'technique': 'lev'}, {'accuracy': 0.9652777777777778, 'recall': 0.5882352941176471, 'precision': 0.5555555555555556, 'threshold': 0.6000000000000001, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.65, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.7000000000000001, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.75, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.8500000000000001, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 0.9500000000000001, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'threshold': 1.0, 'technique': 'lev'}, {'accuracy': 0.9837962962962963, 'recall': 0.5882352941176471, 'precision': 1.0, 'technique': 'pic'}]
+WHAT [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20]
+WHAT
+tech lzjd
+prec [0.03935185 0.04116223 0.04644809 0.05177994 0.05904059 0.07142857
+ 0.1147541  0.13265306 0.20408163 0.32258065 0.45454545 0.83333333
+ 0.83333333 0.83333333 1.         1.         1.         1.
+ 1.         1.         1.        ]
+[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20]
+WHAT [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20]
+WHAT
+tech lev
+prec [0.03935185 0.04244032 0.04892966 0.05734767 0.07142857 0.07936508
+ 0.11214953 0.15277778 0.2244898  0.42307692 0.45454545 0.5
+ 0.55555556 1.         1.         1.         1.         1.
+ 1.         1.         1.        ]
+[ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20]
+WHAT []
+NO THRESHOLDS
+WHAT
+tech pic
+prec [1.]
+[0]
