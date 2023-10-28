@@ -12,6 +12,8 @@ import itertools
 
 import sklearn.metrics
 
+import collections
+
 j1 = json.load(open(sys.argv[1], "r"))
 j2 = json.load(open(sys.argv[2], "r"))
 
@@ -20,7 +22,11 @@ import numpy as np
 
 def lev_sim(a, b):
     maxlen = max(len(a), len(b))
-    d = editdistance.eval(a,b)
+    # When Ed doesn't want to wait for Lev distance...
+    if True:
+        d = editdistance.eval(a,b)
+    else:
+        d = 0.0
     #d = edit_distance(a, b, max_ed=maxlen)
 
     return 1.0 - (float(d) / maxlen)
@@ -100,9 +106,24 @@ def eds_sim(A, B):
 
 # get names from debug symbols
 def symbol_map(bname):
-    output = subprocess.check_output(f"nm -a {bname}", shell=True)
+    output = subprocess.check_output(f"nm -l {bname}", shell=True)
     splitz = [l.split(b" ") for l in output.splitlines()]
-    return {int(t[0], 16): t[2] for t in splitz if t[0] != b""}
+    # nm -l seems to identify real functions pretty well; they have \t in them
+
+    # We get a string like "asdfasdfsaf\tfile.cpp:1234".  This doesn't work for
+    # exp4. So for now we'll just use the name.
+    tmpd = {int(t[0], 16): t[2].split(b"\t")[0] for t in splitz if t[0] != b"" and b"\t" in t[2]}
+
+    # Look for duplicate names
+    counter1 = collections.Counter(tmpd.values())
+    for item, cnt in counter1.items():
+        if cnt > 1:
+            print(f"Ignoring duplicate {item}")
+
+    # Look for duplicate addresses
+    # Remove dups
+    return {k: v for k, v in tmpd.items() if counter1[v] == 1}
+    
 
 m1 = symbol_map(sys.argv[3])
 m2 = symbol_map(sys.argv[4])
@@ -118,7 +139,6 @@ funs2 = {fun['fn_addr']: (fun['pic_bytes'], digest(fun['pic_bytes'])) for fun in
 funs1 = {k: v for k,v in funs1.items() if name_fun(k, m1, return_none_for_unknown=True) is not None}
 funs2 = {k: v for k,v in funs2.items() if name_fun(k, m2, return_none_for_unknown=True) is not None}
 
-
 #sims = [(fun1_addr, fun2_addr, fun1_bytes, fun2_bytes, eds_sim(fun1_hash, fun2_hash)) for (fun1_addr, (fun1_bytes, fun1_hash)), (fun2_addr, (fun2_bytes, fun2_hash)) in tqdm.tqdm(itertools.product(funs1.items(), funs2.items()), total=len(funs1)*len(funs2), desc="Comparing all pairs")]
 #random.shuffle(sims)
 #sims.sort(key=lambda t: -t[4])
@@ -133,9 +153,15 @@ if False:
 
 #dist = lambda f1, f2: -eds_sim(funs1[f1][1], funs2[f2][1])
 
-intersect_fun_names = set(name_fun(f, m1, return_none_for_unknown=True) for f in funs1.keys()) & set(name_fun(f, m2, return_none_for_unknown=True) for f in funs2.keys()) - {None}
+fun_names1 = set(name_fun(f, m1, return_none_for_unknown=True) for f in funs1.keys())
+fun_names2 = set(name_fun(f, m2, return_none_for_unknown=True) for f in funs2.keys())
+intersect_fun_names = fun_names1 & fun_names2
+all_fun_names = fun_names1 | fun_names2
 #print(intersection_funs)
 
+print(f"All fun names: {all_fun_names}")
+print(f"Intersection of names: {intersect_fun_names}")
+print(f"Functions in one but not both {all_fun_names - intersect_fun_names}")
 
 if False:
     matches = greedy_entity_matching(sims)
@@ -330,10 +356,89 @@ plt.savefig(sys.argv[5], dpi=300)
 #csvdata = (x for (_, _, _, _, _, _) in all_comparisons)
 import csv
 with open("/tmp/csv.csv", 'w', newline='') as csvfile:
-    csvwriter = csv.writer(csvfile)
+    csvwriter = csv.writer(csvfile, lineterminator="\n")
     csvwriter.writerows([("addr1", "addr2", "pichasheq", "ljdz_sim", "lev_sim", "ground_eq")] + all_comparisons)
 
-def violin_plot(data, fname):
+from bokeh.plotting import figure, show, output_file
+from bokeh.models import ColumnDataSource, HoverTool, BoxAnnotation, Span
+from bokeh.layouts import gridplot
+from bokeh.io import save
+import numpy as np
+
+def generate_interactive_violin_plot(data, filename, threshold=0.75):
+    # Separate data based on ground_eq
+    grouped_data = {
+        'lev_sim': {
+            True: [item for item in data if item[5]],
+            False: [item for item in data if not item[5]]
+        },
+        'pichasheq': {
+            True: [item for item in data if item[5]],
+            False: [item for item in data if not item[5]]
+        },
+        'ljdz_sim': {
+            True: [item for item in data if item[5]],
+            False: [item for item in data if not item[5]]
+        }
+    }
+
+    plots = []
+
+    for metric, sub_data in grouped_data.items():
+        for ground_truth, values in sub_data.items():
+            p = figure(title=f'{metric} - ground_eq: {ground_truth}', 
+                       tools="", background_fill_color="#EFE8E2", x_range=[0, 2], width=400, height=400)
+
+            # Data for this plot
+            y_values = [item[4] if metric == 'lev_sim' else float(item[2]) if metric == 'pichasheq' else item[3] for item in values]
+            colors = ['green' if (y > threshold) == ground_truth else 'red' for y in y_values]
+            addr1_values = [item[0] for item in values]
+            addr2_values = [item[1] for item in values]
+
+            source = ColumnDataSource(data=dict(y=y_values, color=colors, addr1=addr1_values, addr2=addr2_values))
+
+            # Violin plot (represented as area between upper and lower quartile and line for the median)
+            q1 = np.percentile(y_values, 25)
+            q3 = np.percentile(y_values, 75)
+            iqr = q3 - q1
+            upper = min(max(y_values), q3 + 1.5*iqr)
+            lower = max(min(y_values), q1 - 1.5*iqr)
+            p.segment(1, upper, 1, q3, line_width=2, line_color="black", line_dash="dashed")
+            p.segment(1, lower, 1, q1, line_width=2, line_color="black", line_dash="dashed")
+            p.vbar(x=1, width=0.7, bottom=q1, top=q3, fill_color="#3B8686", line_color="black")
+            p.circle(x='color', y='y', color='color', size=6, source=source, alpha=0.6)
+
+            # Hover tool
+            hover = HoverTool()
+            hover.tooltips = [
+                ("addr1", "@addr1"),
+                ("addr2", "@addr2"),
+                (metric, "@y")
+            ]
+            p.add_tools(hover)
+
+            # Line at threshold
+            p.line([0, 2], [threshold, threshold], line_dash="dashed", color="grey")
+
+            # Annotations
+            box_annotation_above = BoxAnnotation(bottom=threshold, fill_alpha=0.1, fill_color='green')
+            box_annotation_below = BoxAnnotation(top=threshold, fill_alpha=0.1, fill_color='red')
+            p.add_layout(box_annotation_above)
+            p.add_layout(box_annotation_below)
+
+            plots.append(p)
+
+    # Organize the plots in a grid
+    grid = gridplot([plots[i:i+3] for i in range(0, len(plots), 3)])
+    
+    # Output to static file (this can be modified as needed)
+    #output_file(filename)
+
+    # Display the plot
+    #show(grid, notebook_handle=False)
+    save(grid, filename=filename)
+
+def violin_plot(data, fname, threshold=0.75):
     # Separate the values based on ground_eq
     lev_sim_true = [item[4] for item in data if item[5]]
     lev_sim_false = [item[4] for item in data if not item[5]]
@@ -355,6 +460,25 @@ def violin_plot(data, fname):
     def jitter_points(points, position, jitter_strength=0.15):
         jitter = jitter_strength * np.random.randn(len(points))
         return [position + j for j in jitter]
+    
+    # Colors for the points based on value and ground_eq
+    def get_colors(values, ground_true):
+        if ground_true:
+            return ['green' if v > threshold else 'red' for v in values]
+        else:
+            return ['red' if v > threshold else 'green' for v in values]
+        
+    # Function to count points above and below 0.75 and determine their colors
+    def count_points(data, ground_true):
+        above = sum(1 for point in data if point > 0.75)
+        below = len(data) - above
+        
+        if ground_true:
+            above_color, below_color = 'green', 'red'
+        else:
+            above_color, below_color = 'red', 'green'
+        
+        return above, below, above_color, below_color
 
     # Create the combined plots
     fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(18, 6))
@@ -368,10 +492,22 @@ def violin_plot(data, fname):
         
         # Box plot overlayed on top of the violin plot
         axes[idx].boxplot(data, positions=positions, vert=True, widths=0.3)
+
+        # Jittered scatter plots with custom colors
+        axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color=get_colors(data[0], True), s=5, alpha=0.5)
+        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False), s=5, alpha=0.5)
         
-        # Jittered scatter plots
-        axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color='black', s=5, alpha=0.5)
-        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color='black', s=5, alpha=0.5)
+        # Line across the plot at y=threshold
+        axes[idx].axhline(y=threshold, color='gray', linestyle='--')
+
+         # Add annotations for count of points above and below threshold with respective colors
+        above_true, below_true, at_color, bt_color = count_points(data[0], True)
+        above_false, below_false, af_color, bf_color = count_points(data[1], False)
+        
+        axes[idx].annotate(f'Above: {above_true}', (positions[0], threshold + 0.02), ha='center', color=at_color)
+        axes[idx].annotate(f'Below: {below_true}', (positions[0], threshold - 0.02), ha='center', color=bt_color)
+        axes[idx].annotate(f'Above: {above_false}', (positions[1], threshold + 0.02), ha='center', color=af_color)
+        axes[idx].annotate(f'Below: {below_false}', (positions[1], threshold - 0.02), ha='center', color=bf_color)
         
         axes[idx].set_title(f'Violin, Box, and Scatter plot of {label} based on ground_eq')
         axes[idx].set_ylabel(f'{label} value')
@@ -384,3 +520,5 @@ def violin_plot(data, fname):
     plt.savefig(fname, dpi=300)
 
 violin_plot(all_comparisons, sys.argv[6])
+# doesn't work :()
+#generate_interactive_violin_plot(all_comparisons, "omg.html")
