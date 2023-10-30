@@ -2,6 +2,7 @@
 
 from pyLZJD import digest, sim
 
+import math
 import random
 import sys
 import json
@@ -242,7 +243,13 @@ def summarize_confusion(m):
         precision = tp / pp
     except:
         precision = None
-    return {"accuracy": accuracy, "recall": recall, "precision": precision}
+
+    if recall is None or math.isnan(recall):
+        recall = 1e-6
+    if precision is None or math.isnan(precision):
+        precision = 1e-6
+
+    return {"accuracy": accuracy, "recall": recall, "precision": precision, "f1": 2 * (recall * precision) / (recall + precision)}
 
 fsecm = sklearn.metrics.confusion_matrix(y_true, y_predfse, labels=[True, False])
 fsesum = summarize_confusion(fsecm)
@@ -289,6 +296,9 @@ import matplotlib.cm as cm
 data = lzjds + levs + [fsesum]
 
 print(data)
+
+def get_best_threshold(technique):
+    return max((d for d in data if d['technique'] == technique), key=lambda row: row['f1'])
 
 techniques = {}
 for entry in data:
@@ -438,7 +448,7 @@ def generate_interactive_violin_plot(data, filename, threshold=0.75):
     #show(grid, notebook_handle=False)
     save(grid, filename=filename)
 
-def violin_plot(data, fname, threshold=0.75):
+def violin_plot(data, fname):
     # Separate the values based on ground_eq
     lev_sim_true = [item[4] for item in data if item[5]]
     lev_sim_false = [item[4] for item in data if not item[5]]
@@ -449,11 +459,16 @@ def violin_plot(data, fname, threshold=0.75):
     ljdz_sim_true = [item[3] for item in data if item[5]]
     ljdz_sim_false = [item[3] for item in data if not item[5]]
 
+    best_lzjd = get_best_threshold('lzjd')
+    best_lev = get_best_threshold('lev')
+    #print(f"Best LZJD Threshold: {best_lzjd}")
+    #print(f"Best LEV Threshold: {best_lev}")
+
     # Group data for the plots
     plot_data = {
-        'lev_sim': [lev_sim_true, lev_sim_false],
-        'pichasheq': [pichasheq_true, pichasheq_false],
-        'ljdz_sim': [ljdz_sim_true, ljdz_sim_false]
+        'lev_sim': [lev_sim_true, lev_sim_false, best_lev['threshold']],
+        'pichasheq': [pichasheq_true, pichasheq_false, 0.5],
+        'ljdz_sim': [ljdz_sim_true, ljdz_sim_false, best_lzjd['threshold']]
     }
 
     # Function to apply jitter
@@ -462,7 +477,7 @@ def violin_plot(data, fname, threshold=0.75):
         return [position + j for j in jitter]
     
     # Colors for the points based on value and ground_eq
-    def get_colors(values, ground_true):
+    def get_colors(values, ground_true, threshold):
         if ground_true:
             return ['green' if v > threshold else 'red' for v in values]
         else:
@@ -487,6 +502,10 @@ def violin_plot(data, fname, threshold=0.75):
     positions = [1, 2]
 
     for idx, (label, data) in enumerate(plot_data.items()):
+
+        threshold = data[2]
+        data = data[:2]
+
         # Violin plot
         axes[idx].violinplot(data, showmeans=True, showmedians=True, positions=positions, widths=0.6)
         
@@ -494,8 +513,8 @@ def violin_plot(data, fname, threshold=0.75):
         axes[idx].boxplot(data, positions=positions, vert=True, widths=0.3)
 
         # Jittered scatter plots with custom colors
-        axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color=get_colors(data[0], True), s=5, alpha=0.5)
-        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False), s=5, alpha=0.5)
+        axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color=get_colors(data[0], True, threshold), s=5, alpha=0.5)
+        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False, threshold), s=5, alpha=0.5)
         
         # Line across the plot at y=threshold
         axes[idx].axhline(y=threshold, color='gray', linestyle='--')
