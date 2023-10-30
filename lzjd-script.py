@@ -485,8 +485,8 @@ def violin_plot(data, fname):
             return ['red' if v > threshold else 'green' for v in values]
         
     # Function to count points above and below 0.75 and determine their colors
-    def count_points(data, ground_true):
-        above = sum(1 for point in data if point > 0.75)
+    def count_points(data, ground_true, threshold):
+        above = sum(1 for point in data if point > threshold)
         below = len(data) - above
         
         if ground_true:
@@ -522,8 +522,8 @@ def violin_plot(data, fname):
         axes[idx].axhline(y=threshold, color='gray', linestyle='--')
 
          # Add annotations for count of points above and below threshold with respective colors
-        above_true, below_true, at_color, bt_color = count_points(data[0], True)
-        above_false, below_false, af_color, bf_color = count_points(data[1], False)
+        above_true, below_true, at_color, bt_color = count_points(data[0], True, threshold)
+        above_false, below_false, af_color, bf_color = count_points(data[1], False, threshold)
         
         axes[idx].annotate(f'Above: {above_true}', (positions[0], threshold + 0.02), ha='center', color=at_color)
         axes[idx].annotate(f'Below: {below_true}', (positions[0], threshold - 0.02), ha='center', color=bt_color)
