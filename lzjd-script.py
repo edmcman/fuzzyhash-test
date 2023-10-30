@@ -461,14 +461,15 @@ def violin_plot(data, fname):
 
     best_lzjd = get_best_threshold('lzjd')
     best_lev = get_best_threshold('lev')
+    best_hash = get_best_threshold('pic')
     #print(f"Best LZJD Threshold: {best_lzjd}")
     #print(f"Best LEV Threshold: {best_lev}")
 
     # Group data for the plots
     plot_data = {
-        'lev_sim': [lev_sim_true, lev_sim_false, best_lev['threshold']],
-        'pichasheq': [pichasheq_true, pichasheq_false, 0.5],
-        'ljdz_sim': [ljdz_sim_true, ljdz_sim_false, best_lzjd['threshold']]
+        'lev_sim': [lev_sim_true, lev_sim_false, best_lev['threshold'], best_lev['f1']],
+        'pichasheq': [pichasheq_true, pichasheq_false, 0.5, best_hash['f1']],
+        'ljdz_sim': [ljdz_sim_true, ljdz_sim_false, best_lzjd['threshold'], best_lzjd['f1']]
     }
 
     # Function to apply jitter
@@ -504,6 +505,7 @@ def violin_plot(data, fname):
     for idx, (label, data) in enumerate(plot_data.items()):
 
         threshold = data[2]
+        f1 = data[3]
         data = data[:2]
 
         # Violin plot
@@ -528,8 +530,11 @@ def violin_plot(data, fname):
         axes[idx].annotate(f'Above: {above_false}', (positions[1], threshold + 0.02), ha='center', color=af_color)
         axes[idx].annotate(f'Below: {below_false}', (positions[1], threshold - 0.02), ha='center', color=bf_color)
         
+        axes[idx].annotate(f'F1: {f1:.2}', xy=(0.5, 0.5), xycoords='axes fraction', ha='center', va='center', fontsize=10)
+
         axes[idx].set_title(f'Violin, Box, and Scatter plot of {label} based on ground_eq')
         axes[idx].set_ylabel(f'{label} value')
+        axes[idx].set_xlabel('Equivalent in Ground truth')
         axes[idx].set_xticks(positions)
         axes[idx].set_xticklabels(['True', 'False'])
 

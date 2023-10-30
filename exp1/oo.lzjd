@@ -1,176 +1,176 @@
-All fun names: {b'_ZN4Cls35func3Ev', b'main', b'_ZN4Cls25func4Ev', b'_ZN4Cls15func1Ev', b'_ZN4Cls35func1Ev', b'_ZThn16_N4Cls35func3Ev', b'_Z6myfuncv', b'_ZNKSt5ctypeIcE8do_widenEc'}
-Intersection of names: {b'_ZN4Cls35func3Ev', b'main', b'_ZN4Cls25func4Ev', b'_ZN4Cls35func1Ev', b'_ZThn16_N4Cls35func3Ev', b'_Z6myfuncv'}
+All fun names: {b'_ZN4Cls35func3Ev', b'_ZThn16_N4Cls35func3Ev', b'_ZN4Cls25func4Ev', b'_ZN4Cls15func1Ev', b'_Z6myfuncv', b'_ZNKSt5ctypeIcE8do_widenEc', b'_ZN4Cls35func1Ev', b'main'}
+Intersection of names: {b'_ZN4Cls35func3Ev', b'_ZThn16_N4Cls35func3Ev', b'_ZN4Cls25func4Ev', b'_Z6myfuncv', b'_ZN4Cls35func1Ev', b'main'}
 Functions in one but not both {b'_ZN4Cls15func1Ev', b'_ZNKSt5ctypeIcE8do_widenEc'}
 FSE
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'technique': 'pic'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'technique': 'pic'}
 LZJD 0.0
 [[ 6  0]
  [42  0]]
-{'accuracy': 0.125, 'recall': 1.0, 'precision': 0.125, 'threshold': 0.0, 'technique': 'lzjd'}
+{'accuracy': 0.125, 'recall': 1.0, 'precision': 0.125, 'f1': 0.2222222222222222, 'threshold': 0.0, 'technique': 'lzjd'}
 LZJD 0.05
 [[ 6  0]
  [40  2]]
-{'accuracy': 0.16666666666666666, 'recall': 1.0, 'precision': 0.13043478260869565, 'threshold': 0.05, 'technique': 'lzjd'}
+{'accuracy': 0.16666666666666666, 'recall': 1.0, 'precision': 0.13043478260869565, 'f1': 0.23076923076923078, 'threshold': 0.05, 'technique': 'lzjd'}
 LZJD 0.1
 [[ 6  0]
  [31 11]]
-{'accuracy': 0.3541666666666667, 'recall': 1.0, 'precision': 0.16216216216216217, 'threshold': 0.1, 'technique': 'lzjd'}
+{'accuracy': 0.3541666666666667, 'recall': 1.0, 'precision': 0.16216216216216217, 'f1': 0.27906976744186046, 'threshold': 0.1, 'technique': 'lzjd'}
 LZJD 0.15000000000000002
 [[ 6  0]
  [26 16]]
-{'accuracy': 0.4583333333333333, 'recall': 1.0, 'precision': 0.1875, 'threshold': 0.15000000000000002, 'technique': 'lzjd'}
+{'accuracy': 0.4583333333333333, 'recall': 1.0, 'precision': 0.1875, 'f1': 0.3157894736842105, 'threshold': 0.15000000000000002, 'technique': 'lzjd'}
 LZJD 0.2
 [[ 6  0]
  [22 20]]
-{'accuracy': 0.5416666666666666, 'recall': 1.0, 'precision': 0.21428571428571427, 'threshold': 0.2, 'technique': 'lzjd'}
+{'accuracy': 0.5416666666666666, 'recall': 1.0, 'precision': 0.21428571428571427, 'f1': 0.35294117647058826, 'threshold': 0.2, 'technique': 'lzjd'}
 LZJD 0.25
 [[ 5  1]
  [22 20]]
-{'accuracy': 0.5208333333333334, 'recall': 0.8333333333333334, 'precision': 0.18518518518518517, 'threshold': 0.25, 'technique': 'lzjd'}
+{'accuracy': 0.5208333333333334, 'recall': 0.8333333333333334, 'precision': 0.18518518518518517, 'f1': 0.303030303030303, 'threshold': 0.25, 'technique': 'lzjd'}
 LZJD 0.30000000000000004
 [[ 5  1]
  [21 21]]
-{'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'threshold': 0.30000000000000004, 'technique': 'lzjd'}
+{'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'f1': 0.3125, 'threshold': 0.30000000000000004, 'technique': 'lzjd'}
 LZJD 0.35000000000000003
 [[ 5  1]
  [16 26]]
-{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.35000000000000003, 'technique': 'lzjd'}
+{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.35000000000000003, 'technique': 'lzjd'}
 LZJD 0.4
 [[ 5  1]
  [16 26]]
-{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.4, 'technique': 'lzjd'}
+{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.4, 'technique': 'lzjd'}
 LZJD 0.45
 [[ 1  5]
  [ 0 42]]
-{'accuracy': 0.8958333333333334, 'recall': 0.16666666666666666, 'precision': 1.0, 'threshold': 0.45, 'technique': 'lzjd'}
+{'accuracy': 0.8958333333333334, 'recall': 0.16666666666666666, 'precision': 1.0, 'f1': 0.2857142857142857, 'threshold': 0.45, 'technique': 'lzjd'}
 LZJD 0.5
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.5, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.5, 'technique': 'lzjd'}
 LZJD 0.55
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.55, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.55, 'technique': 'lzjd'}
 LZJD 0.6000000000000001
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.6000000000000001, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.6000000000000001, 'technique': 'lzjd'}
 LZJD 0.65
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.65, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.65, 'technique': 'lzjd'}
 LZJD 0.7000000000000001
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.7000000000000001, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.7000000000000001, 'technique': 'lzjd'}
 LZJD 0.75
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.75, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.75, 'technique': 'lzjd'}
 LZJD 0.8
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.8, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.8, 'technique': 'lzjd'}
 LZJD 0.8500000000000001
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.8500000000000001, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.8500000000000001, 'technique': 'lzjd'}
 LZJD 0.9
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.9, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.9, 'technique': 'lzjd'}
 LZJD 0.9500000000000001
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.9500000000000001, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.9500000000000001, 'technique': 'lzjd'}
 LZJD 1.0
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 1.0, 'technique': 'lzjd'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 1.0, 'technique': 'lzjd'}
 LEV 0.0
 [[ 6  0]
  [42  0]]
-{'accuracy': 0.125, 'recall': 1.0, 'precision': 0.125, 'threshold': 0.0, 'technique': 'lev'}
+{'accuracy': 0.125, 'recall': 1.0, 'precision': 0.125, 'f1': 0.2222222222222222, 'threshold': 0.0, 'technique': 'lev'}
 LEV 0.05
 [[ 6  0]
  [36  6]]
-{'accuracy': 0.25, 'recall': 1.0, 'precision': 0.14285714285714285, 'threshold': 0.05, 'technique': 'lev'}
+{'accuracy': 0.25, 'recall': 1.0, 'precision': 0.14285714285714285, 'f1': 0.25, 'threshold': 0.05, 'technique': 'lev'}
 LEV 0.1
 [[ 6  0]
  [30 12]]
-{'accuracy': 0.375, 'recall': 1.0, 'precision': 0.16666666666666666, 'threshold': 0.1, 'technique': 'lev'}
+{'accuracy': 0.375, 'recall': 1.0, 'precision': 0.16666666666666666, 'f1': 0.2857142857142857, 'threshold': 0.1, 'technique': 'lev'}
 LEV 0.15000000000000002
 [[ 6  0]
  [22 20]]
-{'accuracy': 0.5416666666666666, 'recall': 1.0, 'precision': 0.21428571428571427, 'threshold': 0.15000000000000002, 'technique': 'lev'}
+{'accuracy': 0.5416666666666666, 'recall': 1.0, 'precision': 0.21428571428571427, 'f1': 0.35294117647058826, 'threshold': 0.15000000000000002, 'technique': 'lev'}
 LEV 0.2
 [[ 6  0]
  [21 21]]
-{'accuracy': 0.5625, 'recall': 1.0, 'precision': 0.2222222222222222, 'threshold': 0.2, 'technique': 'lev'}
+{'accuracy': 0.5625, 'recall': 1.0, 'precision': 0.2222222222222222, 'f1': 0.3636363636363636, 'threshold': 0.2, 'technique': 'lev'}
 LEV 0.25
 [[ 5  1]
  [21 21]]
-{'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'threshold': 0.25, 'technique': 'lev'}
+{'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'f1': 0.3125, 'threshold': 0.25, 'technique': 'lev'}
 LEV 0.30000000000000004
 [[ 5  1]
  [21 21]]
-{'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'threshold': 0.30000000000000004, 'technique': 'lev'}
+{'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'f1': 0.3125, 'threshold': 0.30000000000000004, 'technique': 'lev'}
 LEV 0.35000000000000003
 [[ 5  1]
  [21 21]]
-{'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'threshold': 0.35000000000000003, 'technique': 'lev'}
+{'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'f1': 0.3125, 'threshold': 0.35000000000000003, 'technique': 'lev'}
 LEV 0.4
 [[ 5  1]
  [16 26]]
-{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.4, 'technique': 'lev'}
+{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.4, 'technique': 'lev'}
 LEV 0.45
 [[ 5  1]
  [16 26]]
-{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.45, 'technique': 'lev'}
+{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.45, 'technique': 'lev'}
 LEV 0.5
 [[ 5  1]
  [16 26]]
-{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.5, 'technique': 'lev'}
+{'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.5, 'technique': 'lev'}
 LEV 0.55
 [[ 4  2]
  [16 26]]
-{'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'threshold': 0.55, 'technique': 'lev'}
+{'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'f1': 0.30769230769230765, 'threshold': 0.55, 'technique': 'lev'}
 LEV 0.6000000000000001
 [[ 4  2]
  [16 26]]
-{'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'threshold': 0.6000000000000001, 'technique': 'lev'}
+{'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'f1': 0.30769230769230765, 'threshold': 0.6000000000000001, 'technique': 'lev'}
 LEV 0.65
 [[ 4  2]
  [16 26]]
-{'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'threshold': 0.65, 'technique': 'lev'}
+{'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'f1': 0.30769230769230765, 'threshold': 0.65, 'technique': 'lev'}
 LEV 0.7000000000000001
 [[ 4  2]
  [16 26]]
-{'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'threshold': 0.7000000000000001, 'technique': 'lev'}
+{'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'f1': 0.30769230769230765, 'threshold': 0.7000000000000001, 'technique': 'lev'}
 LEV 0.75
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.75, 'technique': 'lev'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.75, 'technique': 'lev'}
 LEV 0.8
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.8, 'technique': 'lev'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.8, 'technique': 'lev'}
 LEV 0.8500000000000001
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.8500000000000001, 'technique': 'lev'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.8500000000000001, 'technique': 'lev'}
 LEV 0.9
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.9, 'technique': 'lev'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.9, 'technique': 'lev'}
 LEV 0.9500000000000001
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.9500000000000001, 'technique': 'lev'}
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.9500000000000001, 'technique': 'lev'}
 LEV 1.0
 [[ 0  6]
  [ 0 42]]
-{'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 1.0, 'technique': 'lev'}
-[{'accuracy': 0.125, 'recall': 1.0, 'precision': 0.125, 'threshold': 0.0, 'technique': 'lzjd'}, {'accuracy': 0.16666666666666666, 'recall': 1.0, 'precision': 0.13043478260869565, 'threshold': 0.05, 'technique': 'lzjd'}, {'accuracy': 0.3541666666666667, 'recall': 1.0, 'precision': 0.16216216216216217, 'threshold': 0.1, 'technique': 'lzjd'}, {'accuracy': 0.4583333333333333, 'recall': 1.0, 'precision': 0.1875, 'threshold': 0.15000000000000002, 'technique': 'lzjd'}, {'accuracy': 0.5416666666666666, 'recall': 1.0, 'precision': 0.21428571428571427, 'threshold': 0.2, 'technique': 'lzjd'}, {'accuracy': 0.5208333333333334, 'recall': 0.8333333333333334, 'precision': 0.18518518518518517, 'threshold': 0.25, 'technique': 'lzjd'}, {'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'threshold': 0.30000000000000004, 'technique': 'lzjd'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.35000000000000003, 'technique': 'lzjd'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.4, 'technique': 'lzjd'}, {'accuracy': 0.8958333333333334, 'recall': 0.16666666666666666, 'precision': 1.0, 'threshold': 0.45, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.5, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.55, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.6000000000000001, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.65, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.7000000000000001, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.75, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.8, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.8500000000000001, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.9, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.9500000000000001, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 1.0, 'technique': 'lzjd'}, {'accuracy': 0.125, 'recall': 1.0, 'precision': 0.125, 'threshold': 0.0, 'technique': 'lev'}, {'accuracy': 0.25, 'recall': 1.0, 'precision': 0.14285714285714285, 'threshold': 0.05, 'technique': 'lev'}, {'accuracy': 0.375, 'recall': 1.0, 'precision': 0.16666666666666666, 'threshold': 0.1, 'technique': 'lev'}, {'accuracy': 0.5416666666666666, 'recall': 1.0, 'precision': 0.21428571428571427, 'threshold': 0.15000000000000002, 'technique': 'lev'}, {'accuracy': 0.5625, 'recall': 1.0, 'precision': 0.2222222222222222, 'threshold': 0.2, 'technique': 'lev'}, {'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'threshold': 0.25, 'technique': 'lev'}, {'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'threshold': 0.30000000000000004, 'technique': 'lev'}, {'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'threshold': 0.35000000000000003, 'technique': 'lev'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.4, 'technique': 'lev'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.45, 'technique': 'lev'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'threshold': 0.5, 'technique': 'lev'}, {'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'threshold': 0.55, 'technique': 'lev'}, {'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'threshold': 0.6000000000000001, 'technique': 'lev'}, {'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'threshold': 0.65, 'technique': 'lev'}, {'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'threshold': 0.7000000000000001, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.75, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.8, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.8500000000000001, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.9, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 0.9500000000000001, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'threshold': 1.0, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': nan, 'technique': 'pic'}]
+{'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 1.0, 'technique': 'lev'}
+[{'accuracy': 0.125, 'recall': 1.0, 'precision': 0.125, 'f1': 0.2222222222222222, 'threshold': 0.0, 'technique': 'lzjd'}, {'accuracy': 0.16666666666666666, 'recall': 1.0, 'precision': 0.13043478260869565, 'f1': 0.23076923076923078, 'threshold': 0.05, 'technique': 'lzjd'}, {'accuracy': 0.3541666666666667, 'recall': 1.0, 'precision': 0.16216216216216217, 'f1': 0.27906976744186046, 'threshold': 0.1, 'technique': 'lzjd'}, {'accuracy': 0.4583333333333333, 'recall': 1.0, 'precision': 0.1875, 'f1': 0.3157894736842105, 'threshold': 0.15000000000000002, 'technique': 'lzjd'}, {'accuracy': 0.5416666666666666, 'recall': 1.0, 'precision': 0.21428571428571427, 'f1': 0.35294117647058826, 'threshold': 0.2, 'technique': 'lzjd'}, {'accuracy': 0.5208333333333334, 'recall': 0.8333333333333334, 'precision': 0.18518518518518517, 'f1': 0.303030303030303, 'threshold': 0.25, 'technique': 'lzjd'}, {'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'f1': 0.3125, 'threshold': 0.30000000000000004, 'technique': 'lzjd'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.35000000000000003, 'technique': 'lzjd'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.4, 'technique': 'lzjd'}, {'accuracy': 0.8958333333333334, 'recall': 0.16666666666666666, 'precision': 1.0, 'f1': 0.2857142857142857, 'threshold': 0.45, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.5, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.55, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.6000000000000001, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.65, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.7000000000000001, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.75, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.8, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.8500000000000001, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.9, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.9500000000000001, 'technique': 'lzjd'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 1.0, 'technique': 'lzjd'}, {'accuracy': 0.125, 'recall': 1.0, 'precision': 0.125, 'f1': 0.2222222222222222, 'threshold': 0.0, 'technique': 'lev'}, {'accuracy': 0.25, 'recall': 1.0, 'precision': 0.14285714285714285, 'f1': 0.25, 'threshold': 0.05, 'technique': 'lev'}, {'accuracy': 0.375, 'recall': 1.0, 'precision': 0.16666666666666666, 'f1': 0.2857142857142857, 'threshold': 0.1, 'technique': 'lev'}, {'accuracy': 0.5416666666666666, 'recall': 1.0, 'precision': 0.21428571428571427, 'f1': 0.35294117647058826, 'threshold': 0.15000000000000002, 'technique': 'lev'}, {'accuracy': 0.5625, 'recall': 1.0, 'precision': 0.2222222222222222, 'f1': 0.3636363636363636, 'threshold': 0.2, 'technique': 'lev'}, {'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'f1': 0.3125, 'threshold': 0.25, 'technique': 'lev'}, {'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'f1': 0.3125, 'threshold': 0.30000000000000004, 'technique': 'lev'}, {'accuracy': 0.5416666666666666, 'recall': 0.8333333333333334, 'precision': 0.19230769230769232, 'f1': 0.3125, 'threshold': 0.35000000000000003, 'technique': 'lev'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.4, 'technique': 'lev'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.45, 'technique': 'lev'}, {'accuracy': 0.6458333333333334, 'recall': 0.8333333333333334, 'precision': 0.23809523809523808, 'f1': 0.37037037037037035, 'threshold': 0.5, 'technique': 'lev'}, {'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'f1': 0.30769230769230765, 'threshold': 0.55, 'technique': 'lev'}, {'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'f1': 0.30769230769230765, 'threshold': 0.6000000000000001, 'technique': 'lev'}, {'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'f1': 0.30769230769230765, 'threshold': 0.65, 'technique': 'lev'}, {'accuracy': 0.625, 'recall': 0.6666666666666666, 'precision': 0.2, 'f1': 0.30769230769230765, 'threshold': 0.7000000000000001, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.75, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.8, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.8500000000000001, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.9, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 0.9500000000000001, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'threshold': 1.0, 'technique': 'lev'}, {'accuracy': 0.875, 'recall': 0.0, 'precision': 1e-06, 'f1': 0.0, 'technique': 'pic'}]
