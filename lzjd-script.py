@@ -537,6 +537,7 @@ def violin_plot(data, fname):
         axes[idx].set_xlabel('Equivalent in Ground truth')
         axes[idx].set_xticks(positions)
         axes[idx].set_xticklabels(['True', 'False'])
+        axes[idx].set_ylim(0, 1)
 
     plt.tight_layout()
 
