@@ -489,10 +489,13 @@ def violin_plot(data, fname):
         above = sum(1 for point in data if point > threshold)
         below = len(data) - above
         
-        if ground_true:
-            above_color, below_color = 'green', 'red'
-        else:
-            above_color, below_color = 'red', 'green'
+        #if ground_true:
+        #    above_color, below_color = 'green', 'red'
+        #else:
+        #    above_color, below_color = 'red', 'green'
+
+        # Hard to see otherwise!
+        above_color, below_color = 'black', 'black'
         
         return above, below, above_color, below_color
 
@@ -508,15 +511,15 @@ def violin_plot(data, fname):
         f1 = data[3]
         data = data[:2]
 
+        # Jittered scatter plots with custom colors
+        axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color=get_colors(data[0], True, threshold), s=5, alpha=0.5)
+        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False, threshold), s=5, alpha=0.5)
+
         # Violin plot
         axes[idx].violinplot(data, showmeans=True, showmedians=True, positions=positions, widths=0.6)
         
         # Box plot overlayed on top of the violin plot
         axes[idx].boxplot(data, positions=positions, vert=True, widths=0.3)
-
-        # Jittered scatter plots with custom colors
-        axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color=get_colors(data[0], True, threshold), s=5, alpha=0.5)
-        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False, threshold), s=5, alpha=0.5)
         
         # Line across the plot at y=threshold
         axes[idx].axhline(y=threshold, color='gray', linestyle='--')
