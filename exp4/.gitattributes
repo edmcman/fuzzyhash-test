@@ -5,3 +5,5 @@ openssl-1.0.2u.tar.gz filter=lfs diff=lfs merge=lfs -text
 openssl-1.0.2u.bin filter=lfs diff=lfs merge=lfs -text
 openssl-1.1.1w.bin filter=lfs diff=lfs merge=lfs -text
 *.lzjd filter=lfs diff=lfs merge=lfs -text
+openssl-1.1.1v.tar.gz filter=lfs diff=lfs merge=lfs -text
+openssl-1.1.1v.bin filter=lfs diff=lfs merge=lfs -text
