@@ -4,5 +4,6 @@ exp3/openssl1.*
 exp3/openssl2.*
 exp4/openssl-1.0.2u
 exp4/openssl-1.1.1?
+exp4/openssl-1.1.1
 *.plot.csv
 *.ana

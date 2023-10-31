@@ -401,7 +401,7 @@ def generate_interactive_violin_plot(data, filename, threshold=0.75):
 
             # Data for this plot
             y_values = [item[4] if metric == 'lev_sim' else float(item[2]) if metric == 'pichasheq' else item[3] for item in values]
-            colors = ['green' if (y > threshold) == ground_truth else 'red' for y in y_values]
+            colors = ['green' if (y >= threshold) == ground_truth else 'red' for y in y_values]
             addr1_values = [item[0] for item in values]
             addr2_values = [item[1] for item in values]
 
@@ -480,13 +480,13 @@ def violin_plot(data, fname):
     # Colors for the points based on value and ground_eq
     def get_colors(values, ground_true, threshold):
         if ground_true:
-            return ['green' if v > threshold else 'red' for v in values]
+            return ['green' if v >= threshold else 'red' for v in values]
         else:
-            return ['red' if v > threshold else 'green' for v in values]
+            return ['red' if v >= threshold else 'green' for v in values]
         
     # Function to count points above and below 0.75 and determine their colors
     def count_points(data, ground_true, threshold):
-        above = sum(1 for point in data if point > threshold)
+        above = sum(1 for point in data if point >= threshold)
         below = len(data) - above
         
         #if ground_true:
