@@ -7,9 +7,9 @@ SSL3 = openssl-1.1.1v
 EXES = $(SSL1).bin $(SSL2).bin $(SSL3).bin
 $(foreach EXE, $(EXES), $(eval $(call add_target, $(EXE))))
 
-$(eval $(call add_comparison, openssl-byversion, $(SSL1).bin, $(SSL2).bin))
+$(eval $(call add_comparison, openssl-byversion-1.1.1w-vs-1.0.2u, $(SSL1).bin, $(SSL2).bin))
 
-$(eval $(call add_comparison, openssl-byversion2, $(SSL1).bin, $(SSL2).bin))
+$(eval $(call add_comparison, openssl-byversion-1.1.1w-vs-1.1.1v, $(SSL1).bin, $(SSL3).bin))
 
 
 $(SSL1).bin: $(SSL1).tar.gz

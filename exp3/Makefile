@@ -35,5 +35,5 @@ openssl2.%: $(SSL).tar.gz
 	cp $(SSL)/apps/openssl openssl2.$*
 
 $(eval $(call add_comparison, openssl-bycompiler, openssl.gcc, openssl.clang))
-$(eval $(call add_comparison, openssl-byopt, openssl.O0, openssl.O3))
-$(eval $(call add_comparison, openssl-byopt2, openssl.O2, openssl.O3))
+$(eval $(call add_comparison, openssl-byopt-O0-O3, openssl.O0, openssl.O3))
+$(eval $(call add_comparison, openssl-byopt-O2-O3, openssl.O2, openssl.O3))
