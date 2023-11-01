@@ -1,5 +1,5 @@
-All fun names: {b'_ZN4Cls35func3Ev', b'main', b'_ZN4Cls35func1Ev', b'_ZN4Cls25func4Ev', b'_ZThn16_N4Cls35func3Ev', b'_ZN4Cls15func1Ev', b'_Z6myfuncv', b'_ZNKSt5ctypeIcE8do_widenEc'}
-Intersection of names: {b'_ZN4Cls35func3Ev', b'main', b'_ZN4Cls35func1Ev', b'_ZThn16_N4Cls35func3Ev', b'_ZN4Cls25func4Ev', b'_Z6myfuncv'}
+All fun names: {b'_ZThn16_N4Cls35func3Ev', b'_ZN4Cls25func4Ev', b'_ZN4Cls35func1Ev', b'_ZN4Cls15func1Ev', b'_ZNKSt5ctypeIcE8do_widenEc', b'_ZN4Cls35func3Ev', b'_Z6myfuncv', b'main'}
+Intersection of names: {b'_ZThn16_N4Cls35func3Ev', b'_ZN4Cls25func4Ev', b'_ZN4Cls35func1Ev', b'_ZN4Cls35func3Ev', b'_Z6myfuncv', b'main'}
 Functions in one but not both {b'_ZN4Cls15func1Ev', b'_ZNKSt5ctypeIcE8do_widenEc'}
 FSE
 [[ 0  6]

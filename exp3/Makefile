@@ -22,11 +22,13 @@ openssl.O2: openssl2.O2
 openssl.O3: openssl2.O3
 	cp $< $@
 
+# We could use flock here to allow concurrency...
+
 # vary compiler
 openssl1.%: $(SSL).tar.gz
 	rm -rf $(SSL)
 	tar -xvzf $(SSL).tar.gz
-	cd $(SSL) && CC=$* CFLAGS="-g" ./config && nice make -j16
+	cd $(SSL) && CC=$* CFLAGS="-g -O3" ./config && nice make -j16
 	cp $(SSL)/apps/openssl openssl1.$*
 
 # vary -O

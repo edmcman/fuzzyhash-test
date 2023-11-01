@@ -367,7 +367,7 @@ plt.savefig(sys.argv[5], dpi=300)
 import csv
 with open("/tmp/csv.csv", 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile, lineterminator="\n")
-    csvwriter.writerows([("addr1", "addr2", "pichasheq", "ljdz_sim", "lev_sim", "ground_eq")] + all_comparisons)
+    csvwriter.writerows([("addr1", "addr2", "pichasheq", "lzjd_sim", "lev_sim", "ground_eq")] + all_comparisons)
 
 from bokeh.plotting import figure, show, output_file
 from bokeh.models import ColumnDataSource, HoverTool, BoxAnnotation, Span
@@ -386,7 +386,7 @@ def generate_interactive_violin_plot(data, filename, threshold=0.75):
             True: [item for item in data if item[5]],
             False: [item for item in data if not item[5]]
         },
-        'ljdz_sim': {
+        'lzjd_sim': {
             True: [item for item in data if item[5]],
             False: [item for item in data if not item[5]]
         }
@@ -456,8 +456,8 @@ def violin_plot(data, fname):
     pichasheq_true = [float(item[2]) for item in data if item[5]]
     pichasheq_false = [float(item[2]) for item in data if not item[5]]
 
-    ljdz_sim_true = [item[3] for item in data if item[5]]
-    ljdz_sim_false = [item[3] for item in data if not item[5]]
+    lzjd_sim_true = [item[3] for item in data if item[5]]
+    lzjd_sim_false = [item[3] for item in data if not item[5]]
 
     best_lzjd = get_best_threshold('lzjd')
     best_lev = get_best_threshold('lev')
@@ -467,9 +467,9 @@ def violin_plot(data, fname):
 
     # Group data for the plots
     plot_data = {
-        'lev_sim': [lev_sim_true, lev_sim_false, best_lev['threshold'], best_lev['f1']],
-        'pichasheq': [pichasheq_true, pichasheq_false, 0.5, best_hash['f1']],
-        'ljdz_sim': [ljdz_sim_true, ljdz_sim_false, best_lzjd['threshold'], best_lzjd['f1']]
+        'lev_sim': [lev_sim_true, lev_sim_false, best_lev],
+        'pichasheq': [pichasheq_true, pichasheq_false, best_hash],
+        'lzjd_sim': [lzjd_sim_true, lzjd_sim_false, best_lzjd]
     }
 
     # Function to apply jitter
@@ -507,16 +507,17 @@ def violin_plot(data, fname):
 
     for idx, (label, data) in enumerate(plot_data.items()):
 
-        threshold = data[2]
-        f1 = data[3]
+        best = data[2]
+        threshold = best.get('threshold', 0.5)
+        f1 = best['f1']
+        recall = best['recall']
+        precision = best['precision']
         data = data[:2]
 
         # Jittered scatter plots with custom colors
         axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color=get_colors(data[0], True, threshold), s=5, alpha=0.5)
 
-        # Don't even plot these if we have a violin plot. There are too many.
-        #if label == "pichasheq":
-        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False, threshold), s=5, alpha=0.01)
+        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False, threshold), s=5, alpha=0.0075)
 
         # Violin plot
         axes[idx].violinplot(data, showmeans=True, showmedians=True, positions=positions, widths=0.6)
@@ -536,14 +537,14 @@ def violin_plot(data, fname):
         axes[idx].annotate(f'Above: {above_false}', (positions[1], threshold + 0.02), ha='center', color=af_color)
         axes[idx].annotate(f'Below: {below_false}', (positions[1], threshold - 0.02), ha='center', color=bf_color)
         
-        axes[idx].annotate(f'F1: {f1:.2}', xy=(0.5, 0.5), xycoords='axes fraction', ha='center', va='center', fontsize=10)
+        #axes[idx].annotate(f'F1: {f1:.2}\nRecall: {recall:.2}\nPrecision: {precision:.2}', xy=(0.5, 0.5), xycoords='axes fraction', ha='center', va='center', fontsize=10)
 
         axes[idx].set_title(f'Violin, Box, and Scatter plot of {label} based on ground_eq')
         axes[idx].set_ylabel(f'{label} value')
-        axes[idx].set_xlabel('Equivalent in Ground truth')
+        axes[idx].set_xlabel(f'Equivalent in Ground truth\nF1: {f1:.2} Recall: {recall:.2} Precision: {precision:.2} Threshold: {threshold:.2}')
         axes[idx].set_xticks(positions)
         axes[idx].set_xticklabels(['True', 'False'])
-        axes[idx].set_ylim(0, 1)
+        axes[idx].set_ylim(0, 1.05)
 
     plt.tight_layout()
 

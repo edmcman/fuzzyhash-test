@@ -1,5 +1,4 @@
-all:
-	make -C exp1
-	make -C exp2
-	make -C exp3
-	make -C exp4
+sub.%:
+	make -j 16 -C $*
+
+all: sub.exp1 sub.exp2 sub.exp3 sub.exp4
