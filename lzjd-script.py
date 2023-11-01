@@ -513,7 +513,10 @@ def violin_plot(data, fname):
 
         # Jittered scatter plots with custom colors
         axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color=get_colors(data[0], True, threshold), s=5, alpha=0.5)
-        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False, threshold), s=5, alpha=0.5)
+
+        # Don't even plot these if we have a violin plot. There are too many.
+        #if label == "pichasheq":
+        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False, threshold), s=5, alpha=0.01)
 
         # Violin plot
         axes[idx].violinplot(data, showmeans=True, showmedians=True, positions=positions, widths=0.6)

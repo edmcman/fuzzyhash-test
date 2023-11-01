@@ -1,6 +1,6 @@
-All fun names: {b'_ZN4Cls25func3Ev', b'_ZN4Cls3C2Ev', b'_ZThn16_N4Cls35func3Ev', b'_Z6myfuncv', b'_ZN4Cls1C2Ev', b'_ZN4Cls2C2Ev', b'_Z41__static_initialization_and_destruction_0ii', b'_ZN4Cls15func1Ev', b'_ZN4Cls35func1Ev', b'_ZNKSt5ctypeIcE8do_widenEc', b'main', b'_ZN4Cls25func4Ev', b'_ZN4Cls15func2Ev', b'_ZN4Cls35func3Ev'}
-Intersection of names: {b'_Z6myfuncv', b'_ZN4Cls35func1Ev', b'main', b'_ZN4Cls25func4Ev', b'_ZN4Cls35func3Ev', b'_ZThn16_N4Cls35func3Ev'}
-Functions in one but not both {b'_ZN4Cls25func3Ev', b'_ZN4Cls3C2Ev', b'_ZN4Cls1C2Ev', b'_ZN4Cls2C2Ev', b'_Z41__static_initialization_and_destruction_0ii', b'_ZN4Cls15func1Ev', b'_ZNKSt5ctypeIcE8do_widenEc', b'_ZN4Cls15func2Ev'}
+All fun names: {b'_Z41__static_initialization_and_destruction_0ii', b'_ZN4Cls3C2Ev', b'_ZN4Cls2C2Ev', b'_ZN4Cls25func4Ev', b'_ZN4Cls15func2Ev', b'_ZN4Cls25func3Ev', b'_ZN4Cls15func1Ev', b'_ZN4Cls35func3Ev', b'_Z6myfuncv', b'_ZNKSt5ctypeIcE8do_widenEc', b'_ZThn16_N4Cls35func3Ev', b'main', b'_ZN4Cls35func1Ev', b'_ZN4Cls1C2Ev'}
+Intersection of names: {b'_ZN4Cls25func4Ev', b'_ZN4Cls35func3Ev', b'_Z6myfuncv', b'_ZThn16_N4Cls35func3Ev', b'main', b'_ZN4Cls35func1Ev'}
+Functions in one but not both {b'_Z41__static_initialization_and_destruction_0ii', b'_ZN4Cls3C2Ev', b'_ZN4Cls2C2Ev', b'_ZN4Cls15func2Ev', b'_ZN4Cls25func3Ev', b'_ZN4Cls15func1Ev', b'_ZNKSt5ctypeIcE8do_widenEc', b'_ZN4Cls1C2Ev'}
 FSE
 [[ 0  6]
  [ 0 85]]
