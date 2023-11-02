@@ -517,7 +517,13 @@ def violin_plot(data, fname):
         # Jittered scatter plots with custom colors
         axes[idx].scatter(jitter_points(data[0], positions[0]), data[0], marker='o', color=get_colors(data[0], True, threshold), s=5, alpha=0.5)
 
-        axes[idx].scatter(jitter_points(data[1], positions[1]), data[1], marker='o', color=get_colors(data[1], False, threshold), s=5, alpha=0.0075)
+        data1_below = [d for d in data[1] if d <= threshold]
+        data1_above = [d for d in data[1] if d > threshold]
+
+        # Separate data to change alpha.  We want the lower right to be very see
+        # through, and everything else to be more opaque.
+        axes[idx].scatter(jitter_points(data1_below, positions[1]), data1_below, marker='o', color=get_colors(data1_below, False, threshold), s=5, alpha=0.0075)
+        axes[idx].scatter(jitter_points(data1_above, positions[1]), data1_above, marker='o', color=get_colors(data1_above, False, threshold), s=5, alpha=0.5)
 
         # Violin plot
         axes[idx].violinplot(data, showmeans=True, showmedians=True, positions=positions, widths=0.6)
@@ -544,7 +550,7 @@ def violin_plot(data, fname):
         axes[idx].set_xlabel(f'Equivalent in Ground truth\nF1: {f1:.2} Recall: {recall:.2} Precision: {precision:.2} Threshold: {threshold:.2}')
         axes[idx].set_xticks(positions)
         axes[idx].set_xticklabels(['True', 'False'])
-        axes[idx].set_ylim(0, 1.05)
+        axes[idx].set_ylim(-0.01, 1.05)
 
     plt.tight_layout()
 
