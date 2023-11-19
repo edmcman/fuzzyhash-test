@@ -13,3 +13,4 @@ oo.clang: ../src/oo.cpp
 	clang++ -g -O2 -o $@ $<
 
 $(eval $(call add_comparison, oo, oo.gcc, oo.clang))
+$(eval $(call add_comparison, oobasic, oo.gcc, oo2.gcc))
