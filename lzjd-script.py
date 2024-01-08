@@ -351,7 +351,7 @@ for i, technique in enumerate(techniques):
 # Create a colorbar to show the mapping from thresholds to colors
 sm = cm.ScalarMappable(cmap=colormap, norm=norm)
 sm.set_array([])
-plt.colorbar(sm, label='Threshold')
+plt.colorbar(sm, label='Threshold', ax=plt.gca())
 
 plt.xlim([0, 1])
 plt.ylim([0, 1])
@@ -368,85 +368,6 @@ import csv
 with open("/tmp/csv.csv", 'w', newline='') as csvfile:
     csvwriter = csv.writer(csvfile, lineterminator="\n")
     csvwriter.writerows([("addr1", "addr2", "pichasheq", "lzjd_sim", "lev_sim", "ground_eq")] + all_comparisons)
-
-from bokeh.plotting import figure, show, output_file
-from bokeh.models import ColumnDataSource, HoverTool, BoxAnnotation, Span
-from bokeh.layouts import gridplot
-from bokeh.io import save
-import numpy as np
-
-def generate_interactive_violin_plot(data, filename, threshold=0.75):
-    # Separate data based on ground_eq
-    grouped_data = {
-        'lev_sim': {
-            True: [item for item in data if item[5]],
-            False: [item for item in data if not item[5]]
-        },
-        'pichasheq': {
-            True: [item for item in data if item[5]],
-            False: [item for item in data if not item[5]]
-        },
-        'lzjd_sim': {
-            True: [item for item in data if item[5]],
-            False: [item for item in data if not item[5]]
-        }
-    }
-
-    plots = []
-
-    for metric, sub_data in grouped_data.items():
-        for ground_truth, values in sub_data.items():
-            p = figure(title=f'{metric} - ground_eq: {ground_truth}', 
-                       tools="", background_fill_color="#EFE8E2", x_range=[0, 2], width=400, height=400)
-
-            # Data for this plot
-            y_values = [item[4] if metric == 'lev_sim' else float(item[2]) if metric == 'pichasheq' else item[3] for item in values]
-            colors = ['green' if (y >= threshold) == ground_truth else 'red' for y in y_values]
-            addr1_values = [item[0] for item in values]
-            addr2_values = [item[1] for item in values]
-
-            source = ColumnDataSource(data=dict(y=y_values, color=colors, addr1=addr1_values, addr2=addr2_values))
-
-            # Violin plot (represented as area between upper and lower quartile and line for the median)
-            q1 = np.percentile(y_values, 25)
-            q3 = np.percentile(y_values, 75)
-            iqr = q3 - q1
-            upper = min(max(y_values), q3 + 1.5*iqr)
-            lower = max(min(y_values), q1 - 1.5*iqr)
-            p.segment(1, upper, 1, q3, line_width=2, line_color="black", line_dash="dashed")
-            p.segment(1, lower, 1, q1, line_width=2, line_color="black", line_dash="dashed")
-            p.vbar(x=1, width=0.7, bottom=q1, top=q3, fill_color="#3B8686", line_color="black")
-            p.circle(x='color', y='y', color='color', size=6, source=source, alpha=0.6)
-
-            # Hover tool
-            hover = HoverTool()
-            hover.tooltips = [
-                ("addr1", "@addr1"),
-                ("addr2", "@addr2"),
-                (metric, "@y")
-            ]
-            p.add_tools(hover)
-
-            # Line at threshold
-            p.line([0, 2], [threshold, threshold], line_dash="dashed", color="grey")
-
-            # Annotations
-            box_annotation_above = BoxAnnotation(bottom=threshold, fill_alpha=0.1, fill_color='green')
-            box_annotation_below = BoxAnnotation(top=threshold, fill_alpha=0.1, fill_color='red')
-            p.add_layout(box_annotation_above)
-            p.add_layout(box_annotation_below)
-
-            plots.append(p)
-
-    # Organize the plots in a grid
-    grid = gridplot([plots[i:i+3] for i in range(0, len(plots), 3)])
-    
-    # Output to static file (this can be modified as needed)
-    #output_file(filename)
-
-    # Display the plot
-    #show(grid, notebook_handle=False)
-    save(grid, filename=filename)
 
 def violin_plot(data, fname):
     # Separate the values based on ground_eq

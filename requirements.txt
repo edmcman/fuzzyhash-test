@@ -1,4 +1,7 @@
+# this needs to be installed before pyLZJD
 cython
 git+https://github.com/edmcman/pyLZJD#egg=pyLZJD
 editdistance
+tqdm
+matplotlib
 #fast-edit-distance
